@@ -1,11 +1,12 @@
 if (!NewsAPI) throw 'NewsAPI lib not included';
 
-const newsClient = new NewsAPI.Client();
+const newsClient = new NewsAPI.Client('a90095ec1a4d42d0a97bc23915858b11');
+const contentElement = document.getElementById('content');
 newsClient.getArticles()
     .then(data => {
         const formattedRecs = data.articles.map(rec => `<pre>${JSON.stringify(rec, undefined, ' ')}</pre>`);
-        document.body.innerHTML = formattedRecs.join('');
+        contentElement.innerHTML = formattedRecs.join('');
     })
     .catch(error => {
-        document.body.innerHTML = `<h4 class="error">${error}</h4>`;
+        contentElement.innerHTML = `<h4 class="error">${error}</h4>`;
     });

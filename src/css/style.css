@@ -5,6 +5,15 @@ html, body {
     color: #eee;
 }
 
+a {
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
 pre {
     border: 1px solid #222;
     background-color: #111;
