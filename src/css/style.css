@@ -1,0 +1,21 @@
+html, body {
+    background-color: #000;
+    font-size: 12px;
+    font-family: "Courier New", monospace;
+    color: #eee;
+}
+
+pre {
+    border: 1px solid #222;
+    background-color: #111;
+    margin: 10px;
+    padding: 4px;
+    white-space: pre-wrap;
+}
+
+.error {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: #F22;
+}
