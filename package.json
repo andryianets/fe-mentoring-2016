@@ -13,7 +13,6 @@
   "author": "Yury Andryianets",
   "license": "ISC",
   "dependencies": {
-    "whatwg-fetch": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
