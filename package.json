@@ -1,0 +1,24 @@
+{
+  "name": "mentoring2016",
+  "version": "1.0.0",
+  "description": "Hometask for mentoring programm",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel ./src/js --source-maps --out-dir ./dist/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.epam.com:yury_andryianets/fe-mentoring-2016.git"
+  },
+  "author": "Yury Andryianets",
+  "license": "ISC",
+  "dependencies": {
+    "whatwg-fetch": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0"
+  }
+}
