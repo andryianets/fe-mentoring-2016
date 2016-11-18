@@ -4,6 +4,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+'transpiller for hex values';
 var NewsAPI = function () {
 
     var ARTICLES_API_URL = 'https://newsapi.org/v1/articles';

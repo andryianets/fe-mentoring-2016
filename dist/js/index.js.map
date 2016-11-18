@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/js/index.js"],"names":["app","App","init"],"mappings":";;AAAA,IAAMA,MAAM,IAAIC,GAAJ,EAAZ;AACAD,IAAIE,IAAJ","file":"index.js","sourcesContent":["const app = new App();\r\napp.init();"]}
+{"version":3,"sources":["../../src/js/index.js"],"names":["app","App","init"],"mappings":";;;AAAA,IAAMA,MAAM,IAAIC,GAAJ,EAAZ;AACAD,IAAIE,IAAJ","file":"index.js","sourcesContent":["const app = new App();\r\napp.init();"]}
