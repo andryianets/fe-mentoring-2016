@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/js/index.js"],"names":["app","App","init"],"mappings":";;;AAAA,IAAMA,MAAM,IAAIC,GAAJ,EAAZ;AACAD,IAAIE,IAAJ","file":"index.js","sourcesContent":["const app = new App();\r\napp.init();"]}
+{"version":3,"sources":["../../src/js/index.js"],"names":["testNumber","app","App","init"],"mappings":";;AAAA,IAAMA,aAAa,QAAO,GAAP,GAAY,IAAZ,GAAiB,IAAjB,GAA6B,KAAhD;AACA,IAAMC,MAAM,IAAIC,GAAJ,EAAZ;AACAD,IAAIE,IAAJ","file":"index.js","sourcesContent":["const testNumber = 2016 + 11 + 19 + 0b1110011 + 0o1234;\r\nconst app = new App();\r\napp.init();"]}

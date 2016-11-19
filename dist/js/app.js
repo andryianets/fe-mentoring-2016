@@ -1,10 +1,9 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-'transpiller for hex values';
 if (!NewsAPI) throw 'NewsAPI lib not included';
 
 var App = function () {
@@ -78,7 +77,7 @@ var App = function () {
             var _this3 = this;
 
             var sourcesElement = document.getElementById('articles_of_' + source);
-            if (sourcesElement.children.length > 0) {
+            if (sourcesElement.children.length > 0x0) {
                 sourcesElement.innerHTML = '';
             } else {
                 this.newsClient.getArticles({ source: source }).then(function (data) {

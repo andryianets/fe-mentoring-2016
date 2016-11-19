@@ -1,10 +1,9 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-'transpiller for hex values';
 var NewsAPI = function () {
 
     var ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
@@ -25,14 +24,14 @@ var NewsAPI = function () {
         }, {
             key: 'getArticles',
             value: function getArticles() {
-                var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+                var params = arguments.length > 0x0 && arguments[0x0] !== undefined ? arguments[0x0] : {};
 
                 return this.doRequest(ARTICLES_API_URL, params);
             }
         }, {
             key: 'getApiUrl',
             value: function getApiUrl(baseUrl) {
-                var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
 
                 var queryParts = [];
                 for (var name in params) {
@@ -46,7 +45,7 @@ var NewsAPI = function () {
         }, {
             key: 'doRequest',
             value: function doRequest(url) {
-                var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
 
                 params.apiKey = this.apiKey;
                 return fetch(this.getApiUrl(url, params)).then(function (response) {
