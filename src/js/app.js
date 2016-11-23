@@ -1,6 +1,6 @@
-if (!NewsAPI) throw 'NewsAPI lib not included';
+import Client from "./news";
 
-class App {
+export default class App {
 
     /* Public */
 
@@ -12,7 +12,13 @@ class App {
 
         this.currentChoices = {};
 
-        this.newsClient = new NewsAPI.Client('a90095ec1a4d42d0a97bc23915858b11');
+        this.newsClient = new Client('a90095ec1a4d42d0a97bc23915858b11');
+
+        if (window.app) {
+            throw new Error('global app var allready defined!');
+        }
+
+        window.app = this;
     }
 
     init() {
@@ -22,15 +28,15 @@ class App {
 
     initChoices() {
         this.categoriesChoicesElement.innerHTML = [this.getChoiceTpl('category', 'All', '', true)].concat(
-            NewsAPI.Client.availableCategories.map(value => this.getChoiceTpl('category', value, value))
+            Client.availableCategories.map(value => this.getChoiceTpl('category', value, value))
         ).join('');
 
         this.countriesChoicesElement.innerHTML = [this.getChoiceTpl('country', 'All', '', true)].concat(
-            NewsAPI.Client.availableCountries.map(value => this.getChoiceTpl('country', value, value))
+            Client.availableCountries.map(value => this.getChoiceTpl('country', value, value))
         ).join('');
 
         this.langChoicesElement.innerHTML = [this.getChoiceTpl('language', 'All', '', true)].concat(
-            NewsAPI.Client.availableLanguages.map(value => this.getChoiceTpl('language', value, value))
+            Client.availableLanguages.map(value => this.getChoiceTpl('language', value, value))
         ).join('');
     }
 
@@ -90,8 +96,6 @@ class App {
     }
 
     getArticleTpl(article) {
-        //return `<pre>${JSON.stringify(article, undefined, ' ')}</pre>`;
-
         return `<a href="${article.url}" target="_blank" title="${article.title}">
                     <img src="${article.urlToImage}" height="120" />
                 </a>`;
