@@ -1,4 +1,5 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
     entry: ['whatwg-fetch', 'babel-polyfill', './src/js/index.js'],
@@ -6,6 +7,7 @@ module.exports = {
         path: __dirname + '/dist',
         filename: 'bundle.js'
     },
+    devtool: "source-map",
     module: {
         loaders: [
             {
@@ -15,11 +17,12 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
+                loader: 'babel'
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('styles.css'),
+        new webpack.DefinePlugin({DEBUG: true})
     ]
 };

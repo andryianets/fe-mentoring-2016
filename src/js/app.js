@@ -51,7 +51,7 @@ export default class App {
             this.currentChoices[param] = value;
         }
 
-        const promise = this.newsClient.getSources(this.currentChoices)
+        this.newsClient.getSources(this.currentChoices)
             .then(data => {
                 const formattedSources = data.sources.map(source => this.getSourceTpl(source));
                 this.contentElement.innerHTML = formattedSources.join('');
