@@ -1,5 +1,9 @@
 import Client from "./news";
 
+const sourceTpl = require('../tpls/source.pug');
+const articleTpl = require('../tpls/article.pug');
+const choiceTpl = require('../tpls/choice.pug');
+
 export default class App {
 
     /* Public */
@@ -78,27 +82,15 @@ export default class App {
     /* Private */
 
     getChoiceTpl(name, label, value, checked) {
-        return `<label for="${name}_${value}" class="${checked && 'selected'}">
-                    <input type="radio" id="${name}_${value}" name="${name}" value="${value}" onchange="app.updateSources(this)" ${checked && 'checked'} />
-                    ${label}
-                </label>`;
+        return choiceTpl({name, label, value, checked});
     }
 
     getSourceTpl(source) {
-        return `<div class="source" id="source_${source.id}">
-                    <div class="logo">
-                        <a href="javascript:void(0)" title="${source.name}" onclick="app.updateArticles('${source.id}')">
-                            <img src="${source.urlsToLogos.medium}" height="60" />
-                        </a>
-                    </div>
-                    <div class="articles" id="articles_of_${source.id}"></div>
-                </div>`;
+        return sourceTpl({source});
     }
 
     getArticleTpl(article) {
-        return `<a href="${article.url}" target="_blank" title="${article.title}">
-                    <img src="${article.urlToImage}" height="120" />
-                </a>`;
+        return articleTpl({article});
     }
 
     handleError(error) {
