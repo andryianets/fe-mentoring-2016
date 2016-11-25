@@ -1,0 +1,14 @@
+{
+  "apiKey": "a90095ec1a4d42d0a97bc23915858b11",
+
+  "testTree": {
+    "string": "string",
+    "number1": 1,
+    "array": [
+      {
+        "number2": 2,
+        "string": "string"
+      }
+    ]
+  }
+}

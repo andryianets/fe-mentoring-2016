@@ -9,6 +9,8 @@ export default class App {
     /* Public */
 
     constructor() {
+        this.config = require('./config.json');
+
         this.categoriesChoicesElement = document.getElementById('categoriesChoices');
         this.countriesChoicesElement = document.getElementById('countriesChoices');
         this.langChoicesElement = document.getElementById('langChoices');
@@ -16,7 +18,7 @@ export default class App {
 
         this.currentChoices = {};
 
-        this.newsClient = new Client('a90095ec1a4d42d0a97bc23915858b11');
+        this.newsClient = new Client(this.config.apiKey);
 
         if (window.app) {
             throw new Error('global app var allready defined!');
@@ -48,7 +50,7 @@ export default class App {
         if (selectedNode) {
             const radiosContainer = selectedNode.parentElement.parentElement;
             Array.from(radiosContainer.getElementsByTagName('label')).forEach(labelNode => {
-                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : undefined;
+                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
             });
 
             const {name: param, value} = selectedNode;

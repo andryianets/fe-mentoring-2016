@@ -1,5 +1,7 @@
-.source(id=`source_${source.id}`)
+.source(id="source_" + source.id)
     .logo
-        a(href='javascript:void(0)', title=`${source.name}`, onclick=`app.updateArticles('${source.id}')`)
-            img(src=`${source.urlsToLogos.medium}`, height='60')
-    .articles(id=`articles_of_${source.id}`)
+        a(href="javascript:void(0)",
+        title=source.name,
+        onclick="app.updateArticles(" + "'" + source.id + "')")
+            img(src=source.urlsToLogos.medium, height="60")
+    .articles(id="articles_of_" + source.id)

@@ -1,13 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-var PRODUCTION = false;
-
-process.argv.forEach(function (val) {
-    if (val === '--production') {
-        PRODUCTION = true;
-    }
-});
+var PRODUCTION = process.argv.indexOf('--production') !== -1;
 
 module.exports = {
     entry: ['whatwg-fetch', 'babel-polyfill', './src/js/index.js'],
@@ -16,11 +10,15 @@ module.exports = {
         filename: 'bundle.js'
     },
     devtool: "source-map",
+    devServer: {
+        "open": true,
+        "content-base": "./"
+    },
     module: {
         loaders: [
             {
                 test: /\.pug/,
-                loaders: ['babel-loader', 'pug-loader']
+                loader: 'pug'
             },
             {
                 test: /\.scss/,
@@ -30,6 +28,10 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel'
+            },
+            {
+                test: /\.json$/,
+                loader: 'webpack-task'
             }
         ]
     },

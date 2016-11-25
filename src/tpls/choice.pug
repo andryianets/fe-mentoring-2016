@@ -1,8 +1,10 @@
-label(for=`${name}_${value}`,
+- id = [name, value].join('_');
+
+label(for=id,
 class=(checked && 'selected'))
     input(
     type="radio",
-    id=`${name}_${value}`,
+    id=id
     name=name, value=value,
     onchange="app.updateSources(this)",
     checked=checked)

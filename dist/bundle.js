@@ -8655,9 +8655,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(307);
+	__webpack_require__(308);
 	
-	var testNumber = 2016 + 11 + 19 + 115 + 668;
+	var testNumber = 0x7e0 + 0xb + 0x13 + 0x73 + 0x29c;
 	new _app2.default().init();
 
 /***/ },
@@ -8670,7 +8670,7 @@
 	    value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _news = __webpack_require__(301);
 	
@@ -8691,6 +8691,8 @@
 	    function App() {
 	        _classCallCheck(this, App);
 	
+	        this.config = __webpack_require__(307);
+	
 	        this.categoriesChoicesElement = document.getElementById('categoriesChoices');
 	        this.countriesChoicesElement = document.getElementById('countriesChoices');
 	        this.langChoicesElement = document.getElementById('langChoices');
@@ -8698,7 +8700,7 @@
 	
 	        this.currentChoices = {};
 	
-	        this.newsClient = new _news2.default('a90095ec1a4d42d0a97bc23915858b11');
+	        this.newsClient = new _news2.default(this.config.apiKey);
 	
 	        if (window.app) {
 	            throw new Error('global app var allready defined!');
@@ -8738,7 +8740,7 @@
 	            if (selectedNode) {
 	                var radiosContainer = selectedNode.parentElement.parentElement;
 	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
-	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : undefined;
+	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
 	                });
 	
 	                var param = selectedNode.name,
@@ -8761,7 +8763,7 @@
 	            var _this3 = this;
 	
 	            var sourcesElement = document.getElementById('articles_of_' + source);
-	            if (sourcesElement.children.length > 0) {
+	            if (sourcesElement.children.length > 0x0) {
 	                sourcesElement.innerHTML = '';
 	            } else {
 	                this.newsClient.getArticles({ source: source }).then(function (data) {
@@ -8812,7 +8814,7 @@
 	    value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -8834,14 +8836,14 @@
 	    }, {
 	        key: 'getArticles',
 	        value: function getArticles() {
-	            var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	            var params = arguments.length > 0x0 && arguments[0x0] !== undefined ? arguments[0x0] : {};
 	
 	            return this.doRequest(ARTICLES_API_URL, params);
 	        }
 	    }, {
 	        key: 'getApiUrl',
 	        value: function getApiUrl(baseUrl) {
-	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	            var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
 	
 	            var queryParts = [];
 	            for (var name in params) {
@@ -8855,7 +8857,7 @@
 	    }, {
 	        key: 'doRequest',
 	        value: function doRequest(url) {
-	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	            var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
 	
 	
 	            if (true) {
@@ -8896,17 +8898,9 @@
 /* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
 	var pug = __webpack_require__(303);
 	
-	function template(locals) {
-	  var pug_html = "",
-	      pug_mixins = {},
-	      pug_interp;;var locals_for_with = locals || {};(function (source) {
-	    pug_html = pug_html + "<div" + (" class=\"source\"" + pug.attr("id", "source_" + source.id, true, true)) + "><div class=\"logo\"><a" + (" href=\"javascript:void(0)\"" + pug.attr("title", "" + source.name, true, true) + pug.attr("onclick", "app.updateArticles('" + source.id + "')", true, true)) + "><img" + (pug.attr("src", "" + source.urlsToLogos.medium, true, true) + " height=\"60\"") + "></a></div><div" + (" class=\"articles\"" + pug.attr("id", "articles_of_" + source.id, true, true)) + "></div></div>";
-	  }).call(this, "source" in locals_for_with ? locals_for_with.source : typeof source !== "undefined" ? source : undefined);;return pug_html;
-	};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "app.updateArticles(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
@@ -9179,38 +9173,29 @@
 /* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
 	var pug = __webpack_require__(303);
 	
-	function template(locals) {
-	  var pug_html = "",
-	      pug_mixins = {},
-	      pug_interp;;var locals_for_with = locals || {};(function (article) {
-	    pug_html = pug_html + "<a" + (pug.attr("href", "" + article.url, true, true) + " target=\"_blank\"" + pug.attr("title", "" + article.title, true, true)) + "><img" + (pug.attr("src", "" + article.urlToImage, true, true) + " height=\"120\"") + "></a>";
-	  }).call(this, "article" in locals_for_with ? locals_for_with.article : typeof article !== "undefined" ? article : undefined);;return pug_html;
-	};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("src", article.urlToImage, true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
 	var pug = __webpack_require__(303);
 	
-	function template(locals) {
-	  var pug_html = "",
-	      pug_mixins = {},
-	      pug_interp;;var locals_for_with = locals || {};(function (checked, label, name, value) {
-	    pug_html = pug_html + "<label" + (pug.attr("class", pug.classes([checked && 'selected'], [true]), false, true) + pug.attr("for", name + "_" + value, true, true)) + "><input" + (" type=\"radio\"" + pug.attr("id", name + "_" + value, true, true) + pug.attr("name", name, true, true) + pug.attr("value", value, true, true) + " onchange=\"app.updateSources(this)\"" + pug.attr("checked", checked, true, true)) + ">" + pug.escape(null == (pug_interp = label) ? "" : pug_interp) + "</label>";
-	  }).call(this, "checked" in locals_for_with ? locals_for_with.checked : typeof checked !== "undefined" ? checked : undefined, "label" in locals_for_with ? locals_for_with.label : typeof label !== "undefined" ? label : undefined, "name" in locals_for_with ? locals_for_with.name : typeof name !== "undefined" ? name : undefined, "value" in locals_for_with ? locals_for_with.value : typeof value !== "undefined" ? value : undefined);;return pug_html;
-	};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
+	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"app.updateSources(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 307 */
+/***/ function(module, exports) {
+
+	module.exports = {"apiKey":"a90095ec1a4d42d0a97bc23915858b11","testTree":{"string":"string","array":[{"string":"string"}]}};
+
+/***/ },
+/* 308 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
