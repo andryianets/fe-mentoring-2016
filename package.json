@@ -1,6 +1,6 @@
 {
   "name": "mentoring2016",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Hometask for mentoring program",
   "main": "index.js",
   "scripts": {
