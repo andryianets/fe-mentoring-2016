@@ -7,20 +7,11 @@
     <link rel="stylesheet" href="dist/styles.css">
 </head>
 <body>
-
-<div id="topMenu">
-    <fieldset id="categoriesChoices"></fieldset>
-    <fieldset id="countriesChoices"></fieldset>
-    <fieldset id="langChoices"></fieldset>
-</div>
-
-<div id="content"></div>
-
-<footer>
-    Powered by <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a>
-</footer>
-
-<script src="dist/bundle.js"></script>
-
+    <div id="startApp">
+        <a href="javascript:void(0)" onclick="loadAppModule();this.parentElement.removeChild(this);" title="Load App's module...">
+        </a>
+    </div>
+    <div id="appContainer"></div>
+    <script src="dist/index.js"></script>
 </body>
 </html>

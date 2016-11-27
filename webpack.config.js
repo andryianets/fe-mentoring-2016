@@ -1,13 +1,14 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-var PRODUCTION = process.argv.indexOf('--production') !== -1;
+const PRODUCTION = process.argv.indexOf('--production') !== -1;
 
 module.exports = {
-    entry: ['whatwg-fetch', 'babel-polyfill', './src/js/index.js'],
+    entry: './src/js/index.js',
     output: {
         path: __dirname + '/dist',
-        filename: 'bundle.js'
+        filename: 'index.js',
+        publicPath: 'dist/'
     },
     devtool: "source-map",
     devServer: {
@@ -32,6 +33,10 @@ module.exports = {
             {
                 test: /\.json$/,
                 loader: 'webpack-task'
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'file-loader?name=assets/[hash].[ext]&publicPath=./'
             }
         ]
     },
