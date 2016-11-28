@@ -32,7 +32,7 @@ module.exports = {
             },
             {
                 test: /\.json$/,
-                loader: 'webpack-task'
+                loader: 'json!webpack-task'
             },
             {
                 test: /\.(png|jpg)$/,

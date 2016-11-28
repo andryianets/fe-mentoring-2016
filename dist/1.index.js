@@ -9184,7 +9184,17 @@ webpackJsonp([1],[
 /* 314 */
 /***/ function(module, exports) {
 
-	module.exports = {"apiKey":"a90095ec1a4d42d0a97bc23915858b11","testTree":{"string":"string","array":[{"string":"string"}]}};
+	module.exports = {
+		"apiKey": "a90095ec1a4d42d0a97bc23915858b11",
+		"testTree": {
+			"string": "string",
+			"array": [
+				{
+					"string": "string"
+				}
+			]
+		}
+	};
 
 /***/ }
 ]);
