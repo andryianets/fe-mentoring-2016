@@ -1,10 +1,22 @@
-if (!NewsAPI) throw 'NewsAPI lib not included';
+import 'whatwg-fetch';
+import "babel-polyfill";
+import Client from "./news";
+require("../scss/app.scss");
 
-class App {
+const appTpl = require('../tpls/app.pug');
+const sourceTpl = require('../tpls/source.pug');
+const articleTpl = require('../tpls/article.pug');
+const choiceTpl = require('../tpls/choice.pug');
+
+export default class App {
 
     /* Public */
 
-    constructor() {
+    constructor(appContainerId) {
+        this.config = require('./config.json');
+
+        this.appContainer = document.getElementById(appContainerId);
+        this.appContainer.innerHTML = appTpl();
         this.categoriesChoicesElement = document.getElementById('categoriesChoices');
         this.countriesChoicesElement = document.getElementById('countriesChoices');
         this.langChoicesElement = document.getElementById('langChoices');
@@ -12,7 +24,13 @@ class App {
 
         this.currentChoices = {};
 
-        this.newsClient = new NewsAPI.Client('a90095ec1a4d42d0a97bc23915858b11');
+        this.newsClient = new Client(this.config.apiKey);
+
+        if (window.app) {
+            throw new Error('global app var already defined!');
+        }
+
+        window.app = this;
     }
 
     init() {
@@ -22,15 +40,15 @@ class App {
 
     initChoices() {
         this.categoriesChoicesElement.innerHTML = [this.getChoiceTpl('category', 'All', '', true)].concat(
-            NewsAPI.Client.availableCategories.map(value => this.getChoiceTpl('category', value, value))
+            Client.availableCategories.map(value => this.getChoiceTpl('category', value, value))
         ).join('');
 
         this.countriesChoicesElement.innerHTML = [this.getChoiceTpl('country', 'All', '', true)].concat(
-            NewsAPI.Client.availableCountries.map(value => this.getChoiceTpl('country', value, value))
+            Client.availableCountries.map(value => this.getChoiceTpl('country', value, value))
         ).join('');
 
         this.langChoicesElement.innerHTML = [this.getChoiceTpl('language', 'All', '', true)].concat(
-            NewsAPI.Client.availableLanguages.map(value => this.getChoiceTpl('language', value, value))
+            Client.availableLanguages.map(value => this.getChoiceTpl('language', value, value))
         ).join('');
     }
 
@@ -38,14 +56,14 @@ class App {
         if (selectedNode) {
             const radiosContainer = selectedNode.parentElement.parentElement;
             Array.from(radiosContainer.getElementsByTagName('label')).forEach(labelNode => {
-                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : undefined;
+                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
             });
 
             const {name: param, value} = selectedNode;
             this.currentChoices[param] = value;
         }
 
-        const promise = this.newsClient.getSources(this.currentChoices)
+        this.newsClient.getSources(this.currentChoices)
             .then(data => {
                 const formattedSources = data.sources.map(source => this.getSourceTpl(source));
                 this.contentElement.innerHTML = formattedSources.join('');
@@ -72,29 +90,15 @@ class App {
     /* Private */
 
     getChoiceTpl(name, label, value, checked) {
-        return `<label for="${name}_${value}" class="${checked && 'selected'}">
-                    <input type="radio" id="${name}_${value}" name="${name}" value="${value}" onchange="app.updateSources(this)" ${checked && 'checked'} />
-                    ${label}
-                </label>`;
+        return choiceTpl({name, label, value, checked});
     }
 
     getSourceTpl(source) {
-        return `<div class="source" id="source_${source.id}">
-                    <div class="logo">
-                        <a href="javascript:void(0)" title="${source.name}" onclick="app.updateArticles('${source.id}')">
-                            <img src="${source.urlsToLogos.medium}" height="60" />
-                        </a>
-                    </div>
-                    <div class="articles" id="articles_of_${source.id}"></div>
-                </div>`;
+        return sourceTpl({source});
     }
 
     getArticleTpl(article) {
-        //return `<pre>${JSON.stringify(article, undefined, ' ')}</pre>`;
-
-        return `<a href="${article.url}" target="_blank" title="${article.title}">
-                    <img src="${article.urlToImage}" height="120" />
-                </a>`;
+        return articleTpl({article});
     }
 
     handleError(error) {
