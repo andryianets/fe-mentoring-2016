@@ -20,135 +20,86 @@ webpackJsonp([1],[
 	
 	__webpack_require__(8);
 	
-	var _news = __webpack_require__(305);
+	var _client = __webpack_require__(305);
 	
-	var _news2 = _interopRequireDefault(_news);
+	var _client2 = _interopRequireDefault(_client);
+	
+	var _PageMediator = __webpack_require__(308);
+	
+	var _PageMediator2 = _interopRequireDefault(_PageMediator);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	__webpack_require__(306);
-	
-	var appTpl = __webpack_require__(308);
-	var sourceTpl = __webpack_require__(311);
-	var articleTpl = __webpack_require__(312);
-	var choiceTpl = __webpack_require__(313);
+	__webpack_require__(315);
 	
 	var App = function () {
+	    _createClass(App, null, [{
+	        key: "getInstance",
 	
-	    /* Public */
 	
-	    function App(appContainerId) {
+	        /* Public */
+	
+	        value: function getInstance(appContainerSelector) {
+	            return App.instance || new App(appContainerSelector);
+	        }
+	    }]);
+	
+	    function App(appContainerSelector) {
 	        _classCallCheck(this, App);
 	
-	        this.config = __webpack_require__(314);
-	
-	        this.appContainer = document.getElementById(appContainerId);
-	        this.appContainer.innerHTML = appTpl();
-	        this.categoriesChoicesElement = document.getElementById('categoriesChoices');
-	        this.countriesChoicesElement = document.getElementById('countriesChoices');
-	        this.langChoicesElement = document.getElementById('langChoices');
-	        this.contentElement = document.getElementById('content');
-	
-	        this.currentChoices = {};
-	
-	        this.newsClient = new _news2.default(this.config.apiKey);
-	
-	        if (window.app) {
-	            throw new Error('global app var already defined!');
+	        if (App.instance) {
+	            throw 'App instance already instantiated';
 	        }
 	
-	        window.app = this;
+	        App.instance = this;
+	
+	        this.config = __webpack_require__(317);
+	        this.currentChoices = {};
+	        this.newsClient = new _client2.default(this.config.apiKey);
+	
+	        this.pageMediator = new _PageMediator2.default(appContainerSelector);
+	        this.pageMediator.onChoiceSelectedHandler = this.onChoiceSelectedHandler.bind(this);
+	        this.pageMediator.onSourceSelectedHandler = this.onSourceSelectedHandler.bind(this);
 	    }
 	
 	    _createClass(App, [{
 	        key: "init",
 	        value: function init() {
 	            this.initChoices();
-	            this.updateSources();
+	            this.onChoiceSelectedHandler();
 	        }
 	    }, {
 	        key: "initChoices",
 	        value: function initChoices() {
-	            var _this = this;
-	
-	            this.categoriesChoicesElement.innerHTML = [this.getChoiceTpl('category', 'All', '', true)].concat(_news2.default.availableCategories.map(function (value) {
-	                return _this.getChoiceTpl('category', value, value);
-	            })).join('');
-	
-	            this.countriesChoicesElement.innerHTML = [this.getChoiceTpl('country', 'All', '', true)].concat(_news2.default.availableCountries.map(function (value) {
-	                return _this.getChoiceTpl('country', value, value);
-	            })).join('');
-	
-	            this.langChoicesElement.innerHTML = [this.getChoiceTpl('language', 'All', '', true)].concat(_news2.default.availableLanguages.map(function (value) {
-	                return _this.getChoiceTpl('language', value, value);
-	            })).join('');
+	            this.pageMediator.setCategories(_client2.default.availableCategories);
+	            this.pageMediator.setCountries(_client2.default.availableCountries);
+	            this.pageMediator.setLanguages(_client2.default.availableLanguages);
 	        }
 	    }, {
-	        key: "updateSources",
-	        value: function updateSources(selectedNode) {
-	            var _this2 = this;
+	        key: "onChoiceSelectedHandler",
+	        value: function onChoiceSelectedHandler(param, value) {
+	            var _this = this;
 	
-	            if (selectedNode) {
-	                var radiosContainer = selectedNode.parentElement.parentElement;
-	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
-	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
-	                });
-	
-	                var param = selectedNode.name,
-	                    value = selectedNode.value;
-	
-	                this.currentChoices[param] = value;
-	            }
-	
-	            this.newsClient.getSources(this.currentChoices).then(function (data) {
-	                var formattedSources = data.sources.map(function (source) {
-	                    return _this2.getSourceTpl(source);
-	                });
-	                _this2.contentElement.innerHTML = formattedSources.join('');
-	                return data.sources;
+	            if (param) this.currentChoices[param] = value;
+	            this.newsClient.getSources(this.currentChoices).then(function (sources) {
+	                return _this.pageMediator.setSources(sources);
 	            }).catch(this.handleError.bind(this));
 	        }
 	    }, {
-	        key: "updateArticles",
-	        value: function updateArticles(source) {
-	            var _this3 = this;
+	        key: "onSourceSelectedHandler",
+	        value: function onSourceSelectedHandler(sourceId) {
+	            var _this2 = this;
 	
-	            var sourcesElement = document.getElementById("articles_of_" + source);
-	            if (sourcesElement.children.length > 0x0) {
-	                sourcesElement.innerHTML = '';
-	            } else {
-	                this.newsClient.getArticles({ source: source }).then(function (data) {
-	                    var formattedArticles = data.articles.map(function (article) {
-	                        return _this3.getArticleTpl(article);
-	                    });
-	                    sourcesElement.innerHTML = formattedArticles.join('');
-	                }).catch(this.handleError.bind(this));
-	            }
-	        }
-	
-	        /* Private */
-	
-	    }, {
-	        key: "getChoiceTpl",
-	        value: function getChoiceTpl(name, label, value, checked) {
-	            return choiceTpl({ name: name, label: label, value: value, checked: checked });
-	        }
-	    }, {
-	        key: "getSourceTpl",
-	        value: function getSourceTpl(source) {
-	            return sourceTpl({ source: source });
-	        }
-	    }, {
-	        key: "getArticleTpl",
-	        value: function getArticleTpl(article) {
-	            return articleTpl({ article: article });
+	            this.newsClient.getArticles({ source: sourceId }).then(function (articles) {
+	                return _this2.pageMediator.setArticles(sourceId, articles);
+	            }).catch(this.handleError.bind(this));
 	        }
 	    }, {
 	        key: "handleError",
 	        value: function handleError(error) {
-	            this.contentElement.innerHTML = "<h4 class=\"error\">" + error + "</h4>";
+	            this.pageMediator.setError(error);
 	        }
 	    }]);
 	
@@ -8759,6 +8710,16 @@ webpackJsonp([1],[
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _article = __webpack_require__(306);
+	
+	var _article2 = _interopRequireDefault(_article);
+	
+	var _source = __webpack_require__(307);
+	
+	var _source2 = _interopRequireDefault(_source);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	var ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
@@ -8774,14 +8735,22 @@ webpackJsonp([1],[
 	    _createClass(Client, [{
 	        key: 'getSources',
 	        value: function getSources(params) {
-	            return this.doRequest(SOURCES_API_URL, params);
+	            return this.doRequest(SOURCES_API_URL, params).then(function (data) {
+	                return data.sources.map(function (sourceData) {
+	                    return new _source2.default(sourceData);
+	                });
+	            });
 	        }
 	    }, {
 	        key: 'getArticles',
 	        value: function getArticles() {
 	            var params = arguments.length > 0x0 && arguments[0x0] !== undefined ? arguments[0x0] : {};
 	
-	            return this.doRequest(ARTICLES_API_URL, params);
+	            return this.doRequest(ARTICLES_API_URL, params).then(function (data) {
+	                return data.articles.map(function (articleData) {
+	                    return new _article2.default(articleData);
+	                });
+	            });
 	        }
 	    }, {
 	        key: 'getApiUrl',
@@ -8839,55 +8808,199 @@ webpackJsonp([1],[
 
 /***/ },
 /* 306 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
+	"use strict";
 	
-	// load the styles
-	var content = __webpack_require__(307);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Article = function Article(data) {
+	    _classCallCheck(this, Article);
+	
+	    Object.assign(this, data);
+	};
+	
+	exports.default = Article;
 
 /***/ },
 /* 307 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	exports = module.exports = __webpack_require__(3)();
-	// imports
+	"use strict";
 	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 	
-	// module
-	exports.push([module.id, "footer {\n  text-align: center;\n  padding: 10px; }\n\n.error {\n  margin-top: 30px;\n  text-align: center;\n  font-size: 20px;\n  color: #F22; }\n\nfieldset {\n  text-align: center;\n  border: none;\n  line-height: 15px; }\n  fieldset label {\n    padding: 4px 10px;\n    text-transform: uppercase;\n    display: inline-block;\n    cursor: pointer; }\n  fieldset input[type=\"radio\"] {\n    display: none; }\n  fieldset label.selected {\n    background-color: #DDD; }\n\n.source {\n  margin: 10px 0;\n  padding: 4px;\n  border: #999 1px solid;\n  background-color: #EEE;\n  overflow: hidden; }\n  .source .logo {\n    padding: 14px; }\n  .source .articles {\n    text-align: center; }\n    .source .articles a {\n      display: inline-block;\n      margin: 10px;\n      border: 1px dashed #DDD;\n      opacity: 0.7; }\n      .source .articles a:hover {\n        opacity: 1; }\n      .source .articles a:last-of-type {\n        clear: both; }\n", ""]);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	// exports
-
+	var Source = function Source(data) {
+	    _classCallCheck(this, Source);
+	
+	    Object.assign(this, data);
+	};
+	
+	exports.default = Source;
 
 /***/ },
 /* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(309);
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var appTpl = __webpack_require__(309);
+	var sourceTpl = __webpack_require__(312);
+	var articleTpl = __webpack_require__(313);
+	var choiceTpl = __webpack_require__(314);
+	
+	var PageMediator = function () {
+	    function PageMediator(containerSelector) {
+	        _classCallCheck(this, PageMediator);
+	
+	        if (window.appMediator) {
+	            throw new Error('global appMediator var already defined!');
+	        }
+	
+	        window.appMediator = this;
+	
+	        this.onChoiceSelectedHandler = null;
+	        this.onSourceSelectedHandler = null;
+	
+	        this.appContainer = document.querySelector(containerSelector);
+	        this.appContainer.innerHTML = appTpl();
+	
+	        this.categoriesChoicesElement = this.appContainer.querySelector('#categoriesChoices');
+	        this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
+	        this.langChoicesElement = this.appContainer.querySelector('#langChoices');
+	        this.contentElement = this.appContainer.querySelector('#content');
+	    }
+	
+	    _createClass(PageMediator, [{
+	        key: 'setCategories',
+	        value: function setCategories(categories) {
+	            var _this = this;
+	
+	            this.categoriesChoicesElement.innerHTML = [this.getChoiceTpl('category', 'All', '', true)].concat(categories.map(function (value) {
+	                return _this.getChoiceTpl('category', value, value);
+	            })).join('');
+	        }
+	    }, {
+	        key: 'setCountries',
+	        value: function setCountries(countries) {
+	            var _this2 = this;
+	
+	            this.countriesChoicesElement.innerHTML = [this.getChoiceTpl('country', 'All', '', true)].concat(countries.map(function (value) {
+	                return _this2.getChoiceTpl('country', value, value);
+	            })).join('');
+	        }
+	    }, {
+	        key: 'setLanguages',
+	        value: function setLanguages(languages) {
+	            var _this3 = this;
+	
+	            this.langChoicesElement.innerHTML = [this.getChoiceTpl('language', 'All', '', true)].concat(languages.map(function (value) {
+	                return _this3.getChoiceTpl('language', value, value);
+	            })).join('');
+	        }
+	    }, {
+	        key: 'setSources',
+	        value: function setSources(sources) {
+	            var _this4 = this;
+	
+	            var formattedSources = sources.map(function (source) {
+	                return _this4.getSourceTpl(source);
+	            });
+	            this.contentElement.innerHTML = formattedSources.join('');
+	        }
+	    }, {
+	        key: 'setArticles',
+	        value: function setArticles(sourceId, articles) {
+	            var _this5 = this;
+	
+	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
+	            var formattedArticles = articles.map(function (article) {
+	                return _this5.getArticleTpl(article);
+	            });
+	            sourcesElement.innerHTML = formattedArticles.join('');
+	        }
+	    }, {
+	        key: 'setError',
+	        value: function setError(error) {
+	            this.contentElement.innerHTML = '<h4 class="error">' + error + '</h4>';
+	        }
+	    }, {
+	        key: 'onChoiceSelected',
+	        value: function onChoiceSelected(selectedNode) {
+	            if (selectedNode) {
+	                var radiosContainer = selectedNode.parentElement.parentElement;
+	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
+	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
+	                });
+	
+	                var param = selectedNode.name,
+	                    value = selectedNode.value;
+	
+	                this.onChoiceSelectedHandler && this.onChoiceSelectedHandler(param, value);
+	            }
+	        }
+	    }, {
+	        key: 'onSourceSelected',
+	        value: function onSourceSelected(sourceId) {
+	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
+	            if (sourcesElement.children.length > 0x0) {
+	                sourcesElement.innerHTML = '';
+	            } else {
+	                this.onSourceSelectedHandler && this.onSourceSelectedHandler(sourceId);
+	            }
+	        }
+	
+	        /* Private */
+	
+	    }, {
+	        key: 'getChoiceTpl',
+	        value: function getChoiceTpl(name, label, value, checked) {
+	            return choiceTpl({ name: name, label: label, value: value, checked: checked });
+	        }
+	    }, {
+	        key: 'getSourceTpl',
+	        value: function getSourceTpl(source) {
+	            return sourceTpl({ source: source });
+	        }
+	    }, {
+	        key: 'getArticleTpl',
+	        value: function getArticleTpl(article) {
+	            return articleTpl({ article: article });
+	        }
+	    }]);
+	
+	    return PageMediator;
+	}();
+	
+	exports.default = PageMediator;
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var pug = __webpack_require__(310);
 	
 	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003Cfooter\u003EPowered by\u003Ca href=\"https:\u002F\u002Fnewsapi.org\u002F\" target=\"_blank\"\u003ENewsAPI.org\u003C\u002Fa\u003E\u003C\u002Ffooter\u003E";;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 309 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9120,7 +9233,7 @@ webpackJsonp([1],[
 	    throw err;
 	  }
 	  try {
-	    str = str || __webpack_require__(310).readFileSync(filename, 'utf8')
+	    str = str || __webpack_require__(311).readFileSync(filename, 'utf8')
 	  } catch (ex) {
 	    pug_rethrow(err, null, lineno)
 	  }
@@ -9147,41 +9260,81 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 310 */
+/* 311 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 311 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var pug = __webpack_require__(309);
-	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "app.updateArticles(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
-	module.exports = template;
-
-/***/ },
 /* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(309);
+	var pug = __webpack_require__(310);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("src", article.urlToImage, true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "appMediator.onSourceSelected(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(309);
+	var pug = __webpack_require__(310);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
-	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"app.updateSources(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("src", article.urlToImage, true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var pug = __webpack_require__(310);
+	
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
+	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"appMediator.onChoiceSelected(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
+	module.exports = template;
+
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(316);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "footer {\n  text-align: center;\n  padding: 10px; }\n\n.error {\n  margin-top: 30px;\n  text-align: center;\n  font-size: 20px;\n  color: #F22; }\n\nfieldset {\n  text-align: center;\n  border: none;\n  line-height: 15px; }\n  fieldset label {\n    padding: 4px 10px;\n    text-transform: uppercase;\n    display: inline-block;\n    cursor: pointer; }\n  fieldset input[type=\"radio\"] {\n    display: none; }\n  fieldset label.selected {\n    background-color: #DDD; }\n\n.source {\n  margin: 10px 0;\n  padding: 4px;\n  border: #999 1px solid;\n  background-color: #EEE;\n  overflow: hidden; }\n  .source .logo {\n    padding: 14px; }\n  .source .articles {\n    text-align: center; }\n    .source .articles a {\n      display: inline-block;\n      margin: 10px;\n      border: 1px dashed #DDD;\n      opacity: 0.7; }\n      .source .articles a:hover {\n        opacity: 1; }\n      .source .articles a:last-of-type {\n        clear: both; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = {
