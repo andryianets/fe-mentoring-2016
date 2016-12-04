@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import "babel-polyfill";
+import {createStore} from "redux";
 import Client from "./newsapi/client";
 import PageMediator from "./PageMediator";
 require("../scss/app.scss");
