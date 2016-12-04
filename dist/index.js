@@ -104,7 +104,7 @@
 	window.loadAppModule = function () {
 	    __webpack_require__.e/* nsure */(1, function () {
 	        var App = __webpack_require__(6).default;
-	        App.getInstance('#appContainer').init();
+	        App.getInstance('#appContainer');
 	    });
 	};
 

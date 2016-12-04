@@ -1,13 +1,25 @@
-import Article from './article';
-import Source from './source';
+import Article from './model/article';
+import Source from './model/source';
 
 const ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
 const SOURCES_API_URL = 'https://newsapi.org/v1/sources';
 
 export default class Client {
 
+    static getInstance(apiKey) {
+        return Client.instance || new Client(apiKey);
+    }
+
     constructor(apiKey) {
+
+        if (Client.instance) {
+            throw 'NewsAPI Client instance already instantiated';
+        }
+
+        Client.instance = this;
+
         this.apiKey = apiKey;
+
     }
 
     static get availableCategories() {
