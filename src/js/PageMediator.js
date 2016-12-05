@@ -95,7 +95,7 @@ export default class PageMediator {
         if (selectedNode) {
             const radiosContainer = selectedNode.parentElement.parentElement;
             Array.from(radiosContainer.getElementsByTagName('label')).forEach(labelNode => {
-                labelNode.className = labelNode === selectedNode.parentElement ? '' : '';
+                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
             });
 
             const {name: param, value} = selectedNode;
