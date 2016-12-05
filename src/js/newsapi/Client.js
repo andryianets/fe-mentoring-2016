@@ -1,13 +1,22 @@
-import Article from './model/article';
-import Source from './model/source';
-
 const ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
 const SOURCES_API_URL = 'https://newsapi.org/v1/sources';
+
+class Source {}
+
+class Article {}
 
 export default class Client {
 
     static getInstance(apiKey) {
         return Client.instance || new Client(apiKey);
+    }
+
+    static createSource(data) {
+        return Object.assign(new Source(), data);
+    }
+
+    static createArticle(sourceId, data) {
+        return Object.assign(new Article(), data, {sourceId});
     }
 
     constructor(apiKey) {
@@ -45,12 +54,12 @@ export default class Client {
 
     getSources(params) {
         return this.doRequest(SOURCES_API_URL, params)
-            .then(data => data.sources.map(sourceData => new Source(sourceData)));
+            .then(data => data.sources.map(sourceData => Client.createSource(sourceData)));
     }
 
-    getArticles(params = {}) {
-        return this.doRequest(ARTICLES_API_URL, params)
-            .then(data => data.articles.map(articleData => new Article(articleData)));
+    getArticles(sourceId) {
+        return this.doRequest(ARTICLES_API_URL, {source: sourceId})
+            .then(data => data.articles.map(articleData => Client.createArticle(sourceId, articleData)));
     }
 
     getApiUrl(baseUrl, params = {}) {

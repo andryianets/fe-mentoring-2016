@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
-import Client from './newsapi/client';
+import Client from './newsapi/Client';
 import PageMediator from './PageMediator';
 require('../scss/app.scss');
 
@@ -20,10 +20,11 @@ export default class App {
 
         App.instance = this;
 
-        this.config = require('./config.json');
-        Client.getInstance(this.config.apiKey);
+        const config = require('./config.json');
+        Client.getInstance(config.apiKey);
 
-        new PageMediator(appContainerSelector);
+        this.pageMediator = new PageMediator(appContainerSelector);
+        this.pageMediator.initApp();
     }
 
 }

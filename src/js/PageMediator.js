@@ -27,7 +27,9 @@ export default class PageMediator {
         this.store = configureStore();
         this.prevState = {};
         this.store.subscribe(this.handleStoreChange.bind(this));
+    }
 
+    initApp() {
         this.store.dispatch(initApp());
     }
 
