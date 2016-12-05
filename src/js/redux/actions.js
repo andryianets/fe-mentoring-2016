@@ -1,4 +1,4 @@
-import Client from '../newsapi/client';
+import Client from '../newsapi/Client';
 
 export const INIT_APP = 'INIT_APP';
 export const FILTER_CHANGED = 'FILTER_CHANGED';
@@ -51,7 +51,7 @@ export function sourcesLoaded(sources) {
 
 export function loadArticles(sourceId) {
     return dispatch => {
-        return Client.getInstance().getArticles({source: sourceId})
+        return Client.getInstance().getArticles(sourceId)
             .then(articles => dispatch(articlesLoaded(sourceId, articles)))
             .catch(error => dispatch(appError(error)));
     };
