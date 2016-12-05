@@ -8962,7 +8962,7 @@ webpackJsonp([1],[
 	            if (selectedNode) {
 	                var radiosContainer = selectedNode.parentElement.parentElement;
 	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
-	                    labelNode.className = labelNode === selectedNode.parentElement ? '' : '';
+	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
 	                });
 	
 	                var param = selectedNode.name,
