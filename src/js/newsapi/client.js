@@ -1,13 +1,25 @@
-import Article from './article';
-import Source from './source';
+import Article from './model/article';
+import Source from './model/source';
 
 const ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
 const SOURCES_API_URL = 'https://newsapi.org/v1/sources';
 
 export default class Client {
 
+    static getInstance(apiKey) {
+        return Client.instance || new Client(apiKey);
+    }
+
     constructor(apiKey) {
+
+        if (Client.instance) {
+            throw 'NewsAPI Client instance already instantiated';
+        }
+
+        Client.instance = this;
+
         this.apiKey = apiKey;
+
     }
 
     static get availableCategories() {
@@ -54,17 +66,20 @@ export default class Client {
 
     doRequest(url, params = {}) {
 
-        if (DEBUG) {
+        if (process.env.NODE_ENV === 'development') {
             console.log('NewsAPI Client doRequest()', url, params);
         }
 
         params.apiKey = this.apiKey;
         return fetch(this.getApiUrl(url, params))
             .then(response => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'error') {
+                    throw data.message;
                 }
-                return response.json()
+                return data;
             });
     }
 

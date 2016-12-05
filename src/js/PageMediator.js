@@ -1,3 +1,7 @@
+import configureStore from './redux/configureStore';
+import {initApp, filterChanged, loadArticles} from './redux/actions';
+import ImagePreloader from './ImagePreloader';
+
 const appTpl = require('../tpls/app.pug');
 const sourceTpl = require('../tpls/source.pug');
 const articleTpl = require('../tpls/article.pug');
@@ -12,9 +16,6 @@ export default class PageMediator {
 
         window.appMediator = this;
 
-        this.onChoiceSelectedHandler = null;
-        this.onSourceSelectedHandler = null;
-
         this.appContainer = document.querySelector(containerSelector);
         this.appContainer.innerHTML = appTpl();
 
@@ -22,6 +23,36 @@ export default class PageMediator {
         this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
         this.langChoicesElement = this.appContainer.querySelector('#langChoices');
         this.contentElement = this.appContainer.querySelector('#content');
+
+        this.store = configureStore();
+        this.prevState = {};
+        this.store.subscribe(this.handleStoreChange.bind(this));
+
+        this.store.dispatch(initApp());
+    }
+
+    handleStoreChange() {
+        const state = this.store.getState();
+
+        if (this.prevState.filtersData !== state.filtersData) {
+            this.setCategories(state.filtersData.categories);
+            this.setCountries(state.filtersData.countries);
+            this.setLanguages(state.filtersData.languages);
+        }
+
+        if (this.prevState.sourcesList !== state.sourcesList) {
+            this.setSources(state.sourcesList);
+        }
+
+        if (state.articlesList.sourceId && this.prevState.articlesList !== state.articlesList) {
+            this.setArticles(state.articlesList.sourceId, state.articlesList.articles);
+        }
+
+        if (state.errorMessage) {
+            this.setError(state.errorMessage);
+        }
+
+        this.prevState = state;
     }
 
     setCategories(categories) {
@@ -48,9 +79,12 @@ export default class PageMediator {
     }
 
     setArticles(sourceId, articles) {
+        // todo: load images before inserting them into source block
         const sourcesElement = this.contentElement.querySelector(`#articles_of_${sourceId}`);
-        const formattedArticles = articles.map(article => this.getArticleTpl(article));
+        const formattedArticles = articles.map((article, index) => this.getArticleTpl(article, sourceId, index));
         sourcesElement.innerHTML = formattedArticles.join('');
+
+        ImagePreloader(sourcesElement.querySelectorAll(`a img`));
     }
 
     setError(error) {
@@ -61,11 +95,11 @@ export default class PageMediator {
         if (selectedNode) {
             const radiosContainer = selectedNode.parentElement.parentElement;
             Array.from(radiosContainer.getElementsByTagName('label')).forEach(labelNode => {
-                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
+                labelNode.className = labelNode === selectedNode.parentElement ? '' : '';
             });
 
             const {name: param, value} = selectedNode;
-            this.onChoiceSelectedHandler && this.onChoiceSelectedHandler(param, value);
+            this.store.dispatch(filterChanged(param, value));
         }
     }
 
@@ -74,7 +108,7 @@ export default class PageMediator {
         if (sourcesElement.children.length > 0) {
             sourcesElement.innerHTML = '';
         } else {
-            this.onSourceSelectedHandler && this.onSourceSelectedHandler(sourceId);
+            this.store.dispatch(loadArticles(sourceId));
         }
     }
 
@@ -88,8 +122,8 @@ export default class PageMediator {
         return sourceTpl({source});
     }
 
-    getArticleTpl(article) {
-        return articleTpl({article});
+    getArticleTpl(article, sourceId, index) {
+        return articleTpl({article, sourceId, index});
     }
 
 }

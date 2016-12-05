@@ -104,7 +104,7 @@
 	window.loadAppModule = function () {
 	    __webpack_require__.e/* nsure */(1, function () {
 	        var App = __webpack_require__(6).default;
-	        App.getInstance('#appContainer').init();
+	        App.getInstance('#appContainer');
 	    });
 	};
 
@@ -199,7 +199,7 @@
 		styleElementsInsertedAtTop = [];
 	
 	module.exports = function(list, options) {
-		if(true) {
+		if(false) {
 			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
 	
