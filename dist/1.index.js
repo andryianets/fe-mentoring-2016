@@ -20,11 +20,17 @@ webpackJsonp([1],[
 	
 	__webpack_require__(8);
 	
-	var _Client = __webpack_require__(305);
+	var _configureStore = __webpack_require__(305);
+	
+	var _configureStore2 = _interopRequireDefault(_configureStore);
+	
+	var _actions = __webpack_require__(342);
+	
+	var _Client = __webpack_require__(343);
 	
 	var _Client2 = _interopRequireDefault(_Client);
 	
-	var _PageMediator = __webpack_require__(306);
+	var _PageMediator = __webpack_require__(344);
 	
 	var _PageMediator2 = _interopRequireDefault(_PageMediator);
 	
@@ -47,6 +53,8 @@ webpackJsonp([1],[
 	    }]);
 	
 	    function App(appContainerSelector) {
+	        var _this = this;
+	
 	        _classCallCheck(this, App);
 	
 	        if (App.instance) {
@@ -58,9 +66,47 @@ webpackJsonp([1],[
 	        var config = __webpack_require__(355);
 	        _Client2.default.getInstance(config.apiKey);
 	
+	        this.store = (0x0, _configureStore2.default)();
+	        this.prevState = {};
+	        this.store.subscribe(this.handleStoreChange.bind(this));
+	
 	        this.pageMediator = new _PageMediator2.default(appContainerSelector);
-	        this.pageMediator.initApp();
+	        this.pageMediator.onChoiceSelectedHandler = function (param, value) {
+	            _this.store.dispatch((0x0, _actions.filterChanged)(param, value));
+	        };
+	        this.pageMediator.onSourceSelectedHandler = function (sourceId) {
+	            _this.store.dispatch((0x0, _actions.loadArticles)(sourceId));
+	        };
+	
+	        this.store.dispatch((0x0, _actions.initApp)());
 	    }
+	
+	    _createClass(App, [{
+	        key: 'handleStoreChange',
+	        value: function handleStoreChange() {
+	            var state = this.store.getState();
+	
+	            if (this.prevState.filtersData !== state.filtersData) {
+	                this.pageMediator.setCategories(state.filtersData.categories);
+	                this.pageMediator.setCountries(state.filtersData.countries);
+	                this.pageMediator.setLanguages(state.filtersData.languages);
+	            }
+	
+	            if (this.prevState.sourcesList !== state.sourcesList) {
+	                this.pageMediator.setSources(state.sourcesList);
+	            }
+	
+	            if (state.articlesList.sourceId && this.prevState.articlesList !== state.articlesList) {
+	                this.pageMediator.setArticles(state.articlesList.sourceId, state.articlesList.articles);
+	            }
+	
+	            if (state.errorMessage) {
+	                this.pageMediator.setError(state.errorMessage);
+	            }
+	
+	            this.prevState = state;
+	        }
+	    }]);
 	
 	    return App;
 	}();
@@ -8666,342 +8712,23 @@ webpackJsonp([1],[
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
-	var SOURCES_API_URL = 'https://newsapi.org/v1/sources';
-	
-	var Source = function Source() {
-	    _classCallCheck(this, Source);
-	};
-	
-	var Article = function Article() {
-	    _classCallCheck(this, Article);
-	};
-	
-	var Client = function () {
-	    _createClass(Client, null, [{
-	        key: 'getInstance',
-	        value: function getInstance(apiKey) {
-	            return Client.instance || new Client(apiKey);
-	        }
-	    }, {
-	        key: 'createSource',
-	        value: function createSource(data) {
-	            return Object.assign(new Source(), data);
-	        }
-	    }, {
-	        key: 'createArticle',
-	        value: function createArticle(sourceId, data) {
-	            return Object.assign(new Article(), data, { sourceId: sourceId });
-	        }
-	    }]);
-	
-	    function Client(apiKey) {
-	        _classCallCheck(this, Client);
-	
-	        if (Client.instance) {
-	            throw 'NewsAPI Client instance already instantiated';
-	        }
-	
-	        Client.instance = this;
-	
-	        this.apiKey = apiKey;
-	    }
-	
-	    _createClass(Client, [{
-	        key: 'getSources',
-	        value: function getSources(params) {
-	            return this.doRequest(SOURCES_API_URL, params).then(function (data) {
-	                return data.sources.map(function (sourceData) {
-	                    return Client.createSource(sourceData);
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'getArticles',
-	        value: function getArticles(sourceId) {
-	            return this.doRequest(ARTICLES_API_URL, { source: sourceId }).then(function (data) {
-	                return data.articles.map(function (articleData) {
-	                    return Client.createArticle(sourceId, articleData);
-	                });
-	            });
-	        }
-	    }, {
-	        key: 'getApiUrl',
-	        value: function getApiUrl(baseUrl) {
-	            var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
-	
-	            var queryParts = [];
-	            for (var name in params) {
-	                if (params[name]) {
-	                    queryParts.push(name + '=' + params[name]);
-	                }
-	            }
-	            var urlSuffix = queryParts.join('&');
-	            return baseUrl + '?' + urlSuffix;
-	        }
-	    }, {
-	        key: 'doRequest',
-	        value: function doRequest(url) {
-	            var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
-	
-	
-	            if (true) {
-	                console.log('NewsAPI Client doRequest()', url, params);
-	            }
-	
-	            params.apiKey = this.apiKey;
-	            return fetch(this.getApiUrl(url, params)).then(function (response) {
-	                return response.json();
-	            }).then(function (data) {
-	                if (data.status === 'error') {
-	                    throw data.message;
-	                }
-	                return data;
-	            });
-	        }
-	    }], [{
-	        key: 'availableCategories',
-	        get: function get() {
-	            return ['business', 'entertainment', 'gaming', 'general', 'music', 'science-and-nature', 'sport', 'technology'];
-	        }
-	    }, {
-	        key: 'availableLanguages',
-	        get: function get() {
-	            return ['en', 'de', 'fr'];
-	        }
-	    }, {
-	        key: 'availableCountries',
-	        get: function get() {
-	            return ['au', 'de', 'gb', 'in', 'it', 'us'];
-	        }
-	    }]);
-	
-	    return Client;
-	}();
-	
-	exports.default = Client;
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _configureStore = __webpack_require__(307);
-	
-	var _configureStore2 = _interopRequireDefault(_configureStore);
-	
-	var _actions = __webpack_require__(344);
-	
-	var _ImagePreloader = __webpack_require__(345);
-	
-	var _ImagePreloader2 = _interopRequireDefault(_ImagePreloader);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var appTpl = __webpack_require__(346);
-	var sourceTpl = __webpack_require__(349);
-	var articleTpl = __webpack_require__(350);
-	var choiceTpl = __webpack_require__(352);
-	
-	var PageMediator = function () {
-	    function PageMediator(containerSelector) {
-	        _classCallCheck(this, PageMediator);
-	
-	        if (window.appMediator) {
-	            throw new Error('global appMediator var already defined!');
-	        }
-	
-	        window.appMediator = this;
-	
-	        this.appContainer = document.querySelector(containerSelector);
-	        this.appContainer.innerHTML = appTpl();
-	
-	        this.categoriesChoicesElement = this.appContainer.querySelector('#categoriesChoices');
-	        this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
-	        this.langChoicesElement = this.appContainer.querySelector('#langChoices');
-	        this.contentElement = this.appContainer.querySelector('#content');
-	
-	        this.store = (0x0, _configureStore2.default)();
-	        this.prevState = {};
-	        this.store.subscribe(this.handleStoreChange.bind(this));
-	    }
-	
-	    _createClass(PageMediator, [{
-	        key: 'initApp',
-	        value: function initApp() {
-	            this.store.dispatch((0x0, _actions.initApp)());
-	        }
-	    }, {
-	        key: 'handleStoreChange',
-	        value: function handleStoreChange() {
-	            var state = this.store.getState();
-	
-	            if (this.prevState.filtersData !== state.filtersData) {
-	                this.setCategories(state.filtersData.categories);
-	                this.setCountries(state.filtersData.countries);
-	                this.setLanguages(state.filtersData.languages);
-	            }
-	
-	            if (this.prevState.sourcesList !== state.sourcesList) {
-	                this.setSources(state.sourcesList);
-	            }
-	
-	            if (state.articlesList.sourceId && this.prevState.articlesList !== state.articlesList) {
-	                this.setArticles(state.articlesList.sourceId, state.articlesList.articles);
-	            }
-	
-	            if (state.errorMessage) {
-	                this.setError(state.errorMessage);
-	            }
-	
-	            this.prevState = state;
-	        }
-	    }, {
-	        key: 'setCategories',
-	        value: function setCategories(categories) {
-	            var _this = this;
-	
-	            this.categoriesChoicesElement.innerHTML = [this.getChoiceTpl('category', 'All', '', true)].concat(categories.map(function (value) {
-	                return _this.getChoiceTpl('category', value, value);
-	            })).join('');
-	        }
-	    }, {
-	        key: 'setCountries',
-	        value: function setCountries(countries) {
-	            var _this2 = this;
-	
-	            this.countriesChoicesElement.innerHTML = [this.getChoiceTpl('country', 'All', '', true)].concat(countries.map(function (value) {
-	                return _this2.getChoiceTpl('country', value, value);
-	            })).join('');
-	        }
-	    }, {
-	        key: 'setLanguages',
-	        value: function setLanguages(languages) {
-	            var _this3 = this;
-	
-	            this.langChoicesElement.innerHTML = [this.getChoiceTpl('language', 'All', '', true)].concat(languages.map(function (value) {
-	                return _this3.getChoiceTpl('language', value, value);
-	            })).join('');
-	        }
-	    }, {
-	        key: 'setSources',
-	        value: function setSources(sources) {
-	            var _this4 = this;
-	
-	            var formattedSources = sources.map(function (source) {
-	                return _this4.getSourceTpl(source);
-	            });
-	            this.contentElement.innerHTML = formattedSources.join('');
-	        }
-	    }, {
-	        key: 'setArticles',
-	        value: function setArticles(sourceId, articles) {
-	            var _this5 = this;
-	
-	            // todo: load images before inserting them into source block
-	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
-	            var formattedArticles = articles.map(function (article, index) {
-	                return _this5.getArticleTpl(article, sourceId, index);
-	            });
-	            sourcesElement.innerHTML = formattedArticles.join('');
-	
-	            (0x0, _ImagePreloader2.default)(sourcesElement.querySelectorAll('a img'));
-	        }
-	    }, {
-	        key: 'setError',
-	        value: function setError(error) {
-	            this.contentElement.innerHTML = '<h4 class="error">' + error + '</h4>';
-	        }
-	    }, {
-	        key: 'onChoiceSelected',
-	        value: function onChoiceSelected(selectedNode) {
-	            if (selectedNode) {
-	                var radiosContainer = selectedNode.parentElement.parentElement;
-	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
-	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
-	                });
-	
-	                var param = selectedNode.name,
-	                    value = selectedNode.value;
-	
-	                this.store.dispatch((0x0, _actions.filterChanged)(param, value));
-	            }
-	        }
-	    }, {
-	        key: 'onSourceSelected',
-	        value: function onSourceSelected(sourceId) {
-	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
-	            if (sourcesElement.children.length > 0x0) {
-	                sourcesElement.innerHTML = '';
-	            } else {
-	                this.store.dispatch((0x0, _actions.loadArticles)(sourceId));
-	            }
-	        }
-	
-	        /* Private */
-	
-	    }, {
-	        key: 'getChoiceTpl',
-	        value: function getChoiceTpl(name, label, value, checked) {
-	            return choiceTpl({ name: name, label: label, value: value, checked: checked });
-	        }
-	    }, {
-	        key: 'getSourceTpl',
-	        value: function getSourceTpl(source) {
-	            return sourceTpl({ source: source });
-	        }
-	    }, {
-	        key: 'getArticleTpl',
-	        value: function getArticleTpl(article, sourceId, index) {
-	            return articleTpl({ article: article, sourceId: sourceId, index: index });
-	        }
-	    }]);
-	
-	    return PageMediator;
-	}();
-	
-	exports.default = PageMediator;
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 	exports.default = configureStore;
 	
-	var _redux = __webpack_require__(308);
+	var _redux = __webpack_require__(306);
 	
-	var _reduxThunk = __webpack_require__(329);
+	var _reduxThunk = __webpack_require__(327);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _reduxPromise = __webpack_require__(330);
+	var _reduxPromise = __webpack_require__(328);
 	
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 	
-	var _reduxLogger = __webpack_require__(337);
+	var _reduxLogger = __webpack_require__(335);
 	
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 	
-	var _reducers = __webpack_require__(343);
+	var _reducers = __webpack_require__(341);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -9018,7 +8745,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 308 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9026,27 +8753,27 @@ webpackJsonp([1],[
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 	
-	var _createStore = __webpack_require__(309);
+	var _createStore = __webpack_require__(307);
 	
 	var _createStore2 = _interopRequireDefault(_createStore);
 	
-	var _combineReducers = __webpack_require__(324);
+	var _combineReducers = __webpack_require__(322);
 	
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 	
-	var _bindActionCreators = __webpack_require__(326);
+	var _bindActionCreators = __webpack_require__(324);
 	
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 	
-	var _applyMiddleware = __webpack_require__(327);
+	var _applyMiddleware = __webpack_require__(325);
 	
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 	
-	var _compose = __webpack_require__(328);
+	var _compose = __webpack_require__(326);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _warning = __webpack_require__(325);
+	var _warning = __webpack_require__(323);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -9069,7 +8796,7 @@ webpackJsonp([1],[
 	exports.compose = _compose2['default'];
 
 /***/ },
-/* 309 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9078,11 +8805,11 @@ webpackJsonp([1],[
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 	
-	var _isPlainObject = __webpack_require__(310);
+	var _isPlainObject = __webpack_require__(308);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _symbolObservable = __webpack_require__(320);
+	var _symbolObservable = __webpack_require__(318);
 	
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 	
@@ -9335,12 +9062,12 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 310 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetTag = __webpack_require__(311),
-	    getPrototype = __webpack_require__(317),
-	    isObjectLike = __webpack_require__(319);
+	var baseGetTag = __webpack_require__(309),
+	    getPrototype = __webpack_require__(315),
+	    isObjectLike = __webpack_require__(317);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -9403,12 +9130,12 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 311 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(312),
-	    getRawTag = __webpack_require__(315),
-	    objectToString = __webpack_require__(316);
+	var Symbol = __webpack_require__(310),
+	    getRawTag = __webpack_require__(313),
+	    objectToString = __webpack_require__(314);
 	
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -9438,10 +9165,10 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 312 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(313);
+	var root = __webpack_require__(311);
 	
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -9450,10 +9177,10 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 313 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var freeGlobal = __webpack_require__(314);
+	var freeGlobal = __webpack_require__(312);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -9465,7 +9192,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 314 */
+/* 312 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -9476,10 +9203,10 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 315 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(312);
+	var Symbol = __webpack_require__(310);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -9528,7 +9255,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 316 */
+/* 314 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -9556,10 +9283,10 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 317 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var overArg = __webpack_require__(318);
+	var overArg = __webpack_require__(316);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -9568,7 +9295,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 318 */
+/* 316 */
 /***/ function(module, exports) {
 
 	/**
@@ -9589,7 +9316,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 319 */
+/* 317 */
 /***/ function(module, exports) {
 
 	/**
@@ -9624,14 +9351,14 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 320 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(321);
+	module.exports = __webpack_require__(319);
 
 
 /***/ },
-/* 321 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -9640,7 +9367,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _ponyfill = __webpack_require__(323);
+	var _ponyfill = __webpack_require__(321);
 	
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 	
@@ -9663,10 +9390,10 @@ webpackJsonp([1],[
 	
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(322)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(320)(module)))
 
 /***/ },
-/* 322 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -9682,7 +9409,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 323 */
+/* 321 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9710,7 +9437,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 324 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9718,13 +9445,13 @@ webpackJsonp([1],[
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 	
-	var _createStore = __webpack_require__(309);
+	var _createStore = __webpack_require__(307);
 	
-	var _isPlainObject = __webpack_require__(310);
+	var _isPlainObject = __webpack_require__(308);
 	
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 	
-	var _warning = __webpack_require__(325);
+	var _warning = __webpack_require__(323);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
@@ -9857,7 +9584,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 325 */
+/* 323 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9887,7 +9614,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 326 */
+/* 324 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9943,7 +9670,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 327 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9954,7 +9681,7 @@ webpackJsonp([1],[
 	
 	exports['default'] = applyMiddleware;
 	
-	var _compose = __webpack_require__(328);
+	var _compose = __webpack_require__(326);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
@@ -10006,7 +9733,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 328 */
+/* 326 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -10049,7 +9776,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 329 */
+/* 327 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10077,7 +9804,7 @@ webpackJsonp([1],[
 	exports['default'] = thunk;
 
 /***/ },
-/* 330 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10088,7 +9815,7 @@ webpackJsonp([1],[
 	
 	exports['default'] = promiseMiddleware;
 	
-	var _fluxStandardAction = __webpack_require__(331);
+	var _fluxStandardAction = __webpack_require__(329);
 	
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -10115,7 +9842,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 331 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10126,7 +9853,7 @@ webpackJsonp([1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _lodashIsplainobject = __webpack_require__(332);
+	var _lodashIsplainobject = __webpack_require__(330);
 	
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 	
@@ -10145,7 +9872,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 332 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10156,9 +9883,9 @@ webpackJsonp([1],[
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(333),
-	    isArguments = __webpack_require__(334),
-	    keysIn = __webpack_require__(335);
+	var baseFor = __webpack_require__(331),
+	    isArguments = __webpack_require__(332),
+	    keysIn = __webpack_require__(333);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -10254,7 +9981,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 333 */
+/* 331 */
 /***/ function(module, exports) {
 
 	/**
@@ -10308,7 +10035,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 334 */
+/* 332 */
 /***/ function(module, exports) {
 
 	/**
@@ -10543,7 +10270,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 335 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10554,8 +10281,8 @@ webpackJsonp([1],[
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(334),
-	    isArray = __webpack_require__(336);
+	var isArguments = __webpack_require__(332),
+	    isArray = __webpack_require__(334);
 	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -10681,7 +10408,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 336 */
+/* 334 */
 /***/ function(module, exports) {
 
 	/**
@@ -10867,7 +10594,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 337 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10878,11 +10605,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _core = __webpack_require__(338);
+	var _core = __webpack_require__(336);
 	
-	var _helpers = __webpack_require__(339);
+	var _helpers = __webpack_require__(337);
 	
-	var _defaults = __webpack_require__(342);
+	var _defaults = __webpack_require__(340);
 	
 	var _defaults2 = _interopRequireDefault(_defaults);
 	
@@ -10985,7 +10712,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 338 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10995,9 +10722,9 @@ webpackJsonp([1],[
 	});
 	exports.printBuffer = printBuffer;
 	
-	var _helpers = __webpack_require__(339);
+	var _helpers = __webpack_require__(337);
 	
-	var _diff = __webpack_require__(340);
+	var _diff = __webpack_require__(338);
 	
 	var _diff2 = _interopRequireDefault(_diff);
 	
@@ -11126,7 +10853,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 339 */
+/* 337 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11150,7 +10877,7 @@ webpackJsonp([1],[
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 340 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11160,7 +10887,7 @@ webpackJsonp([1],[
 	});
 	exports.default = diffLogger;
 	
-	var _deepDiff = __webpack_require__(341);
+	var _deepDiff = __webpack_require__(339);
 	
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 	
@@ -11246,7 +10973,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 341 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -11675,7 +11402,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 342 */
+/* 340 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11726,7 +11453,7 @@ webpackJsonp([1],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 343 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11735,9 +11462,9 @@ webpackJsonp([1],[
 	    value: true
 	});
 	
-	var _redux = __webpack_require__(308);
+	var _redux = __webpack_require__(306);
 	
-	var _actions = __webpack_require__(344);
+	var _actions = __webpack_require__(342);
 	
 	function filtersData() {
 	    var state = arguments.length > 0x0 && arguments[0x0] !== undefined ? arguments[0x0] : {};
@@ -11820,7 +11547,7 @@ webpackJsonp([1],[
 	exports.default = rootReducer;
 
 /***/ },
-/* 344 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11837,7 +11564,7 @@ webpackJsonp([1],[
 	exports.articlesLoaded = articlesLoaded;
 	exports.appError = appError;
 	
-	var _Client = __webpack_require__(305);
+	var _Client = __webpack_require__(343);
 	
 	var _Client2 = _interopRequireDefault(_Client);
 	
@@ -11922,6 +11649,287 @@ webpackJsonp([1],[
 	}
 
 /***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
+	var SOURCES_API_URL = 'https://newsapi.org/v1/sources';
+	
+	var Source = function Source() {
+	    _classCallCheck(this, Source);
+	};
+	
+	var Article = function Article() {
+	    _classCallCheck(this, Article);
+	};
+	
+	var Client = function () {
+	    _createClass(Client, null, [{
+	        key: 'getInstance',
+	        value: function getInstance(apiKey) {
+	            return Client.instance || new Client(apiKey);
+	        }
+	    }, {
+	        key: 'createSource',
+	        value: function createSource(data) {
+	            return Object.assign(new Source(), data);
+	        }
+	    }, {
+	        key: 'createArticle',
+	        value: function createArticle(sourceId, data) {
+	            return Object.assign(new Article(), data, { sourceId: sourceId });
+	        }
+	    }]);
+	
+	    function Client(apiKey) {
+	        _classCallCheck(this, Client);
+	
+	        if (Client.instance) {
+	            throw 'NewsAPI Client instance already instantiated';
+	        }
+	
+	        Client.instance = this;
+	
+	        this.apiKey = apiKey;
+	    }
+	
+	    _createClass(Client, [{
+	        key: 'getSources',
+	        value: function getSources(params) {
+	            return this.doRequest(SOURCES_API_URL, params).then(function (data) {
+	                return data.sources.map(function (sourceData) {
+	                    return Client.createSource(sourceData);
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'getArticles',
+	        value: function getArticles(sourceId) {
+	            return this.doRequest(ARTICLES_API_URL, { source: sourceId }).then(function (data) {
+	                return data.articles.map(function (articleData) {
+	                    return Client.createArticle(sourceId, articleData);
+	                });
+	            });
+	        }
+	    }, {
+	        key: 'getApiUrl',
+	        value: function getApiUrl(baseUrl) {
+	            var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
+	
+	            var queryParts = [];
+	            for (var name in params) {
+	                if (params[name]) {
+	                    queryParts.push(name + '=' + params[name]);
+	                }
+	            }
+	            var urlSuffix = queryParts.join('&');
+	            return baseUrl + '?' + urlSuffix;
+	        }
+	    }, {
+	        key: 'doRequest',
+	        value: function doRequest(url) {
+	            var params = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : {};
+	
+	
+	            if (true) {
+	                console.log('NewsAPI Client doRequest()', url, params);
+	            }
+	
+	            params.apiKey = this.apiKey;
+	            return fetch(this.getApiUrl(url, params)).then(function (response) {
+	                return response.json();
+	            }).then(function (data) {
+	                if (data.status === 'error') {
+	                    throw data.message;
+	                }
+	                return data;
+	            });
+	        }
+	    }], [{
+	        key: 'availableCategories',
+	        get: function get() {
+	            return ['business', 'entertainment', 'gaming', 'general', 'music', 'science-and-nature', 'sport', 'technology'];
+	        }
+	    }, {
+	        key: 'availableLanguages',
+	        get: function get() {
+	            return ['en', 'de', 'fr'];
+	        }
+	    }, {
+	        key: 'availableCountries',
+	        get: function get() {
+	            return ['au', 'de', 'gb', 'in', 'it', 'us'];
+	        }
+	    }]);
+	
+	    return Client;
+	}();
+	
+	exports.default = Client;
+
+/***/ },
+/* 344 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _ImagePreloader = __webpack_require__(345);
+	
+	var _ImagePreloader2 = _interopRequireDefault(_ImagePreloader);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var appTpl = __webpack_require__(346);
+	var sourceTpl = __webpack_require__(349);
+	var articleTpl = __webpack_require__(350);
+	var choiceTpl = __webpack_require__(352);
+	
+	var PageMediator = function () {
+	    function PageMediator(containerSelector) {
+	        _classCallCheck(this, PageMediator);
+	
+	        if (window.appMediator) {
+	            throw new Error('global appMediator var already defined!');
+	        }
+	
+	        window.appMediator = this;
+	
+	        this.onChoiceSelectedHandler = null;
+	        this.onSourceSelectedHandler = null;
+	
+	        this.appContainer = document.querySelector(containerSelector);
+	        this.appContainer.innerHTML = appTpl();
+	
+	        this.categoriesChoicesElement = this.appContainer.querySelector('#categoriesChoices');
+	        this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
+	        this.langChoicesElement = this.appContainer.querySelector('#langChoices');
+	        this.contentElement = this.appContainer.querySelector('#content');
+	    }
+	
+	    _createClass(PageMediator, [{
+	        key: 'setCategories',
+	        value: function setCategories(categories) {
+	            var _this = this;
+	
+	            this.categoriesChoicesElement.innerHTML = [this.getChoiceTpl('category', 'All', '', true)].concat(categories.map(function (value) {
+	                return _this.getChoiceTpl('category', value, value);
+	            })).join('');
+	        }
+	    }, {
+	        key: 'setCountries',
+	        value: function setCountries(countries) {
+	            var _this2 = this;
+	
+	            this.countriesChoicesElement.innerHTML = [this.getChoiceTpl('country', 'All', '', true)].concat(countries.map(function (value) {
+	                return _this2.getChoiceTpl('country', value, value);
+	            })).join('');
+	        }
+	    }, {
+	        key: 'setLanguages',
+	        value: function setLanguages(languages) {
+	            var _this3 = this;
+	
+	            this.langChoicesElement.innerHTML = [this.getChoiceTpl('language', 'All', '', true)].concat(languages.map(function (value) {
+	                return _this3.getChoiceTpl('language', value, value);
+	            })).join('');
+	        }
+	    }, {
+	        key: 'setSources',
+	        value: function setSources(sources) {
+	            var _this4 = this;
+	
+	            var formattedSources = sources.map(function (source) {
+	                return _this4.getSourceTpl(source);
+	            });
+	            this.contentElement.innerHTML = formattedSources.join('');
+	        }
+	    }, {
+	        key: 'setArticles',
+	        value: function setArticles(sourceId, articles) {
+	            var _this5 = this;
+	
+	            // todo: load images before inserting them into source block
+	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
+	            var formattedArticles = articles.map(function (article, index) {
+	                return _this5.getArticleTpl(article, sourceId, index);
+	            });
+	            sourcesElement.innerHTML = formattedArticles.join('');
+	            (0x0, _ImagePreloader2.default)(sourcesElement.querySelectorAll('a img'));
+	        }
+	    }, {
+	        key: 'setError',
+	        value: function setError(error) {
+	            this.contentElement.innerHTML = '<h4 class="error">' + error + '</h4>';
+	        }
+	    }, {
+	        key: 'onChoiceSelected',
+	        value: function onChoiceSelected(selectedNode) {
+	            if (selectedNode) {
+	                var radiosContainer = selectedNode.parentElement.parentElement;
+	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
+	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
+	                });
+	
+	                var param = selectedNode.name,
+	                    value = selectedNode.value;
+	
+	                this.onChoiceSelectedHandler && this.onChoiceSelectedHandler(param, value);
+	            }
+	        }
+	    }, {
+	        key: 'onSourceSelected',
+	        value: function onSourceSelected(sourceId) {
+	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
+	            if (sourcesElement.children.length > 0x0) {
+	                sourcesElement.innerHTML = '';
+	            } else {
+	                this.onSourceSelectedHandler && this.onSourceSelectedHandler(sourceId);
+	            }
+	        }
+	
+	        /* Private */
+	
+	    }, {
+	        key: 'getChoiceTpl',
+	        value: function getChoiceTpl(name, label, value, checked) {
+	            return choiceTpl({ name: name, label: label, value: value, checked: checked });
+	        }
+	    }, {
+	        key: 'getSourceTpl',
+	        value: function getSourceTpl(source) {
+	            return sourceTpl({ source: source });
+	        }
+	    }, {
+	        key: 'getArticleTpl',
+	        value: function getArticleTpl(article, sourceId, index) {
+	            return articleTpl({ article: article, sourceId: sourceId, index: index });
+	        }
+	    }]);
+	
+	    return PageMediator;
+	}();
+	
+	exports.default = PageMediator;
+
+/***/ },
 /* 345 */
 /***/ function(module, exports) {
 
@@ -11934,17 +11942,42 @@ webpackJsonp([1],[
 	function ImagePreloader(imgElements) {
 	    "use strict";
 	
-	    imgElements.forEach(function (imgElement) {
-	        new Promise(function (resolve) {
-	            Object.assign(new Image(), {
-	                onload: resolve,
-	                onerror: resolve,
-	                src: imgElement.attributes['data-src'].nodeValue
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+	
+	    try {
+	        var _loop = function _loop() {
+	            var imgElement = _step.value;
+	
+	            new Promise(function (resolve) {
+	                Object.assign(new Image(), {
+	                    onload: resolve,
+	                    onerror: resolve,
+	                    src: imgElement.attributes['data-src'].nodeValue
+	                });
+	            }).then(function () {
+	                imgElement.src = imgElement.attributes['data-src'].nodeValue;
 	            });
-	        }).then(function () {
-	            imgElement.src = imgElement.attributes['data-src'].nodeValue;
-	        });
-	    });
+	        };
+	
+	        for (var _iterator = imgElements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            _loop();
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
 	}
 
 /***/ },

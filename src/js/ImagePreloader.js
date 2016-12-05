@@ -1,7 +1,7 @@
 export default function ImagePreloader(imgElements) {
     "use strict";
 
-    imgElements.forEach(imgElement => {
+    for (let imgElement of imgElements) {
         (new Promise(resolve => {
             Object.assign(new Image(), {
                 onload: resolve,
@@ -11,5 +11,5 @@ export default function ImagePreloader(imgElements) {
         })).then(() => {
             imgElement.src = imgElement.attributes['data-src'].nodeValue;
         });
-    });
+    }
 }
