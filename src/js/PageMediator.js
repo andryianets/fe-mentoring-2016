@@ -1,5 +1,6 @@
 import configureStore from './redux/configureStore';
 import {initApp, filterChanged, loadArticles} from './redux/actions';
+import ImagePreloader from './ImagePreloader';
 
 const appTpl = require('../tpls/app.pug');
 const sourceTpl = require('../tpls/source.pug');
@@ -39,10 +40,6 @@ export default class PageMediator {
             this.setLanguages(state.filtersData.languages);
         }
 
-        if (this.prevState.headerFilters !== state.headerFilters) {
-            // from UI only...
-        }
-
         if (this.prevState.sourcesList !== state.sourcesList) {
             this.setSources(state.sourcesList);
         }
@@ -52,7 +49,7 @@ export default class PageMediator {
         }
 
         if (state.errorMessage) {
-            this.setError('Error: try another filter');
+            this.setError(state.errorMessage);
         }
 
         this.prevState = state;
@@ -82,9 +79,12 @@ export default class PageMediator {
     }
 
     setArticles(sourceId, articles) {
+        // todo: load images before inserting them into source block
         const sourcesElement = this.contentElement.querySelector(`#articles_of_${sourceId}`);
-        const formattedArticles = articles.map(article => this.getArticleTpl(article));
+        const formattedArticles = articles.map((article, index) => this.getArticleTpl(article, sourceId, index));
         sourcesElement.innerHTML = formattedArticles.join('');
+
+        ImagePreloader(sourcesElement.querySelectorAll(`a img`));
     }
 
     setError(error) {
@@ -95,7 +95,7 @@ export default class PageMediator {
         if (selectedNode) {
             const radiosContainer = selectedNode.parentElement.parentElement;
             Array.from(radiosContainer.getElementsByTagName('label')).forEach(labelNode => {
-                labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
+                labelNode.className = labelNode === selectedNode.parentElement ? '' : '';
             });
 
             const {name: param, value} = selectedNode;
@@ -122,8 +122,8 @@ export default class PageMediator {
         return sourceTpl({source});
     }
 
-    getArticleTpl(article) {
-        return articleTpl({article});
+    getArticleTpl(article, sourceId, index) {
+        return articleTpl({article, sourceId, index});
     }
 
 }

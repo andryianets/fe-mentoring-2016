@@ -53,9 +53,7 @@ function articlesList(state = {}, action) {
 function errorMessage(state = null, action) {
     switch (action.type) {
         case APP_ERROR:
-            return {
-                error: action.error
-            };
+            return action.error;
         default:
             return null;
     }

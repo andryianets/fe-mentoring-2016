@@ -32,7 +32,7 @@ webpackJsonp([1],[
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	__webpack_require__(353);
+	__webpack_require__(355);
 	
 	var App = function () {
 	    _createClass(App, null, [{
@@ -55,7 +55,7 @@ webpackJsonp([1],[
 	
 	        App.instance = this;
 	
-	        this.config = __webpack_require__(355);
+	        this.config = __webpack_require__(357);
 	        _client2.default.getInstance(this.config.apiKey);
 	
 	        new _PageMediator2.default(appContainerSelector);
@@ -8749,10 +8749,12 @@ webpackJsonp([1],[
 	
 	            params.apiKey = this.apiKey;
 	            return fetch(this.getApiUrl(url, params)).then(function (response) {
-	                if (!response.ok) {
-	                    throw Error(response.statusText);
-	                }
 	                return response.json();
+	            }).then(function (data) {
+	                if (data.status === 'error') {
+	                    throw data.message;
+	                }
+	                return data;
 	            });
 	        }
 	    }], [{
@@ -8835,14 +8837,18 @@ webpackJsonp([1],[
 	
 	var _actions = __webpack_require__(346);
 	
+	var _ImagePreloader = __webpack_require__(347);
+	
+	var _ImagePreloader2 = _interopRequireDefault(_ImagePreloader);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var appTpl = __webpack_require__(347);
-	var sourceTpl = __webpack_require__(350);
-	var articleTpl = __webpack_require__(351);
-	var choiceTpl = __webpack_require__(352);
+	var appTpl = __webpack_require__(348);
+	var sourceTpl = __webpack_require__(351);
+	var articleTpl = __webpack_require__(352);
+	var choiceTpl = __webpack_require__(354);
 	
 	var PageMediator = function () {
 	    function PageMediator(containerSelector) {
@@ -8880,10 +8886,6 @@ webpackJsonp([1],[
 	                this.setLanguages(state.filtersData.languages);
 	            }
 	
-	            if (this.prevState.headerFilters !== state.headerFilters) {
-	                // from UI only...
-	            }
-	
 	            if (this.prevState.sourcesList !== state.sourcesList) {
 	                this.setSources(state.sourcesList);
 	            }
@@ -8893,7 +8895,7 @@ webpackJsonp([1],[
 	            }
 	
 	            if (state.errorMessage) {
-	                this.setError('Error: try another filter');
+	                this.setError(state.errorMessage);
 	            }
 	
 	            this.prevState = state;
@@ -8940,11 +8942,14 @@ webpackJsonp([1],[
 	        value: function setArticles(sourceId, articles) {
 	            var _this5 = this;
 	
+	            // todo: load images before inserting them into source block
 	            var sourcesElement = this.contentElement.querySelector('#articles_of_' + sourceId);
-	            var formattedArticles = articles.map(function (article) {
-	                return _this5.getArticleTpl(article);
+	            var formattedArticles = articles.map(function (article, index) {
+	                return _this5.getArticleTpl(article, sourceId, index);
 	            });
 	            sourcesElement.innerHTML = formattedArticles.join('');
+	
+	            (0x0, _ImagePreloader2.default)(sourcesElement.querySelectorAll('a img'));
 	        }
 	    }, {
 	        key: 'setError',
@@ -8957,7 +8962,7 @@ webpackJsonp([1],[
 	            if (selectedNode) {
 	                var radiosContainer = selectedNode.parentElement.parentElement;
 	                Array.from(radiosContainer.getElementsByTagName('label')).forEach(function (labelNode) {
-	                    labelNode.className = labelNode === selectedNode.parentElement ? 'selected' : '';
+	                    labelNode.className = labelNode === selectedNode.parentElement ? '' : '';
 	                });
 	
 	                var param = selectedNode.name,
@@ -8991,8 +8996,8 @@ webpackJsonp([1],[
 	        }
 	    }, {
 	        key: 'getArticleTpl',
-	        value: function getArticleTpl(article) {
-	            return articleTpl({ article: article });
+	        value: function getArticleTpl(article, sourceId, index) {
+	            return articleTpl({ article: article, sourceId: sourceId, index: index });
 	        }
 	    }]);
 	
@@ -9032,17 +9037,21 @@ webpackJsonp([1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var logger = (0x0, _reduxLogger2.default)();
+	var middlewares = [_reduxThunk2.default, _reduxPromise2.default];
+	
+	if (true) {
+	    middlewares.push((0x0, _reduxLogger2.default)());
+	}
 	
 	function configureStore() {
-	    return (0x0, _redux.createStore)(_reducers2.default, (0x0, _redux.applyMiddleware)(_reduxThunk2.default, _reduxPromise2.default, logger));
+	    return (0x0, _redux.createStore)(_reducers2.default, _redux.applyMiddleware.apply(undefined, middlewares));
 	}
 
 /***/ },
 /* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	'use strict';
 	
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
@@ -9079,7 +9088,7 @@ webpackJsonp([1],[
 	*/
 	function isCrushed() {}
 	
-	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+	if (("development") !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
 	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
 	}
 	
@@ -9088,7 +9097,6 @@ webpackJsonp([1],[
 	exports.bindActionCreators = _bindActionCreators2['default'];
 	exports.applyMiddleware = _applyMiddleware2['default'];
 	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(301)))
 
 /***/ },
 /* 311 */
@@ -9735,7 +9743,7 @@ webpackJsonp([1],[
 /* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	'use strict';
 	
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
@@ -9822,7 +9830,7 @@ webpackJsonp([1],[
 	  for (var i = 0; i < reducerKeys.length; i++) {
 	    var key = reducerKeys[i];
 	
-	    if (process.env.NODE_ENV !== 'production') {
+	    if (true) {
 	      if (typeof reducers[key] === 'undefined') {
 	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
 	      }
@@ -9834,7 +9842,7 @@ webpackJsonp([1],[
 	  }
 	  var finalReducerKeys = Object.keys(finalReducers);
 	
-	  if (process.env.NODE_ENV !== 'production') {
+	  if (true) {
 	    var unexpectedKeyCache = {};
 	  }
 	
@@ -9853,7 +9861,7 @@ webpackJsonp([1],[
 	      throw sanityError;
 	    }
 	
-	    if (process.env.NODE_ENV !== 'production') {
+	    if (true) {
 	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
 	      if (warningMessage) {
 	        (0, _warning2['default'])(warningMessage);
@@ -9877,7 +9885,6 @@ webpackJsonp([1],[
 	    return hasChanged ? nextState : state;
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(301)))
 
 /***/ },
 /* 327 */
@@ -11826,9 +11833,7 @@ webpackJsonp([1],[
 	
 	    switch (action.type) {
 	        case _actions.APP_ERROR:
-	            return {
-	                error: action.error
-	            };
+	            return action.error;
 	        default:
 	            return null;
 	    }
@@ -11948,15 +11953,40 @@ webpackJsonp([1],[
 
 /***/ },
 /* 347 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = ImagePreloader;
+	function ImagePreloader(imgElements) {
+	    "use strict";
+	
+	    imgElements.forEach(function (imgElement) {
+	        new Promise(function (resolve) {
+	            var image = new Image();
+	            image.onload = resolve;
+	            image.onerror = resolve;
+	            image.src = imgElement.attributes['data-src'].nodeValue;
+	        }).then(function () {
+	            imgElement.src = imgElement.attributes['data-src'].nodeValue;
+	        });
+	    });
+	}
+
+/***/ },
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(348);
+	var pug = __webpack_require__(349);
 	
 	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003Cfooter\u003EPowered by\u003Ca href=\"https:\u002F\u002Fnewsapi.org\u002F\" target=\"_blank\"\u003ENewsAPI.org\u003C\u002Fa\u003E\u003C\u002Ffooter\u003E";;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12189,7 +12219,7 @@ webpackJsonp([1],[
 	    throw err;
 	  }
 	  try {
-	    str = str || __webpack_require__(349).readFileSync(filename, 'utf8')
+	    str = str || __webpack_require__(350).readFileSync(filename, 'utf8')
 	  } catch (ex) {
 	    pug_rethrow(err, null, lineno)
 	  }
@@ -12216,47 +12246,53 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 350 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var pug = __webpack_require__(348);
-	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "appMediator.onSourceSelected(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
-	module.exports = template;
-
-/***/ },
 /* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(348);
+	var pug = __webpack_require__(349);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("src", article.urlToImage, true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "appMediator.onSourceSelected(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(348);
+	var pug = __webpack_require__(349);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
-	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"appMediator.onChoiceSelected(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("data-src", article.urlToImage, true, true)+pug.attr("src", __webpack_require__(353), true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "assets/aa744a5a12cf69a99270c117cb057e4a.gif";
+
+/***/ },
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var pug = __webpack_require__(349);
+	
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
+	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"appMediator.onChoiceSelected(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
+	module.exports = template;
+
+/***/ },
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(354);
+	var content = __webpack_require__(356);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -12276,7 +12312,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 354 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -12290,7 +12326,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports) {
 
 	module.exports = {

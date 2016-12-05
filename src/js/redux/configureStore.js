@@ -4,11 +4,15 @@ import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import rootReducer from './reducers';
 
-const logger = createLogger();
+const middlewares = [thunk, promise];
+
+if (process.env.NODE_ENV === 'development') {
+    middlewares.push(createLogger());
+}
 
 export default function configureStore() {
     return createStore(
         rootReducer,
-        applyMiddleware(thunk, promise, logger)
+        applyMiddleware(...middlewares)
     )
 }
