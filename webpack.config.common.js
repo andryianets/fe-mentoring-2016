@@ -16,11 +16,11 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.pug/,
+                test: /\.pug$/,
                 loader: 'pug'
             },
             {
-                test: /\.scss/,
+                test: /\.s?css$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css!sass')
             },
             {
