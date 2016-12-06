@@ -11192,7 +11192,7 @@ webpackJsonp([1],[
 
 	var pug = __webpack_require__(340);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003Cfooter\u003EPowered by\u003Ca href=\"https:\u002F\u002Fnewsapi.org\u002F\" target=\"_blank\"\u003ENewsAPI.org\u003C\u002Fa\u003E\u003C\u002Ffooter\u003E";;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003Cfooter\u003EPowered by\u003Ca href=\"https:\u002F\u002Fnewsapi.org\u002F\" target=\"_blank\"\u003E NewsAPI.org\u003C\u002Fa\u003E\u003C\u002Ffooter\u003E";;return pug_html;};
 	module.exports = template;
 
 /***/ },
@@ -11530,7 +11530,7 @@ webpackJsonp([1],[
 	
 	
 	// module
-	exports.push([module.id, "footer {\n  text-align: center;\n  padding: 10px; }\n\n.error {\n  margin-top: 30px;\n  text-align: center;\n  font-size: 20px;\n  color: #F22; }\n\nfieldset {\n  text-align: center;\n  border: none;\n  line-height: 15px; }\n  fieldset label {\n    padding: 4px 10px;\n    text-transform: uppercase;\n    display: inline-block;\n    cursor: pointer; }\n  fieldset input[type=\"radio\"] {\n    display: none; }\n  fieldset label.selected {\n    background-color: #DDD; }\n\n.source {\n  margin: 10px 0;\n  padding: 4px;\n  border: #999 1px solid;\n  background-color: #EEE;\n  overflow: hidden; }\n  .source .logo {\n    padding: 14px; }\n  .source .articles {\n    text-align: center; }\n    .source .articles a {\n      display: inline-block;\n      margin: 10px;\n      border: 1px dashed #DDD;\n      opacity: 0.7; }\n      .source .articles a:hover {\n        opacity: 1; }\n      .source .articles a:last-of-type {\n        clear: both; }\n", ""]);
+	exports.push([module.id, "footer {\n  text-align: center;\n  padding: 10px; }\n\n.error {\n  margin-top: 30px;\n  text-align: center;\n  font-size: 20px;\n  color: #F22; }\n\nfieldset {\n  text-align: center;\n  border: none;\n  line-height: 15px; }\n  fieldset label {\n    padding: 4px 10px;\n    text-transform: uppercase;\n    display: inline-block;\n    cursor: pointer; }\n  fieldset input[type=\"radio\"] {\n    display: none; }\n  fieldset label.selected {\n    background-color: #DDD; }\n\n.source {\n  margin: 10px 0;\n  padding: 4px;\n  border: #999 1px solid;\n  background-color: #EEE;\n  overflow: hidden; }\n  .source .logo {\n    padding: 14px; }\n  .source .articles {\n    text-align: center; }\n    .source .articles a {\n      display: inline-block;\n      margin: 10px;\n      border: 5px solid #FFF;\n      opacity: 0.7; }\n      .source .articles a:hover {\n        opacity: 1; }\n      .source .articles a:last-of-type {\n        clear: both; }\n", ""]);
 	
 	// exports
 
