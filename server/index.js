@@ -3,6 +3,8 @@ const expressApp = express();
 
 expressApp.use(express.static('dist'));
 
-expressApp.listen(80, () => {
-    console.log('expressApp is listening on port 80');
+const port = process.env.PORT || 8080;
+
+expressApp.listen(port, () => {
+    console.log(`expressApp is listening on port ${port}`);
 });
