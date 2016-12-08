@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-prod": "(set NODE_ENV=production) && webpack --colors",
     "build": "webpack --colors",
-    "start": "webpack-dev-server --colors"
+    "dev-server": "webpack-dev-server --colors",
+    "start": "node ./server"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,8 @@
   "author": "Yury Andryianets",
   "license": "ISC",
   "dependencies": {
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "express": "^4.14.0",
+    "express-static": "^1.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -40,6 +41,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
     "whatwg-fetch": "^2.0.1"
   }
 }
