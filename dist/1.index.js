@@ -26,15 +26,7 @@ webpackJsonp([1],[
 	
 	var _actions = __webpack_require__(335);
 	
-	var _Client = __webpack_require__(336);
-	
-	var _Client2 = _interopRequireDefault(_Client);
-	
-	var _Client3 = __webpack_require__(337);
-	
-	var _Client4 = _interopRequireDefault(_Client3);
-	
-	var _PageMediator = __webpack_require__(338);
+	var _PageMediator = __webpack_require__(340);
 	
 	var _PageMediator2 = _interopRequireDefault(_PageMediator);
 	
@@ -42,7 +34,7 @@ webpackJsonp([1],[
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	__webpack_require__(347);
+	__webpack_require__(349);
 	
 	var App = function () {
 	    _createClass(App, null, [{
@@ -66,9 +58,6 @@ webpackJsonp([1],[
 	        }
 	
 	        App.instance = this;
-	
-	        var config = __webpack_require__(349);
-	        _Client2.default.getInstance(config.apiKey);
 	
 	        this.store = (0x0, _configureStore2.default)();
 	        this.prevState = {};
@@ -112,12 +101,12 @@ webpackJsonp([1],[
 	        }
 	
 	        // importArticles() {
-	        //     Client.getInstance().getSources()
+	        //     NewsApiClient.getInstance().getSources()
 	        //         .then(sources => {
 	        //             let p = Promise.resolve();
 	        //             for (let source of sources) {
 	        //                 p = p.then(() =>
-	        //                     Client.getInstance().getArticles(source.id)
+	        //                     NewsApiClient.getInstance().getArticles(source.id)
 	        //                         .then(artilces => {
 	        //                             artilces = artilces.map(article => Object.assign(article, {source}));
 	        //                             mLabClient.getInstance().importData(artilces);
@@ -10791,9 +10780,9 @@ webpackJsonp([1],[
 	exports.articlesLoaded = articlesLoaded;
 	exports.appError = appError;
 	
-	var _Client = __webpack_require__(336);
+	var _DataSource = __webpack_require__(336);
 	
-	var _Client2 = _interopRequireDefault(_Client);
+	var _DataSource2 = _interopRequireDefault(_DataSource);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -10812,9 +10801,9 @@ webpackJsonp([1],[
 	        dispatch({
 	            type: INIT_APP,
 	            filterData: {
-	                categories: _Client2.default.availableCategories,
-	                countries: _Client2.default.availableCountries,
-	                languages: _Client2.default.availableLanguages
+	                categories: _DataSource2.default.availableCategories,
+	                countries: _DataSource2.default.availableCountries,
+	                languages: _DataSource2.default.availableLanguages
 	            }
 	        });
 	        dispatch(loadSources());
@@ -10836,7 +10825,7 @@ webpackJsonp([1],[
 	
 	
 	    return function (dispatch) {
-	        return _Client2.default.getInstance().getSources(params).then(function (sources) {
+	        return _DataSource2.default.getInstance().getSources(params).then(function (sources) {
 	            return dispatch(sourcesLoaded(sources));
 	        }).catch(function (error) {
 	            return dispatch(appError(error));
@@ -10853,7 +10842,7 @@ webpackJsonp([1],[
 	
 	function loadArticles(sourceId) {
 	    return function (dispatch) {
-	        return _Client2.default.getInstance().getArticles(sourceId).then(function (articles) {
+	        return _DataSource2.default.getInstance().getArticles(sourceId).then(function (articles) {
 	            return dispatch(articlesLoaded(sourceId, articles));
 	        }).catch(function (error) {
 	            return dispatch(appError(error));
@@ -10878,6 +10867,88 @@ webpackJsonp([1],[
 
 /***/ },
 /* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Client = __webpack_require__(337);
+	
+	var _Client2 = _interopRequireDefault(_Client);
+	
+	var _Client3 = __webpack_require__(338);
+	
+	var _Client4 = _interopRequireDefault(_Client3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var DataSource = function () {
+	    _createClass(DataSource, null, [{
+	        key: 'getInstance',
+	        value: function getInstance() {
+	            return DataSource.instance || new DataSource();
+	        }
+	    }, {
+	        key: 'availableCategories',
+	        get: function get() {
+	            return ['business', 'entertainment', 'gaming', 'general', 'music', 'science-and-nature', 'sport', 'technology'];
+	        }
+	    }, {
+	        key: 'availableLanguages',
+	        get: function get() {
+	            return ['en', 'de', 'fr'];
+	        }
+	    }, {
+	        key: 'availableCountries',
+	        get: function get() {
+	            return ['au', 'de', 'gb', 'in', 'it', 'us'];
+	        }
+	    }]);
+	
+	    function DataSource(type) {
+	        _classCallCheck(this, DataSource);
+	
+	        if (DataSource.instance) {
+	            throw 'DataSource instance already instantiated';
+	        }
+	
+	        DataSource.instance = this;
+	
+	        var config = __webpack_require__(339);
+	
+	        if (type === 'mLab') {
+	            this.dataClient = _Client4.default.getInstance(config.mLab.apiKey);
+	        } else {
+	            this.dataClient = _Client2.default.getInstance(config.newsApi.apiKey);
+	        }
+	    }
+	
+	    _createClass(DataSource, [{
+	        key: 'getSources',
+	        value: function getSources(params) {
+	            return this.dataClient.getSources(params);
+	        }
+	    }, {
+	        key: 'getArticles',
+	        value: function getArticles(sourceId) {
+	            return this.dataClient.getArticles(sourceId);
+	        }
+	    }]);
+	
+	    return DataSource;
+	}();
+	
+	exports.default = DataSource;
+
+/***/ },
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10923,7 +10994,7 @@ webpackJsonp([1],[
 	        _classCallCheck(this, Client);
 	
 	        if (Client.instance) {
-	            throw 'NewsAPI Client instance already instantiated';
+	            throw 'NewsAPI NewsApiClient instance already instantiated';
 	        }
 	
 	        Client.instance = this;
@@ -10970,7 +11041,7 @@ webpackJsonp([1],[
 	
 	
 	            if (true) {
-	                console.log('NewsAPI Client doRequest()', url, params);
+	                console.log('NewsAPI NewsApiClient doRequest()', url, params);
 	            }
 	
 	            params.apiKey = this.apiKey;
@@ -10983,21 +11054,6 @@ webpackJsonp([1],[
 	                return data;
 	            });
 	        }
-	    }], [{
-	        key: 'availableCategories',
-	        get: function get() {
-	            return ['business', 'entertainment', 'gaming', 'general', 'music', 'science-and-nature', 'sport', 'technology'];
-	        }
-	    }, {
-	        key: 'availableLanguages',
-	        get: function get() {
-	            return ['en', 'de', 'fr'];
-	        }
-	    }, {
-	        key: 'availableCountries',
-	        get: function get() {
-	            return ['au', 'de', 'gb', 'in', 'it', 'us'];
-	        }
 	    }]);
 	
 	    return Client;
@@ -11006,7 +11062,7 @@ webpackJsonp([1],[
 	exports.default = Client;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11024,9 +11080,7 @@ webpackJsonp([1],[
 	var Client = function () {
 	    _createClass(Client, null, [{
 	        key: 'getInstance',
-	        value: function getInstance() {
-	            var apiKey = arguments.length > 0x0 && arguments[0x0] !== undefined ? arguments[0x0] : 'lIo66jGFt2WmdrZEXdbDxFpXbRgGqVJM';
-	
+	        value: function getInstance(apiKey) {
 	            return Client.instance || new Client(apiKey);
 	        }
 	    }]);
@@ -11035,7 +11089,7 @@ webpackJsonp([1],[
 	        _classCallCheck(this, Client);
 	
 	        if (Client.instance) {
-	            throw 'mLab mongodb Client instance already instantiated';
+	            throw 'mLab mongodb NewsApiClient instance already instantiated';
 	        }
 	
 	        Client.instance = this;
@@ -11046,8 +11100,11 @@ webpackJsonp([1],[
 	    _createClass(Client, [{
 	        key: 'getSources',
 	        value: function getSources(params) {
-	            return this.doRequest('POST', {
-	                q: ''
+	            return this.doRequest('GET', {
+	                q: JSON.stringify({
+	                    'source.id': 'bbc-news'
+	                }),
+	                l: 0xa
 	            });
 	        }
 	    }, {
@@ -11070,7 +11127,7 @@ webpackJsonp([1],[
 	
 	
 	            if (true) {
-	                console.log('mLab mongodb Client doRequest()', method, params);
+	                console.log('mLab mongodb NewsApiClient doRequest()', method, params);
 	            }
 	
 	            var headers = new Headers();
@@ -11110,7 +11167,28 @@ webpackJsonp([1],[
 	exports.default = Client;
 
 /***/ },
-/* 338 */
+/* 339 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"newsApi": {
+			"apiKey": "a90095ec1a4d42d0a97bc23915858b11"
+		},
+		"mLab": {
+			"apiKey": "lIo66jGFt2WmdrZEXdbDxFpXbRgGqVJM"
+		},
+		"testTree": {
+			"string": "string",
+			"array": [
+				{
+					"string": "string"
+				}
+			]
+		}
+	};
+
+/***/ },
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11121,7 +11199,7 @@ webpackJsonp([1],[
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0x0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _ImagePreloader = __webpack_require__(339);
+	var _ImagePreloader = __webpack_require__(341);
 	
 	var _ImagePreloader2 = _interopRequireDefault(_ImagePreloader);
 	
@@ -11129,10 +11207,10 @@ webpackJsonp([1],[
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var appTpl = __webpack_require__(340);
-	var sourceTpl = __webpack_require__(343);
-	var articleTpl = __webpack_require__(344);
-	var choiceTpl = __webpack_require__(346);
+	var appTpl = __webpack_require__(342);
+	var sourceTpl = __webpack_require__(345);
+	var articleTpl = __webpack_require__(346);
+	var choiceTpl = __webpack_require__(348);
 	
 	var PageMediator = function () {
 	    function PageMediator(containerSelector) {
@@ -11262,7 +11340,7 @@ webpackJsonp([1],[
 	exports.default = PageMediator;
 
 /***/ },
-/* 339 */
+/* 341 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11313,16 +11391,16 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 340 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(341);
+	var pug = __webpack_require__(343);
 	
 	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003Cfooter\u003EPowered by\u003Ca href=\"https:\u002F\u002Fnewsapi.org\u002F\" target=\"_blank\"\u003E NewsAPI.org\u003C\u002Fa\u003E\u003C\u002Ffooter\u003E";;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 341 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11555,7 +11633,7 @@ webpackJsonp([1],[
 	    throw err;
 	  }
 	  try {
-	    str = str || __webpack_require__(342).readFileSync(filename, 'utf8')
+	    str = str || __webpack_require__(344).readFileSync(filename, 'utf8')
 	  } catch (ex) {
 	    pug_rethrow(err, null, lineno)
 	  }
@@ -11582,53 +11660,53 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 342 */
+/* 344 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 343 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(341);
+	var pug = __webpack_require__(343);
 	
 	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "appMediator.onSourceSelected(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 344 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var pug = __webpack_require__(341);
-	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("data-src", article.urlToImage, true, true)+pug.attr("src", __webpack_require__(345), true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
-	module.exports = template;
-
-/***/ },
-/* 345 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "assets/aa744a5a12cf69a99270c117cb057e4a.gif";
-
-/***/ },
 /* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(341);
+	var pug = __webpack_require__(343);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
-	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"appMediator.onChoiceSelected(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("data-src", article.urlToImage, true, true)+pug.attr("src", __webpack_require__(347), true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
 /* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "assets/aa744a5a12cf69a99270c117cb057e4a.gif";
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var pug = __webpack_require__(343);
+	
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
+	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"appMediator.onChoiceSelected(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
+	module.exports = template;
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(348);
+	var content = __webpack_require__(350);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -11648,7 +11726,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 348 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -11660,22 +11738,6 @@ webpackJsonp([1],[
 	
 	// exports
 
-
-/***/ },
-/* 349 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		"apiKey": "a90095ec1a4d42d0a97bc23915858b11",
-		"testTree": {
-			"string": "string",
-			"array": [
-				{
-					"string": "string"
-				}
-			]
-		}
-	};
 
 /***/ }
 ]);

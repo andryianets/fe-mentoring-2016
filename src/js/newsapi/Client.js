@@ -22,34 +22,13 @@ export default class Client {
     constructor(apiKey) {
 
         if (Client.instance) {
-            throw 'NewsAPI Client instance already instantiated';
+            throw 'NewsAPI NewsApiClient instance already instantiated';
         }
 
         Client.instance = this;
 
         this.apiKey = apiKey;
 
-    }
-
-    static get availableCategories() {
-        return [
-            'business',
-            'entertainment',
-            'gaming',
-            'general',
-            'music',
-            'science-and-nature',
-            'sport',
-            'technology'
-        ];
-    }
-
-    static get availableLanguages() {
-        return ['en', 'de', 'fr'];
-    }
-
-    static get availableCountries() {
-        return ['au', 'de', 'gb', 'in', 'it', 'us'];
     }
 
     getSources(params) {
@@ -76,7 +55,7 @@ export default class Client {
     doRequest(url, params = {}) {
 
         if (process.env.NODE_ENV === 'development') {
-            console.log('NewsAPI Client doRequest()', url, params);
+            console.log('NewsAPI NewsApiClient doRequest()', url, params);
         }
 
         params.apiKey = this.apiKey;

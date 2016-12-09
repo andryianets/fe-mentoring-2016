@@ -1,4 +1,4 @@
-import Client from '../newsapi/Client';
+import DataSource from '../DataSource';
 
 export const INIT_APP = 'INIT_APP';
 export const FILTER_CHANGED = 'FILTER_CHANGED';
@@ -13,9 +13,9 @@ export function initApp() {
         dispatch({
             type: INIT_APP,
             filterData: {
-                categories: Client.availableCategories,
-                countries: Client.availableCountries,
-                languages: Client.availableLanguages
+                categories: DataSource.availableCategories,
+                countries: DataSource.availableCountries,
+                languages: DataSource.availableLanguages
             }
         });
         dispatch(loadSources())
@@ -37,7 +37,7 @@ export function filterChanged(param, value) {
 export function loadSources(params = {}) {
 
     return dispatch => {
-        return Client.getInstance().getSources(params)
+        return DataSource.getInstance().getSources(params)
             .then(sources => dispatch(sourcesLoaded(sources)))
             .catch(error => dispatch(appError(error)));
     };
@@ -52,7 +52,7 @@ export function sourcesLoaded(sources) {
 
 export function loadArticles(sourceId) {
     return dispatch => {
-        return Client.getInstance().getArticles(sourceId)
+        return DataSource.getInstance().getArticles(sourceId)
             .then(articles => dispatch(articlesLoaded(sourceId, articles)))
             .catch(error => dispatch(appError(error)));
     };

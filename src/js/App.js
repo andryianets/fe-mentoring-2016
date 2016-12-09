@@ -2,8 +2,6 @@ import 'whatwg-fetch';
 import 'babel-polyfill';
 import configureStore from './redux/configureStore';
 import {initApp, filterChanged, loadArticles} from './redux/actions';
-import Client from './newsapi/Client';
-import mLabClient from './mlab/Client';
 import PageMediator from './PageMediator';
 require('../scss/app.scss');
 
@@ -22,9 +20,6 @@ export default class App {
         }
 
         App.instance = this;
-
-        const config = require('./config.json');
-        Client.getInstance(config.apiKey);
 
         this.store = configureStore();
         this.prevState = {};
@@ -66,12 +61,12 @@ export default class App {
     }
 
     // importArticles() {
-    //     Client.getInstance().getSources()
+    //     NewsApiClient.getInstance().getSources()
     //         .then(sources => {
     //             let p = Promise.resolve();
     //             for (let source of sources) {
     //                 p = p.then(() =>
-    //                     Client.getInstance().getArticles(source.id)
+    //                     NewsApiClient.getInstance().getArticles(source.id)
     //                         .then(artilces => {
     //                             artilces = artilces.map(article => Object.assign(article, {source}));
     //                             mLabClient.getInstance().importData(artilces);

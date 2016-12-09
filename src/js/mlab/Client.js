@@ -2,14 +2,14 @@ const POSTS_COLLECTION_URL = 'https://api.mlab.com/api/1/databases/heroku_bknz76
 
 export default class Client {
 
-    static getInstance(apiKey = 'lIo66jGFt2WmdrZEXdbDxFpXbRgGqVJM') {
+    static getInstance(apiKey) {
         return Client.instance || new Client(apiKey);
     }
 
     constructor(apiKey) {
 
         if (Client.instance) {
-            throw 'mLab mongodb Client instance already instantiated';
+            throw 'mLab mongodb NewsApiClient instance already instantiated';
         }
 
         Client.instance = this;
@@ -20,9 +20,12 @@ export default class Client {
 
     getSources(params) {
         return this.doRequest(
-            'POST',
+            'GET',
             {
-                q: ''
+                q: JSON.stringify({
+                    'source.id': 'bbc-news'
+                }),
+                l: 10
             }
         );
     }
@@ -47,7 +50,7 @@ export default class Client {
     doRequest(method, params = {}, body = null) {
 
         if (process.env.NODE_ENV === 'development') {
-            console.log('mLab mongodb Client doRequest()', method, params);
+            console.log('mLab mongodb NewsApiClient doRequest()', method, params);
         }
 
         const headers = new Headers();

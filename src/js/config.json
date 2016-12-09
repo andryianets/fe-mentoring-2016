@@ -1,5 +1,11 @@
 {
-  "apiKey": "a90095ec1a4d42d0a97bc23915858b11",
+  "newsApi": {
+    "apiKey": "a90095ec1a4d42d0a97bc23915858b11"
+  },
+
+  "mLab": {
+    "apiKey": "lIo66jGFt2WmdrZEXdbDxFpXbRgGqVJM"
+  },
 
   "testTree": {
     "string": "string",
