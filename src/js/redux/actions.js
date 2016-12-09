@@ -35,6 +35,7 @@ export function filterChanged(param, value) {
 }
 
 export function loadSources(params = {}) {
+
     return dispatch => {
         return Client.getInstance().getSources(params)
             .then(sources => dispatch(sourcesLoaded(sources)))

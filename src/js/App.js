@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import configureStore from './redux/configureStore';
 import {initApp, filterChanged, loadArticles} from './redux/actions';
 import Client from './newsapi/Client';
+import mLabClient from './mlab/Client';
 import PageMediator from './PageMediator';
 require('../scss/app.scss');
 
@@ -63,5 +64,21 @@ export default class App {
 
         this.prevState = state;
     }
+
+    // importArticles() {
+    //     Client.getInstance().getSources()
+    //         .then(sources => {
+    //             let p = Promise.resolve();
+    //             for (let source of sources) {
+    //                 p = p.then(() =>
+    //                     Client.getInstance().getArticles(source.id)
+    //                         .then(artilces => {
+    //                             artilces = artilces.map(article => Object.assign(article, {source}));
+    //                             mLabClient.getInstance().importData(artilces);
+    //                         })
+    //                 );
+    //             }
+    //         });
+    // }
 
 }
