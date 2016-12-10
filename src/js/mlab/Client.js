@@ -1,4 +1,6 @@
-const POSTS_COLLECTION_URL = 'https://api.mlab.com/api/1/databases/heroku_bknz76p0/collections/posts';
+const DB_URL = 'https://api.mlab.com/api/1/databases/heroku_bknz76p0';
+const RUN_COMMAND_URL = `${DB_URL}/runCommand`;
+const POSTS_COLLECTION_URL = `${DB_URL}/collections/posts`;
 
 export default class Client {
 
@@ -19,22 +21,27 @@ export default class Client {
     }
 
     getSources(params) {
-        return this.doRequest(
-            'GET',
-            {
-                q: JSON.stringify({
-                    'source.id': 'bbc-news'
-                }),
-                l: 10
+        const query = {};
+        for (var name in params) {
+            if (params[name] && params[name] !== '') {
+                query[`source.${name}`] = params[name];
             }
-        ).then(articles => articles.map(article => article.source));
+        }
+        return this.runCommand(
+            JSON.stringify({
+                distinct: 'posts',
+                key: 'source',
+                query
+            })
+        ).then(data => data.values);
     }
 
     getArticles(sourceId) {
         return this.doRequest(
-            'POST',
+            'GET',
             {
-                q: ''
+                q: JSON.stringify({'source.id': sourceId}),
+                f: JSON.stringify({source: 0, _id: 0}),
             }
         );
     }
@@ -58,6 +65,29 @@ export default class Client {
         const req = new Request(
             this.createUrl(POSTS_COLLECTION_URL, params),
             {method, body}
+        );
+
+        return fetch(req)
+            .then(response => {
+                if (!response.ok) {
+                    throw 'mLab mongodb error';
+                }
+                return response.json();
+            });
+    }
+
+    runCommand(body) {
+
+        if (process.env.NODE_ENV === 'development') {
+            console.log('mLab mongodb NewsApiClient runCommand()', body);
+        }
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        const req = new Request(
+            this.createUrl(RUN_COMMAND_URL, {apiKey: this.apiKey}),
+            {method: 'POST', headers, body}
         );
 
         return fetch(req)

@@ -1,10 +1,22 @@
 import NewsApiClient from './newsapi/Client';
 import mLabClient from './mlab/Client';
 
+class Source {}
+
+class Article {}
+
 export default class DataSource {
 
     static getInstance() {
         return DataSource.instance || new DataSource('mLab');
+    }
+
+    static createSource(data) {
+        return Object.assign(new Source(), data);
+    }
+
+    static createArticle(sourceId, data) {
+        return Object.assign(new Article(), data, {sourceId});
     }
 
     static get availableCategories() {
@@ -47,11 +59,13 @@ export default class DataSource {
     }
 
     getSources(params) {
-        return this.dataClient.getSources(params);
+        return this.dataClient.getSources(params)
+            .then(items => items.map(item => DataSource.createSource(item)));
     }
 
     getArticles(sourceId) {
-        return this.dataClient.getArticles(sourceId);
+        return this.dataClient.getArticles(sourceId)
+            .then(items => items.map(item => DataSource.createArticle(sourceId, item)));
     }
 
 }
