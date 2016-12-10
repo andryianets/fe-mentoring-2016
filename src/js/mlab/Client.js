@@ -27,7 +27,7 @@ export default class Client {
                 }),
                 l: 10
             }
-        );
+        ).then(articles => articles.map(article => article.source));
     }
 
     getArticles(sourceId) {
@@ -53,21 +53,17 @@ export default class Client {
             console.log('mLab mongodb NewsApiClient doRequest()', method, params);
         }
 
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
         params.apiKey = this.apiKey;
 
         const req = new Request(
             this.createUrl(POSTS_COLLECTION_URL, params),
-            {method, body, headers}
+            {method, body}
         );
 
         return fetch(req)
             .then(response => {
-                if (response.ok) {
-                    //throw 'mLab mongodb error';
-                    return Promise.resolve({});
+                if (!response.ok) {
+                    throw 'mLab mongodb error';
                 }
                 return response.json();
             });

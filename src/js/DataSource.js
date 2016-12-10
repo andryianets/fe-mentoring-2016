@@ -4,7 +4,7 @@ import mLabClient from './mlab/Client';
 export default class DataSource {
 
     static getInstance() {
-        return DataSource.instance || new DataSource();
+        return DataSource.instance || new DataSource('mLab');
     }
 
     static get availableCategories() {
