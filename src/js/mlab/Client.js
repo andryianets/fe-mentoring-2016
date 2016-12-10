@@ -22,7 +22,7 @@ export default class Client {
 
     getSources(params) {
         const query = {};
-        for (var name in params) {
+        for (let name in params) {
             if (params[name] && params[name] !== '') {
                 query[`source.${name}`] = params[name];
             }
