@@ -8,6 +8,7 @@
     "build-prod": "(set NODE_ENV=production) && webpack --colors",
     "build": "webpack --colors",
     "dev-server": "webpack-dev-server --colors",
+    "prestart": "webpack",
     "start": "node ./server"
   },
   "repository": {
