@@ -3,6 +3,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 const CONNECTION_URL = 'mongodb://heroku_bknz76p0:fehobrubla0lks29slb10mmoiq@ds119368.mlab.com:19368/heroku_bknz76p0';
+//const CONNECTION_URL = 'mongodb://localhost:27017/test';
 
 MongoClient.connect(CONNECTION_URL, (err, db) => {
     getClassWithBestScore(db.collection('grades'))
