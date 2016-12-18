@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -6,12 +7,7 @@ module.exports = {
     output: {
         path: __dirname + '/dist',
         filename: 'index.js',
-        publicPath: 'dist/'
-    },
-    devtool: "source-map",
-    devServer: {
-        "open": true,
-        "content-base": "./"
+        publicPath: '/'
     },
     module: {
         loaders: [
@@ -39,6 +35,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('styles.css'),
+        new HtmlWebpackPlugin({
+            title: 'Mentoring 2016 App',
+            template: './src/tpls/index.pug'
+        })
     ]
 };

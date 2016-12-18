@@ -85,7 +85,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist/";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -99,7 +99,7 @@
 	
 	__webpack_require__(1);
 	
-	var testNumber = 0x7e0 + 0xb + 0x13 + 0x73 + 0x29c;
+	var testNumber = 2016 + 11 + 19 + 115 + 668;
 	
 	window.loadAppModule = function () {
 	    __webpack_require__.e/* nsure */(1, function () {

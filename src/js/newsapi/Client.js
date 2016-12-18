@@ -1,28 +1,16 @@
 const ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
 const SOURCES_API_URL = 'https://newsapi.org/v1/sources';
 
-class Source {}
-
-class Article {}
-
 export default class Client {
 
     static getInstance(apiKey) {
         return Client.instance || new Client(apiKey);
     }
 
-    static createSource(data) {
-        return Object.assign(new Source(), data);
-    }
-
-    static createArticle(sourceId, data) {
-        return Object.assign(new Article(), data, {sourceId});
-    }
-
     constructor(apiKey) {
 
         if (Client.instance) {
-            throw 'NewsAPI Client instance already instantiated';
+            throw 'NewsAPI NewsApiClient instance already instantiated';
         }
 
         Client.instance = this;
@@ -31,35 +19,14 @@ export default class Client {
 
     }
 
-    static get availableCategories() {
-        return [
-            'business',
-            'entertainment',
-            'gaming',
-            'general',
-            'music',
-            'science-and-nature',
-            'sport',
-            'technology'
-        ];
-    }
-
-    static get availableLanguages() {
-        return ['en', 'de', 'fr'];
-    }
-
-    static get availableCountries() {
-        return ['au', 'de', 'gb', 'in', 'it', 'us'];
-    }
-
     getSources(params) {
         return this.doRequest(SOURCES_API_URL, params)
-            .then(data => data.sources.map(sourceData => Client.createSource(sourceData)));
+            .then(data => data.sources);
     }
 
     getArticles(sourceId) {
         return this.doRequest(ARTICLES_API_URL, {source: sourceId})
-            .then(data => data.articles.map(articleData => Client.createArticle(sourceId, articleData)));
+            .then(data => data.articles);
     }
 
     getApiUrl(baseUrl, params = {}) {
@@ -76,7 +43,7 @@ export default class Client {
     doRequest(url, params = {}) {
 
         if (process.env.NODE_ENV === 'development') {
-            console.log('NewsAPI Client doRequest()', url, params);
+            console.log('NewsAPI NewsApiClient doRequest()', url, params);
         }
 
         params.apiKey = this.apiKey;
