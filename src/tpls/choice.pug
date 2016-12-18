@@ -6,6 +6,6 @@ class=(checked && 'selected'))
     type="radio",
     id=id
     name=name, value=value,
-    onchange="app.updateSources(this)",
+    onchange="appMediator.onChoiceSelected(this)",
     checked=checked)
     | #{label}
