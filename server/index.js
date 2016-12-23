@@ -1,17 +1,29 @@
-const express = require('express');
-const path = require('path');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const db = require('./model/db');
+const express = require('express'),
+    session = require('express-session'),
+    path = require('path'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    db = require('./model/db'),
+    passport = require('passport');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(logger('dev'));
 
+app.use(session({
+    secret: 'mentoring2016',
+    resave: false,
+    saveUninitialized: true,
+    //cookie: { secure: true }
+}));
+passport.use(require('./PassportStrategy'));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use('/api/articles', require('./routes/articles'));

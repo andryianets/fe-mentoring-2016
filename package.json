@@ -9,7 +9,8 @@
     "build-prod": "(set NODE_ENV=production) && webpack --colors",
     "build": "webpack --colors",
     "dev-server": "webpack-dev-server --colors",
-    "start": "node ./server"
+    "start": "node ./server",
+    "supervisor": "supervisor ./server"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,10 @@
     "express-static": "^1.0.3",
     "mongodb": "^2.2.15",
     "mongoose": "^4.7.4",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "supervisor": "^0.12.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

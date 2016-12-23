@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const ArticleSchema = require('./schemes/Article');
 
 mongoose.Promise = Promise;
 
@@ -10,11 +9,12 @@ const connection = mongoose.connection;
 
 connection.on('error', console.error.bind(console, 'connection error:'));
 connection.once('open', () => {
-    console.log('connection established');
+    console.log('DB connection established');
 });
 
 module.exports = {
     connection,
-    Article: mongoose.model('posts', ArticleSchema)
+    Article: mongoose.model('posts', require('./schemes/Article')),
+    User: mongoose.model('users', require('./schemes/User'))
 };
 
