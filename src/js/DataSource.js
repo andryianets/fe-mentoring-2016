@@ -1,14 +1,7 @@
-import NewsApiClient from './newsapi/Client';
-import mLabClient from './mlab/Client';
-
-class Source {}
-
-class Article {}
-
 export default class DataSource {
 
     static getInstance() {
-        return DataSource.instance || new DataSource('mLab');
+        return DataSource.instance || new DataSource();
     }
 
     static createSource(data) {
@@ -40,7 +33,7 @@ export default class DataSource {
         return ['au', 'de', 'gb', 'in', 'it', 'us'];
     }
 
-    constructor(type) {
+    constructor() {
 
         if (DataSource.instance) {
             throw 'DataSource instance already instantiated';
@@ -50,22 +43,65 @@ export default class DataSource {
 
         const config = require('./config.json');
 
-        if (type === 'mLab') {
-            this.dataClient = mLabClient.getInstance(config.mLab.apiKey);
-        } else {
-            this.dataClient = NewsApiClient.getInstance(config.newsApi.apiKey);
-        }
-
     }
 
     getSources(params) {
-        return this.dataClient.getSources(params)
-            .then(items => items.map(item => DataSource.createSource(item)));
+        return this.doRequest('/api/v1/posts', 'GET', {
+            query: JSON.stringify(params)
+        });
+
+
     }
 
     getArticles(sourceId) {
-        return this.dataClient.getArticles(sourceId)
-            .then(items => items.map(item => DataSource.createArticle(sourceId, item)));
+        return Promise.resolve([]);
+    }
+
+    checkLogin() {
+        return this.doRequest('/api/auth');
+    }
+
+    doLogin(login, pass) {
+        return this.doRequest('/api/auth', 'POST', {}, {login, pass});
+    }
+
+    doRequest(url, method='GET', queryParams = {}, body = null) {
+
+        if (process.env.NODE_ENV === 'development') {
+            console.log('DataSource doRequest()', method, queryParams);
+        }
+
+        const req = new Request(
+            this.createUrl(url, queryParams),
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                method,
+                body: body && JSON.stringify(body)
+            }
+        );
+
+        return fetch(req)
+            .then(response => {
+                if (!response.ok) {
+                    throw 'DataSource error';
+                }
+                return response.json();
+            });
+    }
+
+    createUrl(baseUrl, params = {}) {
+        const queryParts = [];
+        for (var name in params) {
+            if (params[name]) {
+                queryParts.push(`${name}=${params[name]}`);
+            }
+        }
+        const urlSuffix = queryParts.length ? '?'+queryParts.join('&') : '';
+        return `${baseUrl}${urlSuffix}`;
     }
 
 }

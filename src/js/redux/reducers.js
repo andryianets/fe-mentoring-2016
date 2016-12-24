@@ -1,12 +1,24 @@
 import { combineReducers } from 'redux';
-import {INIT_APP, APP_ERROR,
-        FILTER_CHANGED,
+import {LOGIN_SUCCESS, LOGIN_FAILED,
+        APP_ERROR,
+        INIT_FILTERS, FILTER_CHANGED,
         LOAD_SOURCES, LOAD_ARTICLES,
         SOURCES_LOADED, ARTICLES_LOADED} from './actions';
 
-function filtersData(state = {}, action) {
+function loggedInUser(state = null, action) {
     switch (action.type) {
-        case INIT_APP:
+        case LOGIN_SUCCESS:
+            return Object.assign({}, state, action.user);
+        case LOGIN_FAILED:
+            return null;
+        default:
+            return state;
+    }
+}
+
+function filtersData(state = {categories: [], countries: [], languages: []}, action) {
+    switch (action.type) {
+        case INIT_FILTERS:
             return Object.assign({}, state, action.filterData);
         default:
             return state;
@@ -60,11 +72,19 @@ function errorMessage(state = null, action) {
 }
 
 const rootReducer = combineReducers({
+
+    //common
+    loggedInUser,
+
+    //public view
     filtersData,
     headerFilters,
     sourcesList,
     articlesList,
     errorMessage
+
+    //admin view
+
 });
 
 export default rootReducer;

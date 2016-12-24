@@ -26,7 +26,7 @@ webpackJsonp([1],[
 	
 	var _actions = __webpack_require__(335);
 	
-	var _PageMediator = __webpack_require__(340);
+	var _PageMediator = __webpack_require__(338);
 	
 	var _PageMediator2 = _interopRequireDefault(_PageMediator);
 	
@@ -34,7 +34,7 @@ webpackJsonp([1],[
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	__webpack_require__(349);
+	__webpack_require__(347);
 	
 	var App = function () {
 	    _createClass(App, null, [{
@@ -64,6 +64,11 @@ webpackJsonp([1],[
 	        this.store.subscribe(this.handleStoreChange.bind(this));
 	
 	        this.pageMediator = new _PageMediator2.default(appContainerSelector);
+	
+	        this.pageMediator.onLoginTryHandler = function (login, pass) {
+	            _this.store.dispatch((0, _actions.tryLogin)(login, pass));
+	        };
+	
 	        this.pageMediator.onChoiceSelectedHandler = function (param, value) {
 	            _this.store.dispatch((0, _actions.filterChanged)(param, value));
 	        };
@@ -78,6 +83,10 @@ webpackJsonp([1],[
 	        key: 'handleStoreChange',
 	        value: function handleStoreChange() {
 	            var state = this.store.getState();
+	
+	            if (this.prevState.loggedInUser !== state.loggedInUser) {
+	                this.pageMediator.setLoggedInUser(state.loggedInUser);
+	            }
 	
 	            if (this.prevState.filtersData !== state.filtersData) {
 	                this.pageMediator.setCategories(state.filtersData.categories);
@@ -99,23 +108,6 @@ webpackJsonp([1],[
 	
 	            this.prevState = state;
 	        }
-	
-	        // importArticles() {
-	        //     NewsApiClient.getInstance().getSources()
-	        //         .then(sources => {
-	        //             let p = Promise.resolve();
-	        //             for (let source of sources) {
-	        //                 p = p.then(() =>
-	        //                     NewsApiClient.getInstance().getArticles(source.id)
-	        //                         .then(artilces => {
-	        //                             artilces = artilces.map(article => Object.assign(article, {source}));
-	        //                             mLabClient.getInstance().importData(artilces);
-	        //                         })
-	        //                 );
-	        //             }
-	        //         });
-	        // }
-	
 	    }]);
 	
 	    return App;
@@ -10682,12 +10674,26 @@ webpackJsonp([1],[
 	
 	var _actions = __webpack_require__(335);
 	
-	function filtersData() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	function loggedInUser() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 	    var action = arguments[1];
 	
 	    switch (action.type) {
-	        case _actions.INIT_APP:
+	        case _actions.LOGIN_SUCCESS:
+	            return Object.assign({}, state, action.user);
+	        case _actions.LOGIN_FAILED:
+	            return null;
+	        default:
+	            return state;
+	    }
+	}
+	
+	function filtersData() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { categories: [], countries: [], languages: [] };
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case _actions.INIT_FILTERS:
 	            return Object.assign({}, state, action.filterData);
 	        default:
 	            return state;
@@ -10753,11 +10759,19 @@ webpackJsonp([1],[
 	}
 	
 	var rootReducer = (0, _redux.combineReducers)({
+	
+	    //common
+	    loggedInUser: loggedInUser,
+	
+	    //public view
 	    filtersData: filtersData,
 	    headerFilters: headerFilters,
 	    sourcesList: sourcesList,
 	    articlesList: articlesList,
 	    errorMessage: errorMessage
+	
+	    //admin view
+	
 	});
 	
 	exports.default = rootReducer;
@@ -10771,8 +10785,12 @@ webpackJsonp([1],[
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.APP_ERROR = exports.ARTICLES_LOADED = exports.SOURCES_LOADED = exports.LOAD_ARTICLES = exports.LOAD_SOURCES = exports.FILTER_CHANGED = exports.INIT_APP = undefined;
+	exports.APP_ERROR = exports.ARTICLES_LOADED = exports.SOURCES_LOADED = exports.LOAD_ARTICLES = exports.LOAD_SOURCES = exports.FILTER_CHANGED = exports.LOGIN_FAILED = exports.LOGIN_SUCCESS = exports.INIT_FILTERS = exports.INIT_APP = undefined;
 	exports.initApp = initApp;
+	exports.tryLogin = tryLogin;
+	exports.loginSuccess = loginSuccess;
+	exports.loginFailed = loginFailed;
+	exports.initFilters = initFilters;
 	exports.filterChanged = filterChanged;
 	exports.loadSources = loadSources;
 	exports.sourcesLoaded = sourcesLoaded;
@@ -10789,6 +10807,9 @@ webpackJsonp([1],[
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
 	var INIT_APP = exports.INIT_APP = 'INIT_APP';
+	var INIT_FILTERS = exports.INIT_FILTERS = 'INIT_FILTERS';
+	var LOGIN_SUCCESS = exports.LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+	var LOGIN_FAILED = exports.LOGIN_FAILED = 'LOGIN_FAILED';
 	var FILTER_CHANGED = exports.FILTER_CHANGED = 'FILTER_CHANGED';
 	var LOAD_SOURCES = exports.LOAD_SOURCES = 'LOAD_SOURCES';
 	var LOAD_ARTICLES = exports.LOAD_ARTICLES = 'LOAD_ARTICLES';
@@ -10799,14 +10820,52 @@ webpackJsonp([1],[
 	function initApp() {
 	    return function (dispatch) {
 	        dispatch({
-	            type: INIT_APP,
+	            type: INIT_APP
+	        });
+	        return _DataSource2.default.getInstance().checkLogin().then(function (user) {
+	            return dispatch(loginSuccess(user));
+	        }).catch(function (error) {
+	            return dispatch(loginFailed(error));
+	        });
+	    };
+	}
+	
+	function tryLogin(login, pass) {
+	    return function (dispatch) {
+	        return _DataSource2.default.getInstance().doLogin(login, pass).then(function (user) {
+	            dispatch(loginSuccess(user));
+	            dispatch(initFilters());
+	        }).catch(function (error) {
+	            return dispatch(loginFailed(error));
+	        });
+	    };
+	}
+	
+	function loginSuccess(user) {
+	    return {
+	        type: LOGIN_SUCCESS,
+	        user: user
+	    };
+	}
+	
+	function loginFailed(error) {
+	    return {
+	        type: LOGIN_FAILED,
+	        error: error
+	    };
+	}
+	
+	function initFilters() {
+	    return function (dispatch) {
+	        dispatch({
+	            type: INIT_FILTERS,
 	            filterData: {
 	                categories: _DataSource2.default.availableCategories,
 	                countries: _DataSource2.default.availableCountries,
 	                languages: _DataSource2.default.availableLanguages
 	            }
 	        });
-	        dispatch(loadSources());
+	        //dispatch(loadSources())
 	    };
 	}
 	
@@ -10877,31 +10936,13 @@ webpackJsonp([1],[
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _Client = __webpack_require__(337);
-	
-	var _Client2 = _interopRequireDefault(_Client);
-	
-	var _Client3 = __webpack_require__(338);
-	
-	var _Client4 = _interopRequireDefault(_Client3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var Source = function Source() {
-	    _classCallCheck(this, Source);
-	};
-	
-	var Article = function Article() {
-	    _classCallCheck(this, Article);
-	};
 	
 	var DataSource = function () {
 	    _createClass(DataSource, null, [{
 	        key: 'getInstance',
 	        value: function getInstance() {
-	            return DataSource.instance || new DataSource('mLab');
+	            return DataSource.instance || new DataSource();
 	        }
 	    }, {
 	        key: 'createSource',
@@ -10930,7 +10971,7 @@ webpackJsonp([1],[
 	        }
 	    }]);
 	
-	    function DataSource(type) {
+	    function DataSource() {
 	        _classCallCheck(this, DataSource);
 	
 	        if (DataSource.instance) {
@@ -10939,238 +10980,55 @@ webpackJsonp([1],[
 	
 	        DataSource.instance = this;
 	
-	        var config = __webpack_require__(339);
-	
-	        if (type === 'mLab') {
-	            this.dataClient = _Client4.default.getInstance(config.mLab.apiKey);
-	        } else {
-	            this.dataClient = _Client2.default.getInstance(config.newsApi.apiKey);
-	        }
+	        var config = __webpack_require__(337);
 	    }
 	
 	    _createClass(DataSource, [{
 	        key: 'getSources',
 	        value: function getSources(params) {
-	            return this.dataClient.getSources(params).then(function (items) {
-	                return items.map(function (item) {
-	                    return DataSource.createSource(item);
-	                });
+	            return this.doRequest('/api/v1/posts', 'GET', {
+	                query: JSON.stringify(params)
 	            });
 	        }
 	    }, {
 	        key: 'getArticles',
 	        value: function getArticles(sourceId) {
-	            return this.dataClient.getArticles(sourceId).then(function (items) {
-	                return items.map(function (item) {
-	                    return DataSource.createArticle(sourceId, item);
-	                });
-	            });
-	        }
-	    }]);
-	
-	    return DataSource;
-	}();
-	
-	exports.default = DataSource;
-
-/***/ },
-/* 337 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var ARTICLES_API_URL = 'https://newsapi.org/v1/articles';
-	var SOURCES_API_URL = 'https://newsapi.org/v1/sources';
-	
-	var Client = function () {
-	    _createClass(Client, null, [{
-	        key: 'getInstance',
-	        value: function getInstance(apiKey) {
-	            return Client.instance || new Client(apiKey);
-	        }
-	    }]);
-	
-	    function Client(apiKey) {
-	        _classCallCheck(this, Client);
-	
-	        if (Client.instance) {
-	            throw 'NewsAPI NewsApiClient instance already instantiated';
-	        }
-	
-	        Client.instance = this;
-	
-	        this.apiKey = apiKey;
-	    }
-	
-	    _createClass(Client, [{
-	        key: 'getSources',
-	        value: function getSources(params) {
-	            return this.doRequest(SOURCES_API_URL, params).then(function (data) {
-	                return data.sources;
-	            });
+	            return Promise.resolve([]);
 	        }
 	    }, {
-	        key: 'getArticles',
-	        value: function getArticles(sourceId) {
-	            return this.doRequest(ARTICLES_API_URL, { source: sourceId }).then(function (data) {
-	                return data.articles;
-	            });
+	        key: 'checkLogin',
+	        value: function checkLogin() {
+	            return this.doRequest('/api/auth');
 	        }
 	    }, {
-	        key: 'getApiUrl',
-	        value: function getApiUrl(baseUrl) {
-	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-	
-	            var queryParts = [];
-	            for (var name in params) {
-	                if (params[name]) {
-	                    queryParts.push(name + '=' + params[name]);
-	                }
-	            }
-	            var urlSuffix = queryParts.join('&');
-	            return baseUrl + '?' + urlSuffix;
+	        key: 'doLogin',
+	        value: function doLogin(login, pass) {
+	            return this.doRequest('/api/auth', 'POST', {}, { login: login, pass: pass });
 	        }
 	    }, {
 	        key: 'doRequest',
 	        value: function doRequest(url) {
-	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	            var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
+	            var queryParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+	            var body = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 	
 	
 	            if (true) {
-	                console.log('NewsAPI NewsApiClient doRequest()', url, params);
+	                console.log('DataSource doRequest()', method, queryParams);
 	            }
 	
-	            params.apiKey = this.apiKey;
-	            return fetch(this.getApiUrl(url, params)).then(function (response) {
-	                return response.json();
-	            }).then(function (data) {
-	                if (data.status === 'error') {
-	                    throw data.message;
-	                }
-	                return data;
+	            var req = new Request(this.createUrl(url, queryParams), {
+	                headers: {
+	                    'Accept': 'application/json',
+	                    'Content-Type': 'application/json'
+	                },
+	                method: method,
+	                body: body && JSON.stringify(body)
 	            });
-	        }
-	    }]);
-	
-	    return Client;
-	}();
-	
-	exports.default = Client;
-
-/***/ },
-/* 338 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var DB_URL = 'https://api.mlab.com/api/1/databases/heroku_bknz76p0';
-	var RUN_COMMAND_URL = DB_URL + '/runCommand';
-	var POSTS_COLLECTION_URL = DB_URL + '/collections/posts';
-	
-	var Client = function () {
-	    _createClass(Client, null, [{
-	        key: 'getInstance',
-	        value: function getInstance(apiKey) {
-	            return Client.instance || new Client(apiKey);
-	        }
-	    }]);
-	
-	    function Client(apiKey) {
-	        _classCallCheck(this, Client);
-	
-	        if (Client.instance) {
-	            throw 'mLab mongodb NewsApiClient instance already instantiated';
-	        }
-	
-	        Client.instance = this;
-	
-	        this.apiKey = apiKey;
-	    }
-	
-	    _createClass(Client, [{
-	        key: 'getSources',
-	        value: function getSources(params) {
-	            var query = {};
-	            for (var name in params) {
-	                if (params[name] && params[name] !== '') {
-	                    query['source.' + name] = params[name];
-	                }
-	            }
-	            return this.runCommand(JSON.stringify({
-	                distinct: 'posts',
-	                key: 'source',
-	                query: query
-	            })).then(function (data) {
-	                return data.values;
-	            });
-	        }
-	    }, {
-	        key: 'getArticles',
-	        value: function getArticles(sourceId) {
-	            return this.doRequest('GET', {
-	                q: JSON.stringify({ 'source.id': sourceId }),
-	                f: JSON.stringify({ source: 0, _id: 0 })
-	            });
-	        }
-	    }, {
-	        key: 'importData',
-	        value: function importData(docs) {
-	            return this.doRequest('POST', {}, JSON.stringify(docs));
-	        }
-	    }, {
-	        key: 'doRequest',
-	        value: function doRequest(method) {
-	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-	            var body = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-	
-	
-	            if (true) {
-	                console.log('mLab mongodb NewsApiClient doRequest()', method, params);
-	            }
-	
-	            params.apiKey = this.apiKey;
-	
-	            var req = new Request(this.createUrl(POSTS_COLLECTION_URL, params), { method: method, body: body });
 	
 	            return fetch(req).then(function (response) {
 	                if (!response.ok) {
-	                    throw 'mLab mongodb error';
-	                }
-	                return response.json();
-	            });
-	        }
-	    }, {
-	        key: 'runCommand',
-	        value: function runCommand(body) {
-	
-	            if (true) {
-	                console.log('mLab mongodb NewsApiClient runCommand()', body);
-	            }
-	
-	            var headers = new Headers();
-	            headers.append('Content-Type', 'application/json');
-	
-	            var req = new Request(this.createUrl(RUN_COMMAND_URL, { apiKey: this.apiKey }), { method: 'POST', headers: headers, body: body });
-	
-	            return fetch(req).then(function (response) {
-	                if (!response.ok) {
-	                    throw 'mLab mongodb error';
+	                    throw 'DataSource error';
 	                }
 	                return response.json();
 	            });
@@ -11186,18 +11044,18 @@ webpackJsonp([1],[
 	                    queryParts.push(name + '=' + params[name]);
 	                }
 	            }
-	            var urlSuffix = queryParts.join('&');
-	            return baseUrl + '?' + urlSuffix;
+	            var urlSuffix = queryParts.length ? '?' + queryParts.join('&') : '';
+	            return '' + baseUrl + urlSuffix;
 	        }
 	    }]);
 	
-	    return Client;
+	    return DataSource;
 	}();
 	
-	exports.default = Client;
+	exports.default = DataSource;
 
 /***/ },
-/* 339 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -11218,7 +11076,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 340 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11229,7 +11087,7 @@ webpackJsonp([1],[
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _ImagePreloader = __webpack_require__(341);
+	var _ImagePreloader = __webpack_require__(339);
 	
 	var _ImagePreloader2 = _interopRequireDefault(_ImagePreloader);
 	
@@ -11237,10 +11095,10 @@ webpackJsonp([1],[
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var appTpl = __webpack_require__(342);
-	var sourceTpl = __webpack_require__(345);
-	var articleTpl = __webpack_require__(346);
-	var choiceTpl = __webpack_require__(348);
+	var appTpl = __webpack_require__(340);
+	var sourceTpl = __webpack_require__(343);
+	var articleTpl = __webpack_require__(344);
+	var choiceTpl = __webpack_require__(346);
 	
 	var PageMediator = function () {
 	    function PageMediator(containerSelector) {
@@ -11254,9 +11112,15 @@ webpackJsonp([1],[
 	
 	        this.onChoiceSelectedHandler = null;
 	        this.onSourceSelectedHandler = null;
+	        this.onLoginTryHandler = null;
 	
 	        this.appContainer = document.querySelector(containerSelector);
 	        this.appContainer.innerHTML = appTpl();
+	
+	        //states
+	        this.loginState = this.appContainer.querySelector('#loginState');
+	        this.adminState = this.appContainer.querySelector('#adminState');
+	        this.loggedInState = this.appContainer.querySelector('#loggedInState');
 	
 	        this.categoriesChoicesElement = this.appContainer.querySelector('#categoriesChoices');
 	        this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
@@ -11265,6 +11129,17 @@ webpackJsonp([1],[
 	    }
 	
 	    _createClass(PageMediator, [{
+	        key: 'setLoggedInUser',
+	        value: function setLoggedInUser(user) {
+	            if (user) {
+	                this.loginState.className = 'hidden';
+	                this.loggedInState.className = '';
+	            } else {
+	                this.loginState.className = '';
+	                this.loggedInState.className = 'hidden';
+	            }
+	        }
+	    }, {
 	        key: 'setCategories',
 	        value: function setCategories(categories) {
 	            var _this = this;
@@ -11320,6 +11195,17 @@ webpackJsonp([1],[
 	            this.contentElement.innerHTML = '<h4 class="error">' + error + '</h4>';
 	        }
 	    }, {
+	        key: 'tryLogin',
+	        value: function tryLogin(form) {
+	            var _ref = [form.login.value, form.pass.value],
+	                login = _ref[0],
+	                pass = _ref[1];
+	
+	            if (login && pass) {
+	                this.onLoginTryHandler && this.onLoginTryHandler(login, pass);
+	            }
+	        }
+	    }, {
 	        key: 'onChoiceSelected',
 	        value: function onChoiceSelected(selectedNode) {
 	            if (selectedNode) {
@@ -11370,7 +11256,7 @@ webpackJsonp([1],[
 	exports.default = PageMediator;
 
 /***/ },
-/* 341 */
+/* 339 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11421,16 +11307,16 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 342 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(343);
+	var pug = __webpack_require__(341);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003Cfooter\u003EPowered by\u003Ca href=\"https:\u002F\u002Fnewsapi.org\u002F\" target=\"_blank\"\u003E NewsAPI.org\u003C\u002Fa\u003E\u003C\u002Ffooter\u003E";;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv class=\"hidden\" id=\"loginState\"\u003E\u003Cfieldset\u003E\u003Clabel\u003ELogin form\u003C\u002Flabel\u003E\u003Cform name=\"loginForm\" onsubmit=\"appMediator.tryLogin(this); return false;\"\u003E\u003Cdiv class=\"form-element\"\u003E\u003Clabel\u003ELogin\u003Cinput type=\"text\" name=\"login\"\u003E\u003C\u002Flabel\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"form-element\"\u003E\u003Clabel\u003EPass\u003Cinput type=\"password\" name=\"pass\"\u003E\u003C\u002Flabel\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"form-element\"\u003E\u003Cbutton type=\"submit\"\u003ELogin\u003C\u002Fbutton\u003E\u003C\u002Fdiv\u003E\u003C\u002Fform\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"hidden\" id=\"loggedInState\"\u003E\u003Cdiv id=\"topMenu\"\u003E\u003Cfieldset id=\"categoriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"countriesChoices\"\u003E\u003C\u002Ffieldset\u003E\u003Cfieldset id=\"langChoices\"\u003E\u003C\u002Ffieldset\u003E\u003C\u002Fdiv\u003E\u003Cdiv id=\"content\"\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"hidden\" id=\"adminState\"\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 343 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11663,7 +11549,7 @@ webpackJsonp([1],[
 	    throw err;
 	  }
 	  try {
-	    str = str || __webpack_require__(344).readFileSync(filename, 'utf8')
+	    str = str || __webpack_require__(342).readFileSync(filename, 'utf8')
 	  } catch (ex) {
 	    pug_rethrow(err, null, lineno)
 	  }
@@ -11690,53 +11576,53 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 344 */
+/* 342 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 345 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(343);
+	var pug = __webpack_require__(341);
 	
 	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (source) {pug_html = pug_html + "\u003Cdiv" + (" class=\"source\""+pug.attr("id", "source_" + source.id, true, true)) + "\u003E\u003Cdiv class=\"logo\"\u003E\u003Ca" + (" href=\"javascript:void(0)\""+pug.attr("title", source.name, true, true)+pug.attr("onclick", "appMediator.onSourceSelected(" + "'" + source.id + "')", true, true)) + "\u003E\u003Cimg" + (pug.attr("src", source.urlsToLogos.medium, true, true)+" height=\"60\"") + "\u003E\u003C\u002Fa\u003E\u003C\u002Fdiv\u003E\u003Cdiv" + (" class=\"articles\""+pug.attr("id", "articles_of_" + source.id, true, true)) + "\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"source" in locals_for_with?locals_for_with.source:typeof source!=="undefined"?source:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 346 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(343);
+	var pug = __webpack_require__(341);
 	
-	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("data-src", article.urlToImage, true, true)+pug.attr("src", __webpack_require__(347), true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
+	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (article) {pug_html = pug_html + "\u003Ca" + (pug.attr("href", article.url, true, true)+" target=\"_blank\""+pug.attr("title", article.title, true, true)) + "\u003E\u003Cimg" + (pug.attr("data-src", article.urlToImage, true, true)+pug.attr("src", __webpack_require__(345), true, true)+" height=\"120\"") + "\u003E\u003C\u002Fa\u003E";}.call(this,"article" in locals_for_with?locals_for_with.article:typeof article!=="undefined"?article:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 347 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/aa744a5a12cf69a99270c117cb057e4a.gif";
 
 /***/ },
-/* 348 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pug = __webpack_require__(343);
+	var pug = __webpack_require__(341);
 	
 	function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (checked, id, label, name, value) {id = [name, value].join('_');
 	pug_html = pug_html + "\u003Clabel" + (pug.attr("class", pug.classes([(checked && 'selected')], [true]), false, true)+pug.attr("for", id, true, true)) + "\u003E\u003Cinput" + (" type=\"radio\""+pug.attr("id", id, true, true)+pug.attr("name", name, true, true)+pug.attr("value", value, true, true)+" onchange=\"appMediator.onChoiceSelected(this)\""+pug.attr("checked", checked, true, true)) + "\u003E" + (pug.escape(null == (pug_interp = label) ? "" : pug_interp)) + "\u003C\u002Flabel\u003E";}.call(this,"checked" in locals_for_with?locals_for_with.checked:typeof checked!=="undefined"?checked:undefined,"id" in locals_for_with?locals_for_with.id:typeof id!=="undefined"?id:undefined,"label" in locals_for_with?locals_for_with.label:typeof label!=="undefined"?label:undefined,"name" in locals_for_with?locals_for_with.name:typeof name!=="undefined"?name:undefined,"value" in locals_for_with?locals_for_with.value:typeof value!=="undefined"?value:undefined));;return pug_html;};
 	module.exports = template;
 
 /***/ },
-/* 349 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(350);
+	var content = __webpack_require__(348);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -11756,7 +11642,7 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 350 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -11764,7 +11650,7 @@ webpackJsonp([1],[
 	
 	
 	// module
-	exports.push([module.id, "footer {\n  text-align: center;\n  padding: 10px; }\n\n.error {\n  margin-top: 30px;\n  text-align: center;\n  font-size: 20px;\n  color: #F22; }\n\nfieldset {\n  text-align: center;\n  border: none;\n  line-height: 15px; }\n  fieldset label {\n    padding: 4px 10px;\n    text-transform: uppercase;\n    display: inline-block;\n    cursor: pointer; }\n  fieldset input[type=\"radio\"] {\n    display: none; }\n  fieldset label.selected {\n    background-color: #DDD; }\n\n.source {\n  margin: 10px 0;\n  padding: 4px;\n  border: #999 1px solid;\n  background-color: #EEE;\n  overflow: hidden; }\n  .source .logo {\n    padding: 14px; }\n  .source .articles {\n    text-align: center; }\n    .source .articles a {\n      display: inline-block;\n      margin: 10px;\n      border: 5px solid #FFF;\n      opacity: 0.7; }\n      .source .articles a:hover {\n        opacity: 1; }\n      .source .articles a:last-of-type {\n        clear: both; }\n", ""]);
+	exports.push([module.id, "footer {\n  text-align: center;\n  padding: 10px; }\n\n.error {\n  margin-top: 30px;\n  text-align: center;\n  font-size: 20px;\n  color: #F22; }\n\n#loginState input {\n  margin: 4px; }\n\nfieldset {\n  text-align: center;\n  border: none; }\n  fieldset label {\n    padding: 4px 10px;\n    display: inline-block; }\n\n#topMenu fieldset {\n  line-height: 15px; }\n  #topMenu fieldset label {\n    padding: 4px 10px;\n    text-transform: uppercase;\n    display: inline-block;\n    cursor: pointer; }\n  #topMenu fieldset input[type=\"radio\"] {\n    display: none; }\n  #topMenu fieldset label.selected {\n    background-color: #DDD; }\n\n.source {\n  margin: 10px 0;\n  padding: 4px;\n  border: #999 1px solid;\n  background-color: #EEE;\n  overflow: hidden; }\n  .source .logo {\n    padding: 14px; }\n  .source .articles {\n    text-align: center; }\n    .source .articles a {\n      display: inline-block;\n      margin: 10px;\n      border: 5px solid #FFF;\n      opacity: 0.7; }\n      .source .articles a:hover {\n        opacity: 1; }\n      .source .articles a:last-of-type {\n        clear: both; }\n", ""]);
 	
 	// exports
 

@@ -1,8 +1,21 @@
-#topMenu
-    fieldset#categoriesChoices
-    fieldset#countriesChoices
-    fieldset#langChoices
-#content
-footer
-    | Powered by
-    a(href='https://newsapi.org/', target='_blank')  NewsAPI.org
+#loginState.hidden
+    fieldset
+        label Login form
+        form(name='loginForm', onsubmit='appMediator.tryLogin(this); return false;')
+            .form-element
+                label Login
+                    input(type='text', name='login')
+            .form-element
+                label Pass
+                    input(type='password', name='pass')
+            .form-element
+                button(type='submit') Login
+
+#loggedInState.hidden
+    #topMenu
+        fieldset#categoriesChoices
+        fieldset#countriesChoices
+        fieldset#langChoices
+    #content
+
+#adminState.hidden

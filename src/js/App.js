@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
 import configureStore from './redux/configureStore';
-import {initApp, filterChanged, loadArticles} from './redux/actions';
+import {tryLogin, initApp, initFilters, filterChanged, loadArticles} from './redux/actions';
 import PageMediator from './PageMediator';
 require('../scss/app.scss');
 
@@ -26,6 +26,11 @@ export default class App {
         this.store.subscribe(this.handleStoreChange.bind(this));
 
         this.pageMediator = new PageMediator(appContainerSelector);
+
+        this.pageMediator.onLoginTryHandler = (login, pass) => {
+            this.store.dispatch(tryLogin(login, pass));
+        };
+
         this.pageMediator.onChoiceSelectedHandler = (param, value) => {
             this.store.dispatch(filterChanged(param, value));
         };
@@ -38,6 +43,10 @@ export default class App {
 
     handleStoreChange() {
         const state = this.store.getState();
+
+        if (this.prevState.loggedInUser !== state.loggedInUser) {
+            this.pageMediator.setLoggedInUser(state.loggedInUser);
+        }
 
         if (this.prevState.filtersData !== state.filtersData) {
             this.pageMediator.setCategories(state.filtersData.categories);
@@ -59,21 +68,5 @@ export default class App {
 
         this.prevState = state;
     }
-
-    // importArticles() {
-    //     NewsApiClient.getInstance().getSources()
-    //         .then(sources => {
-    //             let p = Promise.resolve();
-    //             for (let source of sources) {
-    //                 p = p.then(() =>
-    //                     NewsApiClient.getInstance().getArticles(source.id)
-    //                         .then(artilces => {
-    //                             artilces = artilces.map(article => Object.assign(article, {source}));
-    //                             mLabClient.getInstance().importData(artilces);
-    //                         })
-    //                 );
-    //             }
-    //         });
-    // }
 
 }

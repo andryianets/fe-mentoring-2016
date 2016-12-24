@@ -14,6 +14,7 @@ connection.once('open', () => {
 
 module.exports = {
     connection,
+
     Article: mongoose.model('posts', require('./schemes/Article')),
     User: mongoose.model('users', require('./schemes/User'))
 };

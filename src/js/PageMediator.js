@@ -16,14 +16,30 @@ export default class PageMediator {
 
         this.onChoiceSelectedHandler = null;
         this.onSourceSelectedHandler = null;
+        this.onLoginTryHandler = null;
 
         this.appContainer = document.querySelector(containerSelector);
         this.appContainer.innerHTML = appTpl();
+
+        //states
+        this.loginState = this.appContainer.querySelector('#loginState');
+        this.adminState = this.appContainer.querySelector('#adminState');
+        this.loggedInState = this.appContainer.querySelector('#loggedInState');
 
         this.categoriesChoicesElement = this.appContainer.querySelector('#categoriesChoices');
         this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
         this.langChoicesElement = this.appContainer.querySelector('#langChoices');
         this.contentElement = this.appContainer.querySelector('#content');
+    }
+
+    setLoggedInUser(user) {
+        if (user) {
+            this.loginState.className = 'hidden';
+            this.loggedInState.className = '';
+        } else {
+            this.loginState.className = '';
+            this.loggedInState.className = 'hidden';
+        }
     }
 
     setCategories(categories) {
@@ -59,6 +75,13 @@ export default class PageMediator {
 
     setError(error) {
         this.contentElement.innerHTML = `<h4 class="error">${error}</h4>`;
+    }
+
+    tryLogin(form) {
+        const [login, pass] = [form.login.value, form.pass.value];
+        if (login && pass) {
+            this.onLoginTryHandler && this.onLoginTryHandler(login, pass);
+        }
     }
 
     onChoiceSelected(selectedNode) {

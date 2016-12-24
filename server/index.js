@@ -1,31 +1,40 @@
+'use strict';
+
 const express = require('express'),
-    session = require('express-session'),
     path = require('path'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
+    session = require('express-session'),
     db = require('./model/db'),
     passport = require('passport');
 
+const MongoStore = require('connect-mongo')(session);
+
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../dist')));
 app.use(logger('dev'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser('mentoring2016'));
+
 app.use(session({
+    name: 'appsid',
     secret: 'mentoring2016',
     resave: false,
     saveUninitialized: true,
-    //cookie: { secure: true }
+    //store: new MongoStore({mongooseConnection: db.connection}),
+    cookie: {secure: false}
 }));
-passport.use(require('./PassportStrategy'));
+
+passport.use('login', require('./passport_strategies/LoginStrategy'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+app.use(express.static(path.join(__dirname, '../dist')));
 
+app.use('/api/auth', require('./routes/auth'));
 app.use('/api/articles', require('./routes/articles'));
 
 // catch 404 and forward to error handler
@@ -40,10 +49,12 @@ app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
     res.status(err.status || 500);
-    return res.json(err);
+    return res.json({
+        message: err.message
+    });
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
     console.log(`expressApp is listening on port ${port}`);

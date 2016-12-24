@@ -1,6 +1,9 @@
 import DataSource from '../DataSource';
 
 export const INIT_APP = 'INIT_APP';
+export const INIT_FILTERS = 'INIT_FILTERS';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const FILTER_CHANGED = 'FILTER_CHANGED';
 export const LOAD_SOURCES = 'LOAD_SOURCES';
 export const LOAD_ARTICLES = 'LOAD_ARTICLES';
@@ -9,16 +12,52 @@ export const ARTICLES_LOADED = 'ARTICLES_LOADED';
 export const APP_ERROR = 'APP_ERROR';
 
 export function initApp() {
+    return dispatch => {
+        dispatch({
+            type: INIT_APP
+        });
+        return DataSource.getInstance().checkLogin()
+            .then(user => dispatch(loginSuccess(user)))
+            .catch(error => dispatch(loginFailed(error)));
+    };
+}
+
+export function tryLogin(login, pass) {
+    return dispatch => {
+        return DataSource.getInstance().doLogin(login, pass)
+            .then(user => {
+                dispatch(loginSuccess(user));
+                dispatch(initFilters());
+            })
+            .catch(error => dispatch(loginFailed(error)));
+    };
+}
+
+export function loginSuccess(user) {
+    return {
+        type: LOGIN_SUCCESS,
+        user
+    };
+}
+
+export function loginFailed(error) {
+    return {
+        type: LOGIN_FAILED,
+        error
+    };
+}
+
+export function initFilters() {
     return dispatch  => {
         dispatch({
-            type: INIT_APP,
+            type: INIT_FILTERS,
             filterData: {
                 categories: DataSource.availableCategories,
                 countries: DataSource.availableCountries,
                 languages: DataSource.availableLanguages
             }
         });
-        dispatch(loadSources())
+        //dispatch(loadSources())
     };
 }
 

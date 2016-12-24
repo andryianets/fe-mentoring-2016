@@ -10,21 +10,35 @@ footer {
     color: #F22;
 }
 
+#loginState input {
+    margin: 4px;
+}
+
 fieldset {
     text-align: center;
     border: none;
-    line-height: 15px;
+
     label {
         padding: 4px 10px;
-        text-transform: uppercase;
         display: inline-block;
-        cursor: pointer;
     }
-    input[type="radio"] {
-        display: none;
-    }
-    label.selected {
-        background-color: #DDD;
+}
+
+#topMenu {
+    fieldset {
+        line-height: 15px;
+        label {
+            padding: 4px 10px;
+            text-transform: uppercase;
+            display: inline-block;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        label.selected {
+            background-color: #DDD;
+        }
     }
 }
 

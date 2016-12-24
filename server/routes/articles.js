@@ -1,15 +1,8 @@
-"use strict";
-
 const express = require('express'),
     router = express.Router(),
-    db = require('../model/db'),
-    passport = require('passport');
+    db = require('../model/db');
 
 router.get('/',
-    passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/login'
-    }),
     (req, res) => {
         db.Article
             .findOne({
