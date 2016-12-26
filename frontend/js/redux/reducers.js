@@ -66,6 +66,8 @@ function errorMessage(state = null, action) {
     switch (action.type) {
         case APP_ERROR:
             return action.error;
+        case LOGIN_FAILED:
+            return action.showError ? 'Login failed' : state;
         default:
             return null;
     }

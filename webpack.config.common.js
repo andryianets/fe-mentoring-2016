@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: './frontend/js/index.js',
     output: {
-        path: __dirname + '/dist',
+        path: __dirname + '/public',
         filename: 'index.js',
         publicPath: '/'
     },
@@ -38,7 +38,7 @@ module.exports = {
         new ExtractTextPlugin('styles.css'),
         new HtmlWebpackPlugin({
             title: 'Mentoring 2016 App',
-            template: './src/tpls/index.pug'
+            template: './frontend/tpls/index.pug'
         })
     ]
 };

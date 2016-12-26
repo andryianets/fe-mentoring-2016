@@ -27,28 +27,31 @@ export function tryLogin(login, pass) {
         return DataSource.getInstance().doLogin(login, pass)
             .then(user => {
                 dispatch(loginSuccess(user));
-                dispatch(initFilters());
             })
-            .catch(error => dispatch(loginFailed(error)));
+            .catch(error => dispatch(loginFailed(error, true)));
     };
 }
 
 export function loginSuccess(user) {
-    return {
-        type: LOGIN_SUCCESS,
-        user
+    return dispatch => {
+        dispatch({
+            type: LOGIN_SUCCESS,
+            user
+        });
+        dispatch(initFilters());
     };
 }
 
-export function loginFailed(error) {
+export function loginFailed(error, showError = false) {
     return {
         type: LOGIN_FAILED,
-        error
+        error,
+        showError
     };
 }
 
 export function initFilters() {
-    return dispatch  => {
+    return dispatch => {
         dispatch({
             type: INIT_FILTERS,
             filterData: {
@@ -57,7 +60,7 @@ export function initFilters() {
                 languages: DataSource.availableLanguages
             }
         });
-        //dispatch(loadSources())
+        dispatch(loadSources())
     };
 }
 

@@ -1,17 +1,41 @@
-footer {
-    text-align: center;
-    padding: 10px;
+header {
+    padding: 4px 20px;
+    border-bottom: 1px solid #DDD;
+    background-color: #EEE;
+    margin-bottom: 20px;
+
+    #loggedInInfo {
+        font-weight: bold;
+    }
+
+    #logout {
+        position: absolute;
+        right: 20px;
+    }
+
 }
 
-.error {
-    margin-top: 30px;
+#errors {
+
     text-align: center;
-    font-size: 20px;
-    color: #F22;
+    background-color: #FEE;
+
+    .error {
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+        color: #F22;
+    }
+
+
 }
 
-#loginState input {
-    margin: 4px;
+#loginState {
+
+    input, button {
+        margin: 4px;
+    }
+
 }
 
 fieldset {

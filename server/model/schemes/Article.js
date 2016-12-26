@@ -9,13 +9,13 @@ const articleSchema = new Schema({
     urlToImage: String,
     publishedAt: Date,
     source: {
-        id: String,
+        id: {type: String, index: true},
         name: String,
         description: String,
         url: String,
-        category: String,
-        language: String,
-        country: String,
+        category: {type: String, index: true},
+        language: {type: String, index: true},
+        country: {type: String, index: true},
         urlsToLogos: [
             {small: String, medium: String, large: String}
         ]

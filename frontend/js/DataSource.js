@@ -46,15 +46,11 @@ export default class DataSource {
     }
 
     getSources(params) {
-        return this.doRequest('/api/v1/posts', 'GET', {
-            query: JSON.stringify(params)
-        });
-
-
+        return this.doRequest('/api/articles/sources', 'GET', params);
     }
 
     getArticles(sourceId) {
-        return Promise.resolve([]);
+        return this.doRequest('/api/articles', 'GET', {sourceId});
     }
 
     checkLogin() {

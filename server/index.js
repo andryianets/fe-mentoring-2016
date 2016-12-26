@@ -17,22 +17,23 @@ app.use(logger('dev'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser('mentoring2016'));
+app.use(cookieParser());
 
 app.use(session({
     name: 'appsid',
     secret: 'mentoring2016',
     resave: false,
     saveUninitialized: true,
-    //store: new MongoStore({mongooseConnection: db.connection}),
+    store: new MongoStore({mongooseConnection: db.connection}),
     cookie: {secure: false}
 }));
 
 passport.use('login', require('./passport_strategies/LoginStrategy'));
+passport.use('reg', require('./passport_strategies/LoginStrategy'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/articles', require('./routes/articles'));

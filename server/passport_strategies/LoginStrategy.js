@@ -1,7 +1,7 @@
 const passport = require('passport'),
     JsonStrategy = require('passport-json').Strategy,
     db = require('../model/db'),
-    PassHelper = require('../helpers/PassHelper');
+    AccessHelper = require('../helpers/AccessHelper');
 
 passport.serializeUser((user, done) => {
     done(null, user._id.toString());
@@ -26,7 +26,7 @@ module.exports = new JsonStrategy({
             if (!user) {
                 return done(null, false, {message: 'Incorrect username.'});
             }
-            if (user.pass !== PassHelper.getPassHash(pass)) {
+            if (user.pass !== AccessHelper.getPassHash(pass)) {
                 return done(null, false, {message: 'Incorrect password.'});
             }
             return done(null, user);

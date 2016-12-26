@@ -23,19 +23,21 @@ export default class PageMediator {
 
         //states
         this.loginState = this.appContainer.querySelector('#loginState');
-        this.adminState = this.appContainer.querySelector('#adminState');
+        this.loggedInInfo = this.appContainer.querySelector('#loggedInInfo');
         this.loggedInState = this.appContainer.querySelector('#loggedInState');
 
         this.categoriesChoicesElement = this.appContainer.querySelector('#categoriesChoices');
         this.countriesChoicesElement = this.appContainer.querySelector('#countriesChoices');
         this.langChoicesElement = this.appContainer.querySelector('#langChoices');
         this.contentElement = this.appContainer.querySelector('#content');
+        this.errorElement = this.appContainer.querySelector('#errors');
     }
 
     setLoggedInUser(user) {
         if (user) {
             this.loginState.className = 'hidden';
             this.loggedInState.className = '';
+            this.loggedInInfo.innerHTML = `Welcome, ${user.login}`;
         } else {
             this.loginState.className = '';
             this.loggedInState.className = 'hidden';
@@ -74,7 +76,7 @@ export default class PageMediator {
     }
 
     setError(error) {
-        this.contentElement.innerHTML = `<h4 class="error">${error}</h4>`;
+        this.errorElement.innerHTML = error ? `<h4 class="error">${error}</h4>` : '';
     }
 
     tryLogin(form) {
