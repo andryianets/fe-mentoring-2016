@@ -50,7 +50,7 @@ export default class DataSource {
     }
 
     getArticles(sourceId) {
-        return this.doRequest('/api/articles', 'GET', {sourceId});
+        return this.doRequest('/api/articles', 'GET', {'source.id': sourceId});
     }
 
     checkLogin() {
@@ -58,7 +58,11 @@ export default class DataSource {
     }
 
     doLogin(login, pass) {
-        return this.doRequest('/api/auth', 'POST', {}, {login, pass});
+        return this.doRequest('/api/auth/login', 'POST', {}, {login, pass});
+    }
+
+    doReg(login, pass) {
+        return this.doRequest('/api/auth/reg', 'POST', {}, {login, pass});
     }
 
     doRequest(url, method='GET', queryParams = {}, body = null) {

@@ -19,16 +19,16 @@ module.exports = new JsonStrategy({
     },
     (login, pass, done) => {
 
-        db.User.findOne({login}, (err, user) => {
-            if (err) {
-                return done(err);
-            }
-            if (!user) {
-                return done(null, false, {message: 'Incorrect username.'});
-            }
-            if (user.pass !== AccessHelper.getPassHash(pass)) {
-                return done(null, false, {message: 'Incorrect password.'});
-            }
-            return done(null, user);
-        });
+        db.User.findOne({login})
+            .then(user => {
+                if (!user) {
+                    return done(null, false, {message: 'Incorrect login.'});
+                }
+                if (user.pass !== AccessHelper.getPassHash(pass)) {
+                    return done(null, false, {message: 'Incorrect password.'});
+                }
+                return done(null, user);
+            })
+            .catch(done);
+
     });

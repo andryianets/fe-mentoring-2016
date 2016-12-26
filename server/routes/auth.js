@@ -7,7 +7,13 @@ router.get('/',
     }
 );
 
-router.post('/', passport.authenticate('login'),
+router.post('/login', passport.authenticate('login'),
+    (req, res) => {
+        res.json(req.user);
+    }
+);
+
+router.post('/reg', passport.authenticate('reg'),
     (req, res) => {
         res.json(req.user);
     }

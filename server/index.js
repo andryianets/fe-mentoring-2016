@@ -29,7 +29,7 @@ app.use(session({
 }));
 
 passport.use('login', require('./passport_strategies/LoginStrategy'));
-passport.use('reg', require('./passport_strategies/LoginStrategy'));
+passport.use('reg', require('./passport_strategies/RegStrategy'));
 app.use(passport.initialize());
 app.use(passport.session());
 

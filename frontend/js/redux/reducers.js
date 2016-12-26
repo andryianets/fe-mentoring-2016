@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import {LOGIN_SUCCESS, LOGIN_FAILED,
+import {LOGIN_SUCCESS, LOGIN_FAILED, REG_FAILED,
         APP_ERROR,
         INIT_FILTERS, FILTER_CHANGED,
         LOAD_SOURCES, LOAD_ARTICLES,
@@ -68,6 +68,8 @@ function errorMessage(state = null, action) {
             return action.error;
         case LOGIN_FAILED:
             return action.showError ? 'Login failed' : state;
+        case REG_FAILED:
+            return 'Reg failed';
         default:
             return null;
     }

@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
 import configureStore from './redux/configureStore';
-import {tryLogin, initApp, initFilters, filterChanged, loadArticles} from './redux/actions';
+import {tryLogin, tryReg, initApp, filterChanged, loadArticles} from './redux/actions';
 import PageMediator from './PageMediator';
 require('../scss/app.scss');
 
@@ -29,6 +29,10 @@ export default class App {
 
         this.pageMediator.onLoginTryHandler = (login, pass) => {
             this.store.dispatch(tryLogin(login, pass));
+        };
+
+        this.pageMediator.onRegTryHandler = (login, pass) => {
+            this.store.dispatch(tryReg(login, pass));
         };
 
         this.pageMediator.onChoiceSelectedHandler = (param, value) => {

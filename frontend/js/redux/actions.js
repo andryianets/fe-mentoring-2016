@@ -4,6 +4,7 @@ export const INIT_APP = 'INIT_APP';
 export const INIT_FILTERS = 'INIT_FILTERS';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const REG_FAILED = 'REG_FAILED';
 export const FILTER_CHANGED = 'FILTER_CHANGED';
 export const LOAD_SOURCES = 'LOAD_SOURCES';
 export const LOAD_ARTICLES = 'LOAD_ARTICLES';
@@ -32,6 +33,16 @@ export function tryLogin(login, pass) {
     };
 }
 
+export function tryReg(login, pass) {
+    return dispatch => {
+        return DataSource.getInstance().doReg(login, pass)
+            .then(user => {
+                dispatch(loginSuccess(user));
+            })
+            .catch(error => dispatch(regFailed(error)));
+    };
+}
+
 export function loginSuccess(user) {
     return dispatch => {
         dispatch({
@@ -47,6 +58,13 @@ export function loginFailed(error, showError = false) {
         type: LOGIN_FAILED,
         error,
         showError
+    };
+}
+
+export function regFailed(error) {
+    return {
+        type: REG_FAILED,
+        error
     };
 }
 

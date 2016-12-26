@@ -17,6 +17,7 @@ export default class PageMediator {
         this.onChoiceSelectedHandler = null;
         this.onSourceSelectedHandler = null;
         this.onLoginTryHandler = null;
+        this.onRegTryHandler = null;
 
         this.appContainer = document.querySelector(containerSelector);
         this.appContainer.innerHTML = appTpl();
@@ -36,7 +37,7 @@ export default class PageMediator {
     setLoggedInUser(user) {
         if (user) {
             this.loginState.className = 'hidden';
-            this.loggedInState.className = '';
+            this.loggedInState.className = `role-${user.role}`;
             this.loggedInInfo.innerHTML = `Welcome, ${user.login}`;
         } else {
             this.loginState.className = '';
@@ -79,10 +80,24 @@ export default class PageMediator {
         this.errorElement.innerHTML = error ? `<h4 class="error">${error}</h4>` : '';
     }
 
-    tryLogin(form) {
-        const [login, pass] = [form.login.value, form.pass.value];
+    authFormSubmit(form) {
+        const [login, pass, mode] = [form.login.value, form.pass.value, form.mode.value];
+        if (mode === 'login') {
+            this.tryLogin(login, pass);
+        } else {
+            this.tryReg(login, pass);
+        }
+    }
+
+    tryLogin(login, pass) {
         if (login && pass) {
             this.onLoginTryHandler && this.onLoginTryHandler(login, pass);
+        }
+    }
+
+    tryReg(login, pass) {
+        if (login && pass) {
+            this.onRegTryHandler && this.onRegTryHandler(login, pass);
         }
     }
 

@@ -1,93 +1,111 @@
 header {
-    padding: 4px 20px;
-    border-bottom: 1px solid #DDD;
-    background-color: #EEE;
-    margin-bottom: 20px;
+  padding: 4px 20px;
+  border-bottom: 1px solid #DDD;
+  background-color: #EEE;
+  margin-bottom: 20px;
 
-    #loggedInInfo {
-        font-weight: bold;
-    }
+  #loggedInInfo {
+    font-weight: bold;
+  }
 
-    #logout {
-        position: absolute;
-        right: 20px;
+  ul.admin-menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 10px;
+      display: inline-block;
     }
+  }
+
+  #logout {
+    position: absolute;
+    right: 20px;
+  }
 
 }
 
 #errors {
 
+  text-align: center;
+  background-color: #FEE;
+
+  .error {
+    padding: 10px;
     text-align: center;
-    background-color: #FEE;
-
-    .error {
-        padding: 10px;
-        text-align: center;
-        font-size: 20px;
-        color: #F22;
-    }
-
+    font-size: 20px;
+    color: #F22;
+  }
 
 }
 
 #loginState {
 
-    input, button {
-        margin: 4px;
-    }
+  input, button {
+    margin: 4px;
+  }
+
+}
+
+#loggedInState.role-user {
+
+  .show-for-admin {
+    display: none;
+  }
 
 }
 
 fieldset {
-    text-align: center;
-    border: none;
+  text-align: center;
+  border: none;
 
-    label {
-        padding: 4px 10px;
-        display: inline-block;
-    }
+  label {
+    padding: 4px 10px;
+    display: inline-block;
+  }
 }
 
 #topMenu {
-    fieldset {
-        line-height: 15px;
-        label {
-            padding: 4px 10px;
-            text-transform: uppercase;
-            display: inline-block;
-            cursor: pointer;
-        }
-        input[type="radio"] {
-            display: none;
-        }
-        label.selected {
-            background-color: #DDD;
-        }
+  fieldset {
+    line-height: 15px;
+    label {
+      padding: 4px 10px;
+      text-transform: uppercase;
+      display: inline-block;
+      cursor: pointer;
     }
+    input[type="radio"] {
+      display: none;
+    }
+    label.selected {
+      background-color: #DDD;
+    }
+  }
 }
 
 .source {
-    margin: 10px 0;
-    padding: 4px;
-    border: #999 1px solid;
-    background-color: #EEE;
-    overflow: hidden;
-    .logo {
-        padding: 14px;
+  margin: 10px 0;
+  padding: 4px;
+  border: #999 1px solid;
+  background-color: #EEE;
+  overflow: hidden;
+  .logo {
+    padding: 14px;
+  }
+  .articles {
+    text-align: center;
+    a {
+      display: inline-block;
+      margin: 10px;
+      border: 5px solid #FFF;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
+      &:last-of-type {
+        clear: both;
+      }
     }
-    .articles {
-        text-align: center;
-        a {
-            display: inline-block;
-            margin: 10px;
-            border: 5px solid #FFF;
-            opacity: 0.7;
-            &:hover {
-                opacity: 1;
-            }
-            &:last-of-type {
-                clear: both;
-            }
-        }
-    }
+  }
 }
