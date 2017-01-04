@@ -5,7 +5,19 @@ const sourceTpl = require('../tpls/source.pug');
 const articleTpl = require('../tpls/article.pug');
 const choiceTpl = require('../tpls/choice.pug');
 
-export default class PageMediator {
+export const PageMediatorEvents = {
+    ChoiceSelected: 'ChoiceSelected',
+    SourceSelected: 'SourceSelected',
+
+    LoginTry: 'LoginTry',
+    RegTry: 'RegTry',
+
+    ArticleAdd: 'ArticleAdd',
+    ArticleUpdate: 'ArticleUpdate',
+    ArticleRemove: 'ArticleRemove'
+};
+
+export class PageMediator {
 
     constructor(containerSelector) {
         if (window.appMediator) {
@@ -14,10 +26,7 @@ export default class PageMediator {
 
         window.appMediator = this;
 
-        this.onChoiceSelectedHandler = null;
-        this.onSourceSelectedHandler = null;
-        this.onLoginTryHandler = null;
-        this.onRegTryHandler = null;
+        this.eventListeners = {};
 
         this.appContainer = document.querySelector(containerSelector);
         this.appContainer.innerHTML = appTpl();
@@ -32,6 +41,17 @@ export default class PageMediator {
         this.langChoicesElement = this.appContainer.querySelector('#langChoices');
         this.contentElement = this.appContainer.querySelector('#content');
         this.errorElement = this.appContainer.querySelector('#errors');
+    }
+
+    addEventListener(eventName, listener) {
+        this.eventListeners[eventName] = (this.eventListeners[eventName] || []);
+        this.eventListeners[eventName].push(listener);
+    }
+
+    dispatchEvent(eventName, ...params) {
+        (this.eventListeners[eventName] || []).forEach((listener) => {
+            listener(...params);
+        });
     }
 
     setLoggedInUser(user) {
@@ -91,13 +111,13 @@ export default class PageMediator {
 
     tryLogin(login, pass) {
         if (login && pass) {
-            this.onLoginTryHandler && this.onLoginTryHandler(login, pass);
+            this.dispatchEvent(PageMediatorEvents.LoginTry, login, pass);
         }
     }
 
     tryReg(login, pass) {
         if (login && pass) {
-            this.onRegTryHandler && this.onRegTryHandler(login, pass);
+            this.dispatchEvent(PageMediatorEvents.RegTry, login, pass);
         }
     }
 
@@ -109,7 +129,7 @@ export default class PageMediator {
             });
 
             const {name: param, value} = selectedNode;
-            this.onChoiceSelectedHandler && this.onChoiceSelectedHandler(param, value);
+            this.dispatchEvent(PageMediatorEvents.ChoiceSelected, param, value);
         }
     }
 
@@ -118,8 +138,27 @@ export default class PageMediator {
         if (sourcesElement.children.length > 0) {
             sourcesElement.innerHTML = '';
         } else {
-            this.onSourceSelectedHandler && this.onSourceSelectedHandler(sourceId);
+            this.dispatchEvent(PageMediatorEvents.SourceSelected, sourceId);
         }
+    }
+
+    addArticle() {
+        this.dispatchEvent(PageMediatorEvents.ArticleAdd, {
+            title: 'Test at ' + new Date(),
+            url: 'http://tut.by',
+            urlToImage: '',
+            publishedAt: (new Date()).toISOString(),
+            source: {
+                id: 'usa-today',
+                category: 'general',
+                language: 'en',
+                country: 'us'
+            }
+        });
+    }
+
+    showUsers() {
+
     }
 
     /* Private */

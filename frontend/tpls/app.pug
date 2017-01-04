@@ -24,9 +24,9 @@
         span &nbsp; | &nbsp;
         ul.admin-menu.show-for-admin
             li
-                a(href='javascript:void(0)') Add article
+                a(href='javascript:void(0)', onclick='appMediator.addArticle()') Add article
             li
-                a(href='javascript:void(0)') Users
+                a(href='javascript:void(0)', onclick='appMediator.showUsers()') Users
 
         a#logout(href='/api/auth/logout') Logout
 

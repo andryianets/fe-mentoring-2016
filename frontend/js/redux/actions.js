@@ -126,6 +126,14 @@ export function articlesLoaded(sourceId, articles) {
     }
 }
 
+export function addArticle(data) {
+    return dispatch => {
+        return DataSource.getInstance().addArticle(data)
+            .then(article => dispatch(loadArticles(article.source.id)))
+            .catch(error => dispatch(appError(error)));
+    };
+}
+
 export function appError(error) {
     return {
         type: APP_ERROR,

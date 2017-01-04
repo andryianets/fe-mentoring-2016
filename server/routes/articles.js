@@ -49,19 +49,21 @@ router.put('/:id', AccessHelper.hasRole(['admin']),
             .catch(error => res.status(500).json(err));
     });
 
+router.post('/', AccessHelper.hasRole(['admin']),
+    (req, res) => {
+        const newArticle = new db.Article(req.body);
+
+        newArticle
+            .save()
+            .then(result => res.json(result))
+            .catch(error => res.status(500).json(err));
+
+    });
+
 router.delete('/:id', AccessHelper.hasRole(['admin']),
     (req, res) => {
         db.Article
             .deleteOne({_id: req.params.id}, req.body)
-            .exec()
-            .then(result => res.json({result}))
-            .catch(error => res.status(500).json(err));
-    });
-
-router.post('/', AccessHelper.hasRole(['admin']),
-    (req, res) => {
-        db.Article
-            .findOne({_id: req.params.id})
             .exec()
             .then(result => res.json({result}))
             .catch(error => res.status(500).json(err));

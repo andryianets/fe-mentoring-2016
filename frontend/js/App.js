@@ -1,8 +1,8 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
 import configureStore from './redux/configureStore';
-import {tryLogin, tryReg, initApp, filterChanged, loadArticles} from './redux/actions';
-import PageMediator from './PageMediator';
+import {tryLogin, tryReg, initApp, filterChanged, loadArticles, addArticle} from './redux/actions';
+import {PageMediator, PageMediatorEvents} from './PageMediator';
 require('../scss/app.scss');
 
 export default class App {
@@ -27,20 +27,25 @@ export default class App {
 
         this.pageMediator = new PageMediator(appContainerSelector);
 
-        this.pageMediator.onLoginTryHandler = (login, pass) => {
+        this.pageMediator.addEventListener(PageMediatorEvents.LoginTry, (login, pass) => {
             this.store.dispatch(tryLogin(login, pass));
-        };
+        });
 
-        this.pageMediator.onRegTryHandler = (login, pass) => {
+        this.pageMediator.addEventListener(PageMediatorEvents.RegTry, (login, pass) => {
             this.store.dispatch(tryReg(login, pass));
-        };
+        });
 
-        this.pageMediator.onChoiceSelectedHandler = (param, value) => {
+        this.pageMediator.addEventListener(PageMediatorEvents.ChoiceSelected, (param, value) => {
             this.store.dispatch(filterChanged(param, value));
-        };
-        this.pageMediator.onSourceSelectedHandler = (sourceId) => {
+        });
+
+        this.pageMediator.addEventListener(PageMediatorEvents.SourceSelected, (sourceId) => {
             this.store.dispatch(loadArticles(sourceId));
-        };
+        });
+
+        this.pageMediator.addEventListener(PageMediatorEvents.ArticleAdd, (data) => {
+            this.store.dispatch(addArticle(data));
+        });
 
         this.store.dispatch(initApp());
     }
