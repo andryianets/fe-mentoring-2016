@@ -1,7 +1,8 @@
 import 'whatwg-fetch';
 import 'babel-polyfill';
 import configureStore from './redux/configureStore';
-import {tryLogin, tryReg, initApp, filterChanged, loadArticles, addArticle} from './redux/actions';
+import {tryLogin, tryReg, initApp, filterChanged,
+    loadArticles, addArticle, removeArticle, loadUsers} from './redux/actions';
 import {PageMediator, PageMediatorEvents} from './PageMediator';
 require('../scss/app.scss');
 
@@ -44,7 +45,20 @@ export default class App {
         });
 
         this.pageMediator.addEventListener(PageMediatorEvents.ArticleAdd, (data) => {
-            this.store.dispatch(addArticle(data));
+            const state = this.store.getState();
+            if (state.articlesList.sourceId) {
+                data.source.id = state.articlesList.sourceId;
+                this.store.dispatch(addArticle(data));
+            }
+        });
+
+        this.pageMediator.addEventListener(PageMediatorEvents.ArticleRemove, (id) => {
+            const state = this.store.getState();
+            this.store.dispatch(removeArticle(id, state.articlesList.sourceId));
+        });
+
+        this.pageMediator.addEventListener(PageMediatorEvents.LoadUsers, () => {
+            this.store.dispatch(loadUsers());
         });
 
         this.store.dispatch(initApp());
@@ -74,6 +88,8 @@ export default class App {
         if (this.prevState.errorMessage !== state.errorMessage) {
             this.pageMediator.setError(state.errorMessage);
         }
+
+        //users + article
 
         this.prevState = state;
     }

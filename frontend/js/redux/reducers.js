@@ -3,9 +3,11 @@ import {LOGIN_SUCCESS, LOGIN_FAILED, REG_FAILED,
         APP_ERROR,
         INIT_FILTERS, FILTER_CHANGED,
         LOAD_SOURCES, LOAD_ARTICLES,
-        SOURCES_LOADED, ARTICLES_LOADED} from './actions';
+        SOURCES_LOADED,
+        ARTICLES_LOADED, ARTICLE_DELETED,
+        USERS_LOADED} from './actions';
 
-function loggedInUser(state = null, action) {
+function loggedInUser(state = {}, action) {
     switch (action.type) {
         case LOGIN_SUCCESS:
             return Object.assign({}, state, action.user);
@@ -57,6 +59,27 @@ function articlesList(state = {}, action) {
                 sourceId: action.sourceId,
                 articles: action.articles
             };
+        case ARTICLE_DELETED:
+            let indexToDelete = -1;
+            state.articles.forEach((article, index) => {
+                if (article._id == action.id) {
+                    indexToDelete = index;
+                    return false;
+                }
+            });
+            if (indexToDelete >= 0) {
+                state.articles.splice(indexToDelete, 1);
+            }
+            return Object.assign({}, state);
+        default:
+            return state;
+    }
+}
+
+function users(state = [], action) {
+    switch (action.type) {
+        case USERS_LOADED:
+            return action.users;
         default:
             return state;
     }
@@ -85,10 +108,10 @@ const rootReducer = combineReducers({
     headerFilters,
     sourcesList,
     articlesList,
-    errorMessage
+    errorMessage,
 
     //admin view
-
+    users
 });
 
 export default rootReducer;

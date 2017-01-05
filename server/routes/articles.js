@@ -43,7 +43,7 @@ router.get('/:id', AccessHelper.hasRole(['user', 'admin']),
 router.put('/:id', AccessHelper.hasRole(['admin']),
     (req, res) => {
         db.Article
-            .updateOne({_id: req.params.id}, req.body)
+            .findOneAndUpdate({_id: req.params.id}, req.body)
             .exec()
             .then(result => res.json({result}))
             .catch(error => res.status(500).json(err));
@@ -63,7 +63,7 @@ router.post('/', AccessHelper.hasRole(['admin']),
 router.delete('/:id', AccessHelper.hasRole(['admin']),
     (req, res) => {
         db.Article
-            .deleteOne({_id: req.params.id}, req.body)
+            .remove({_id: req.params.id})
             .exec()
             .then(result => res.json({result}))
             .catch(error => res.status(500).json(err));

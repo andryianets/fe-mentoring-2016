@@ -10,6 +10,8 @@ export const LOAD_SOURCES = 'LOAD_SOURCES';
 export const LOAD_ARTICLES = 'LOAD_ARTICLES';
 export const SOURCES_LOADED = 'SOURCES_LOADED';
 export const ARTICLES_LOADED = 'ARTICLES_LOADED';
+export const ARTICLE_DELETED = 'ARTICLE_DELETED';
+export const USERS_LOADED = 'USERS_LOADED';
 export const APP_ERROR = 'APP_ERROR';
 
 export function initApp() {
@@ -132,6 +134,36 @@ export function addArticle(data) {
             .then(article => dispatch(loadArticles(article.source.id)))
             .catch(error => dispatch(appError(error)));
     };
+}
+
+export function removeArticle(id, sourceId) {
+    return dispatch => {
+        return DataSource.getInstance().removeArticle(id)
+            .then(result => dispatch(articleDeleted(id)))
+            .catch(error => dispatch(appError(error)));
+    };
+}
+
+export function articleDeleted(id) {
+    return {
+        type: ARTICLE_DELETED,
+        id
+    }
+}
+
+export function loadUsers() {
+    return dispatch => {
+        return DataSource.getInstance().getUsers()
+            .then(users => dispatch(usersLoaded(users)))
+            .catch(error => dispatch(appError(error)));
+    };
+}
+
+export function usersLoaded(users) {
+    return {
+        type: USERS_LOADED,
+        users
+    }
 }
 
 export function appError(error) {

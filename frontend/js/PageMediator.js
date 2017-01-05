@@ -14,7 +14,9 @@ export const PageMediatorEvents = {
 
     ArticleAdd: 'ArticleAdd',
     ArticleUpdate: 'ArticleUpdate',
-    ArticleRemove: 'ArticleRemove'
+    ArticleRemove: 'ArticleRemove',
+
+    LoadUsers: 'LoadUsers'
 };
 
 export class PageMediator {
@@ -46,6 +48,14 @@ export class PageMediator {
     addEventListener(eventName, listener) {
         this.eventListeners[eventName] = (this.eventListeners[eventName] || []);
         this.eventListeners[eventName].push(listener);
+    }
+
+    removeEventListener(eventName, listener) {
+        const listeners = this.eventListeners[eventName] || [];
+        const listenerIndex = listeners.indexOf(listener);
+        if (listenerIndex >= 0 && listeners.length > 0) {
+            listeners.splice(listenerIndex, 1);
+        }
     }
 
     dispatchEvent(eventName, ...params) {
@@ -146,7 +156,7 @@ export class PageMediator {
         this.dispatchEvent(PageMediatorEvents.ArticleAdd, {
             title: 'Test at ' + new Date(),
             url: 'http://tut.by',
-            urlToImage: '',
+            urlToImage: 'https://img.tyt.by/p/0d/f/logo_tutby_startapy_21.01.png',
             publishedAt: (new Date()).toISOString(),
             source: {
                 id: 'usa-today',
@@ -157,8 +167,14 @@ export class PageMediator {
         });
     }
 
-    showUsers() {
+    loadUsers() {
+        this.dispatchEvent(PageMediatorEvents.LoadUsers);
+    }
 
+    deleteArticle(id) {
+        if (confirm('Are you sure?')) {
+            this.dispatchEvent(PageMediatorEvents.ArticleRemove, id);
+        }
     }
 
     /* Private */

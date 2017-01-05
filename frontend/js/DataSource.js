@@ -53,8 +53,16 @@ export default class DataSource {
         return this.doRequest('/api/articles', 'GET', {'source.id': sourceId});
     }
 
+    getUsers() {
+        return this.doRequest('/api/users', 'GET');
+    }
+
     addArticle(data) {
         return this.doRequest('/api/articles', 'POST', {}, data);
+    }
+
+    removeArticle(id) {
+        return this.doRequest(`/api/articles/${id}`, 'DELETE');
     }
 
     checkLogin() {
