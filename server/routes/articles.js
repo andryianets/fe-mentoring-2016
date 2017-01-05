@@ -8,7 +8,9 @@ const express = require('express'),
 router.get('/sources', AccessHelper.hasRole(['user', 'admin']),
     (req, res) => {
 
-        const params = {};
+        const params = {
+            'source.urlsToLogos': { $exists: true, $not: {$size: 0} }
+        };
 
         for (let key in req.query) {
             params[`source.${key}`] = req.query[key];
