@@ -3,10 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: {
+        app: './frontend/js/index.js',
+        vendor: [
+            'whatwg-fetch',
+            'babel-polyfill'
+        ]
+    },
     output: {
-        path: __dirname + '/dist',
-        filename: 'index.js',
+        path: __dirname + '/public',
+        filename: 'app.js',
         publicPath: '/'
     },
     module: {
@@ -31,6 +37,10 @@ module.exports = {
             {
                 test: /\.(png|jpg)$/,
                 loader: 'file-loader?name=assets/[hash].[ext]&publicPath=./'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file?name=fonts/[name].[ext]'
             }
         ]
     },
@@ -38,7 +48,14 @@ module.exports = {
         new ExtractTextPlugin('styles.css'),
         new HtmlWebpackPlugin({
             title: 'Mentoring 2016 App',
-            template: './src/tpls/index.pug'
-        })
+            template: './frontend/tpls/index.pug'
+        }),
+        new webpack.optimize.CommonsChunkPlugin(
+            /* chunkName= */'vendor',
+            /* filename= */'vendors.js'
+        ),
+        // new webpack.ProvidePlugin({
+        //     '_': 'lodash'
+        // })
     ]
 };
