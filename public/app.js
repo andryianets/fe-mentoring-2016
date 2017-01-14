@@ -4,25 +4,23 @@ webpackJsonp([0],[
 
 	'use strict';
 	
-	__webpack_require__(2);
+	__webpack_require__(1);
 	
 	window.loadAppModule = function () {
 	    __webpack_require__.e/* nsure */(1, function () {
-	        var App = __webpack_require__(7).default;
-	        App.getInstance('#appContainer');
+	        __webpack_require__(6);
 	    });
 	};
 
 /***/ },
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 3 */,
-/* 4 */
+/* 2 */,
+/* 3 */
 /***/ function(module, exports) {
 
 	/*
@@ -78,8 +76,8 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 5 */,
-/* 6 */
+/* 4 */,
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

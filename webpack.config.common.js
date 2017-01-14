@@ -3,11 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     entry: {
         app: './frontend/js/index.js',
         vendor: [
             'whatwg-fetch',
-            'babel-polyfill'
+            'babel-polyfill',
+            'react',
+            'react-dom',
+            'react-router'
         ]
     },
     output: {
@@ -26,7 +32,7 @@ module.exports = {
                 loader: ExtractTextPlugin.extract('style-loader', 'css!sass')
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel'
             },
