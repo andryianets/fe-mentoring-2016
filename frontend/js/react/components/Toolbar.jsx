@@ -17,12 +17,8 @@ class Toolbar extends React.Component {
     render() {
         return <header>
             <span id="loggedInInfo">Welcome, {this.props.loggedInUser.login}</span>
-            <span>&nbsp; | &nbsp;</span>
-            <ul className="admin-menu">
-                <li>
-                    <a href="javascript:void(0)" onClick={e => {this.props.addArticle()}}>Add article</a>
-                </li>
-            </ul>
+            <span className="show-for-admin">&nbsp;|&nbsp;</span>
+            <a className="show-for-admin" onClick={e => this.props.addArticle()}>Add article</a>
             <a id="logout" href="/api/auth/logout">Logout</a>
         </header>
     }
@@ -31,6 +27,7 @@ class Toolbar extends React.Component {
 function mapDispatchToProps(dispatch) {
     return {
         addArticle() {
+            const currentSourceId = this.props.articlesList;
             dispatch(addArticle({
                 title: 'Test at ' + new Date(),
                 url: 'http://tut.by',
@@ -49,7 +46,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        loggedInUser: state.loggedInUser || {}
+        loggedInUser: state.loggedInUser || {},
+        articlesList: state.articlesList
     }
 }
 

@@ -6,7 +6,8 @@ export default class Article extends React.Component {
 
     static get propTypes() {
         return {
-            data: React.PropTypes.object
+            data: React.PropTypes.object,
+            onDeleteClick: React.PropTypes.func
         };
     }
 
@@ -32,6 +33,12 @@ export default class Article extends React.Component {
                     src={require('file-loader?name=assets/[hash].[ext]!../../../assets/loader.gif')}
                     height="120" />
             </a>
+
+            <a className="show-for-admin delete-article" href="javascript:void(0)" onClick={e => this.props.onDeleteClick(e, this.props.data)}>
+                <span className="fa fa-close">
+                </span>
+            </a>
+
         </article>
     }
 

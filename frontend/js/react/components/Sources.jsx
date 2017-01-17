@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loadArticles} from '../../redux/actions';
+import {loadArticles, removeArticle} from '../../redux/actions';
 
 import Article from './Article';
 
@@ -26,6 +26,9 @@ class Sources extends React.Component {
                     .map((article, articleIndex) =>
                         <Article
                             data={article}
+                            onDeleteClick={(e, article) => {
+                                this.props.removeArticle(article._id, source.id);
+                            }}
                             key={articleIndex}/>)
                 :
                 [];
@@ -53,6 +56,9 @@ function mapDispatchToProps(dispatch) {
     return {
         loadArticles(sourceId) {
             dispatch(loadArticles(sourceId));
+        },
+        removeArticle(id, sourceId) {
+            dispatch(removeArticle(id, sourceId));
         }
     };
 }

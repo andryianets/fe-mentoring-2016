@@ -26,6 +26,11 @@ class Login extends React.Component {
     }
 
     render() {
+
+        if (!this.props.loggedInUser.initialized) {
+            return null;
+        }
+
         return (
             <div id="loginState">
                 <fieldset>
@@ -82,7 +87,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        loggedIn: state.loggedInUser.login !== undefined
+        loggedIn: state.loggedInUser.login !== undefined,
+        loggedInUser: state.loggedInUser
     }
 }
 

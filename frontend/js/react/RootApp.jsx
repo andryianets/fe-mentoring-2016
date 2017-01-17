@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {initApp} from '../redux/actions'
-import {browserHistory} from 'react-router'
 
 class RootApp extends React.Component {
 
@@ -15,8 +14,6 @@ class RootApp extends React.Component {
     componentDidMount() {
         this.props.initApp();
     }
-
-
 
     render() {
         return (

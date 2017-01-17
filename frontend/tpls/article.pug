@@ -1,9 +1,0 @@
-article
-
-    a.article-picture(href=article.url,
-    target="_blank",
-    title=article.title)
-        img(data-src=article.urlToImage, src=require('file-loader?name=assets/[hash].[ext]!../assets/loader.gif'), height="120")
-
-    a.show-for-admin.delete-article(href='javascript:void(0)', onclick="appMediator.deleteArticle('" + article._id + "')")
-        span.fa.fa-close

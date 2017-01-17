@@ -15,20 +15,29 @@ require('../../scss/app.scss');
 
 const store = configureStore();
 
+const indexRouting = (nextState, replace) => {
+    const state = store.getState();
+    if (state.loggedInUser && state.loggedInUser.login) {
+        replace('/app');
+    } else {
+        replace('/login');
+    }
+};
+
+const accessCheck = (nextState, replace) => {
+    const state = store.getState();
+    if (!state.loggedInUser || !state.loggedInUser.login) {
+        replace('/login');
+    }
+};
+
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={RootApp}>
-                <IndexRoute onEnter={(nextState, replace) => {
-                    const state = store.getState();
-                    if (state.loggedInUser && state.loggedInUser.login) {
-                        replace('/app');
-                    } else {
-                        replace('/login');
-                    }
-                }}/>
+                <IndexRoute onEnter={indexRouting}/>
                 <Route path="login" component={Login}/>
-                <Route path="app" component={App}/>
+                <Route path="app" component={App} onEnter={accessCheck}/>
                 <Route path="*" component={NotFound}/>
             </Route>
         </Router>
