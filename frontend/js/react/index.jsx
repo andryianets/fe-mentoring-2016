@@ -4,7 +4,7 @@ import 'babel-polyfill';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 import configureStore from '../redux/configureStore';
 import RootApp from './RootApp';
 import App from './App';
@@ -19,7 +19,15 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={RootApp}>
-                <IndexRoute component={Login}/>
+                <IndexRoute onEnter={(nextState, replace) => {
+                    const state = store.getState();
+                    if (state.loggedInUser && state.loggedInUser.login) {
+                        replace('/app');
+                    } else {
+                        replace('/login');
+                    }
+                }}/>
+                <Route path="login" component={Login}/>
                 <Route path="app" component={App}/>
                 <Route path="*" component={NotFound}/>
             </Route>

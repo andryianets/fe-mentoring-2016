@@ -6,6 +6,13 @@ import Article from './Article';
 
 class Sources extends React.Component {
 
+    static get propTypes() {
+        return {
+            sourcesList: React.PropTypes.array,
+            articlesList: React.PropTypes.object
+        };
+    }
+
     constructor(props) {
         super(props);
     }
@@ -15,7 +22,11 @@ class Sources extends React.Component {
         const sourcesTpls = this.props.sourcesList.map((source, index) => {
 
             const articlesTpls = this.props.articlesList.sourceId === source.id ?
-                this.props.articlesList.articles.map((article, articleIndex) => <Article data={article} key={articleIndex}/>)
+                this.props.articlesList.articles
+                    .map((article, articleIndex) =>
+                        <Article
+                            data={article}
+                            key={articleIndex}/>)
                 :
                 [];
 

@@ -11,8 +11,6 @@ function loggedInUser(state = {}, action) {
     switch (action.type) {
         case LOGIN_SUCCESS:
             return Object.assign({}, state, action.user);
-        case LOGIN_FAILED:
-            return null;
         default:
             return state;
     }

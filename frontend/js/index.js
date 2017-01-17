@@ -5,3 +5,9 @@ window.loadAppModule = () => {
         require('./react');
     });
 };
+
+window.loadAdminPanelModule = () => {
+    require.ensure(['./angular'], () => {
+        require('./angular');
+    });
+};

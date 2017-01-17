@@ -4,6 +4,12 @@ import {addArticle} from '../../redux/actions'
 
 class Toolbar extends React.Component {
 
+    static get propTypes() {
+        return {
+            loggedInUser: React.PropTypes.object
+        };
+    }
+
     constructor(props) {
         super(props);
     }
@@ -21,7 +27,6 @@ class Toolbar extends React.Component {
         </header>
     }
 }
-
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -44,7 +49,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        loggedInUser: state.loggedInUser
+        loggedInUser: state.loggedInUser || {}
     }
 }
 

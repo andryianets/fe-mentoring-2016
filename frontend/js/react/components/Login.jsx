@@ -5,6 +5,12 @@ import {tryLogin} from '../../redux/actions'
 
 class Login extends React.Component {
 
+    static get propTypes() {
+        return {
+            loggedIn: React.PropTypes.bool
+        };
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -76,7 +82,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        loggedIn: state.loggedInUser && state.loggedInUser.login
+        loggedIn: state.loggedInUser.login !== undefined
     }
 }
 

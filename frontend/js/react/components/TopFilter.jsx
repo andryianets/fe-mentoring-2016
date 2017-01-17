@@ -4,6 +4,13 @@ import {filterChanged} from '../../redux/actions';
 
 class TopFilter extends React.Component {
 
+    static get propTypes() {
+        return {
+            filtersData: React.PropTypes.object,
+            headerFilters: React.PropTypes.object
+        };
+    }
+
     constructor(props) {
         super(props);
         this.state = {};
@@ -40,7 +47,6 @@ class TopFilter extends React.Component {
     }
 
 }
-
 
 function mapDispatchToProps(dispatch) {
     return {
