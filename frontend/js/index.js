@@ -1,13 +1,20 @@
-require('../scss/style.scss');
+// require('../scss/style.scss');
+//
+// window.loadAppModule = (appName) => {
+//     switch (appName) {
+//         case 'react':
+//             require.ensure(['./react'], () => {
+//                 require('./react');
+//             });
+//             break;
+//
+//         case 'angular':
+//             require.ensure(['./angular'], () => {
+//                 require('./angular');
+//             });
+//             break;
+//     }
+// };
 
-window.loadAppModule = () => {
-    require.ensure(['./react'], () => {
-        require('./react');
-    });
-};
-
-window.loadAdminPanelModule = () => {
-    require.ensure(['./angular'], () => {
-        require('./angular');
-    });
-};
+document.getElementById('startApp').innerHTML = '';
+require('./angular');

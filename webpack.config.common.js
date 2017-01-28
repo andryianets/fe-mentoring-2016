@@ -11,9 +11,31 @@ module.exports = {
         vendor: [
             'whatwg-fetch',
             'babel-polyfill',
+
             'react',
             'react-dom',
-            'react-router'
+            'react-router',
+
+            'bootstrap-loader',
+            'jquery',
+
+            'lodash',
+
+            //'ng-toast',
+
+            'angular',
+            'angular-animate',
+            'angular-sanitize',
+            'angular-aria',
+            'angular-messages',
+
+            'angular-ui-router',
+
+            'angular-xeditable',
+
+            'angular-strap',
+            'angular-strap/dist/angular-strap.tpl'
+
         ]
     },
     output: {
@@ -47,6 +69,10 @@ module.exports = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
                 loader: 'file?name=fonts/[name].[ext]'
+            },
+            {
+                test: /\.html$/,
+                loader: 'html'
             }
         ]
     },
@@ -60,8 +86,10 @@ module.exports = {
             /* chunkName= */'vendor',
             /* filename= */'vendors.js'
         ),
-        // new webpack.ProvidePlugin({
-        //     '_': 'lodash'
-        // })
+        new webpack.ProvidePlugin({
+            '_': 'lodash',
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };

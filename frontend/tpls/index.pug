@@ -12,7 +12,7 @@ html(lang='en')
         // CSS Reset
         link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
         // Milligram CSS minified
-        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/milligram/1.2.4/milligram.min.css')
+        //link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/milligram/1.2.4/milligram.min.css')
 
 
 
@@ -21,6 +21,13 @@ html(lang='en')
                 display: none;
             }
     body
+
         #startApp
-            a(href='javascript:void(0)', onclick='loadAppModule();this.parentElement.removeChild(this);', title="Load App's module...")
+            a.react-app(href='javascript:void(0)', onclick='loadAppModule("react");this.parentElement.removeChild(this);', title="Load React module...")
+            a.angular-app(href='javascript:void(0)', onclick='loadAppModule("angular");this.parentElement.removeChild(this);', title="Load Angular module...")
+
         #reactRoot
+
+        #angularRoot(ng-app='todoApp')
+            toast
+            .container(ui-view='')
