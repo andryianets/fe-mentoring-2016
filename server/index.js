@@ -1,5 +1,7 @@
 'use strict';
 
+require('babel-register');
+
 const express = require('express'),
     path = require('path'),
     logger = require('morgan'),
@@ -34,6 +36,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, '../public')));
+// HTML5 locations reactJS fix
+app.get(/^\/(login|app)/, (req, res) => res.sendFile(path.join(__dirname, '../public') + '/index.html'));
+
+app.use('/reactRender', require('./routes/reactRender'));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/articles', require('./routes/articles'));

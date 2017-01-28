@@ -4,7 +4,7 @@ config.devtool = 'source-map';
 config.devServer = {
     port: 9090,
     open: true,
-    'content-base': './dist',
+    'content-base': './public',
 
     proxy: {
         '/api': {

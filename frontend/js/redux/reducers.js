@@ -10,9 +10,9 @@ import {LOGIN_SUCCESS, LOGIN_FAILED, REG_FAILED,
 function loggedInUser(state = {}, action) {
     switch (action.type) {
         case LOGIN_SUCCESS:
-            return Object.assign({}, state, action.user);
+            return Object.assign({}, state, action.user, {initialized: true});
         case LOGIN_FAILED:
-            return null;
+            return Object.assign({}, state, {initialized: true});
         default:
             return state;
     }
