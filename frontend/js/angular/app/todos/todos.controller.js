@@ -14,25 +14,21 @@ class TodosController {
 
         this.newItemTitle = null;
 
-        this.todoFilter = null;
-        this.todoFilters = [
-            {
-                value: null,
-                label: 'All'
-            },
-            {
-                value: true,
-                label: 'Done'
-            },
-            {
-                value: false,
-                label: 'Undone'
-            },
-        ];
+        this._todoFilter = null;
+    }
+
+    set todoFilter(val) {
+        if (this._todoFilter !== val) {
+            this._todoFilter = val;
+        }
+    }
+
+    get todoFilter() {
+        return this._todoFilter;
     }
 
     get displayItems() {
-        return this.todoFilter ?
+        return this.todoFilter !== null ?
             _.filter(this.items, {done: this.todoFilter}) : this.items;
     }
 

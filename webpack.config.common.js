@@ -16,7 +16,6 @@ module.exports = {
             'react-dom',
             'react-router',
 
-            'bootstrap-loader',
             'jquery',
 
             'lodash',
