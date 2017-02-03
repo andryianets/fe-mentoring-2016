@@ -9,7 +9,7 @@ router.get('/sources', AccessHelper.hasRole(['user', 'admin']),
     (req, res) => {
 
         const params = {
-            'source.urlsToLogos': { $exists: true, $not: {$size: 0} }
+            'source.urlsToLogos': { $not: {$size: 0} }
         };
 
         for (let key in req.query) {
@@ -45,9 +45,9 @@ router.get('/:id', AccessHelper.hasRole(['user', 'admin']),
 router.put('/:id', AccessHelper.hasRole(['admin']),
     (req, res) => {
         db.Article
-            .findOneAndUpdate({_id: req.params.id}, req.body)
+            .findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
             .exec()
-            .then(result => res.json({result}))
+            .then(result => res.json(result))
             .catch(error => res.status(500).json(err));
     });
 
@@ -67,7 +67,7 @@ router.delete('/:id', AccessHelper.hasRole(['admin']),
         db.Article
             .remove({_id: req.params.id})
             .exec()
-            .then(result => res.json({result}))
+            .then(result => res.json(result))
             .catch(error => res.status(500).json(err));
     });
 

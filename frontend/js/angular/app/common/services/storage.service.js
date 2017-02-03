@@ -1,4 +1,4 @@
-import TodoApp from '../../app.module';
+import TodoApp from 'angularApp/app.module';
 
 export const KEY_LOGGED_IN = 'TODO_APP.KEY_LOGGED_IN';
 export const KEY_TODOS = 'TODO_APP.KEY_TODOS';

@@ -1,3 +1,6 @@
+import 'whatwg-fetch';
+import 'babel-polyfill';
+
 import 'jquery';
 import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
@@ -6,6 +9,7 @@ import 'angular-animate';
 import 'angular-sanitize';
 import 'angular-aria';
 import 'angular-messages';
+import 'angular-resource';
 
 import 'angular-ui-router';
 

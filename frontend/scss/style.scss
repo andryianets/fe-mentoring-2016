@@ -25,12 +25,11 @@ a {
         }
 
         &.react-app {
-            background: url('../assets/paperplane.png');
+            background: url('../assets/react-logo.png') no-repeat;
         }
 
         &.angular-app {
-            background: url('../assets/paperplane.png');
-            opacity: 0.5;
+            background: url('../assets/angular.png') no-repeat;
         }
     }
 }

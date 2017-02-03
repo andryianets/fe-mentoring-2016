@@ -5,18 +5,17 @@
                 <h3 class="panel-title">Please sign in</h3>
             </div>
             <div class="panel-body">
-                <form accept-charset="UTF-8" role="form" ng-submit="ctrl.doLogin()">
+                <form accept-charset="UTF-8" role="form" ng-submit="$ctrl.doLogin()">
 
                     <fieldset>
 
                         <div class="form-group">
                             <input class="form-control"
                                    placeholder="Login"
-                                   name="email"
+                                   name="login"
                                    type="text"
-                                   ng-model="ctrl.auth.login"
+                                   ng-model="$ctrl.auth.login"
                                    required
-                                   ng-minlength='8'
                             >
                         </div>
 
@@ -26,9 +25,8 @@
                                    name="password"
                                    type="password"
                                    value=""
-                                   ng-model="ctrl.auth.pass"
+                                   ng-model="$ctrl.auth.pass"
                                    required
-                                   ng-minlength='8'
                             >
                         </div>
 

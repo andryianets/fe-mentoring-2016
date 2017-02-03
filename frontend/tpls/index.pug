@@ -17,17 +17,17 @@ html(lang='en')
 
 
         style(type='text/css').
-            .hidden {
+            .hidden, ng-cloak, [ng-cloak], .ng-cloak {
                 display: none;
             }
     body
 
         #startApp
-            a.react-app(href='javascript:void(0)', onclick='loadAppModule("react");this.parentElement.removeChild(this);', title="Load React module...")
-            a.angular-app(href='javascript:void(0)', onclick='loadAppModule("angular");this.parentElement.removeChild(this);', title="Load Angular module...")
+            a.react-app(href='javascript:void(0)', onclick='loadAppModule("react");', title="Load React module...")
+            a.angular-app(href='javascript:void(0)', onclick='loadAppModule("angular");', title="Load Angular module...")
 
         #reactRoot
 
-        #angularRoot(ng-app='todoApp')
+        #angularRoot
             toast
-            .container(ui-view='')
+            .container-fluid(ui-view='')

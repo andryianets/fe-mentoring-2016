@@ -1,6 +1,8 @@
-import TodoApp from './app.module';
-import './login/login.controller';
-import './todos/todos.controller';
+import TodoApp from 'angularApp/app.module';
+import states from 'angularApp/common/states.const';
+
+import 'angularApp/common/services/dataSource.service';
+import 'angularApp/common/services/article.resource.js';
 
 angular.module(TodoApp)
 
@@ -8,20 +10,29 @@ angular.module(TodoApp)
 
         $stateProvider
 
-            .state('login', {
+            .state(states.LOGIN, {
                 url: '/login',
-                template: require('./login/login.html'),
-                controller: 'LoginController as ctrl',
+                template: '<login />',
+            })
+
+            .state(states.ARTICLES, {
+                url: '/articles',
+                template: '<articles-list />',
+            })
+
+            .state(states.ARTICLE_EDIT, {
+                url: '/articles/:id',
+                template: '<article-form data="$resolve.article" />',
                 resolve: {
+                    article: () => {
+
+                    }
                 }
             })
 
-            .state('todos', {
-                url: '/todos',
-                template: require('./todos/todos.html'),
-                controller: 'TodosController as ctrl',
-                resolve: {
-                }
+            .state(states.ARTICLE_ADD, {
+                url: '/articles/add',
+                template: '<articleForm data="{}" />'
             })
 
         ;
@@ -30,5 +41,14 @@ angular.module(TodoApp)
 
     })
 
+    .run((editableOptions) => {
+        editableOptions.theme = 'bs3';
+    })
 
 ;
+
+// manual bootstrap
+angular.element(() => {
+    angular.bootstrap(document.getElementById('angularRoot'), [TodoApp]);
+});
+

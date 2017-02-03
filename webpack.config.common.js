@@ -1,13 +1,19 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        root: path.resolve(__dirname),
+        alias: {
+            angularApp: 'frontend/js/angular/app',
+            jsRoot: 'frontend/js',
+        },
+        extensions: ['.js', '.jsx', '']
     },
     entry: {
-        app: './frontend/js/index.js',
+        app: 'frontend/js/index.js',
         vendor: [
             'whatwg-fetch',
             'babel-polyfill',
@@ -27,6 +33,7 @@ module.exports = {
             'angular-sanitize',
             'angular-aria',
             'angular-messages',
+            'angular-resource',
 
             'angular-ui-router',
 
@@ -79,7 +86,7 @@ module.exports = {
         new ExtractTextPlugin('styles.css'),
         new HtmlWebpackPlugin({
             title: 'Mentoring 2016 App',
-            template: './frontend/tpls/index.pug'
+            template: 'frontend/tpls/index.pug'
         }),
         new webpack.optimize.CommonsChunkPlugin(
             /* chunkName= */'vendor',

@@ -1,6 +1,6 @@
-import TodoApp from '../app.module';
-import '../common/services/storage.service';
-import {KEY_TODOS} from '../common/services/storage.service';
+import TodoApp from 'angularApp/app.module';
+import 'angularApp/common/services/storage.service';
+import {KEY_TODOS} from 'angularApp/common/services/storage.service';
 import './style.scss';
 
 class TodosController {
@@ -26,7 +26,7 @@ class TodosController {
     get todoFilter() {
         return this._todoFilter;
     }
-
+K
     get displayItems() {
         return this.todoFilter !== null ?
             _.filter(this.items, {done: this.todoFilter}) : this.items;
