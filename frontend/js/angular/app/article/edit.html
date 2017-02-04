@@ -1,0 +1,46 @@
+<div class="row" style="padding-top: 60px;">
+
+    <a class="btn btn-default btn-sm" ui-sref="app.articles">
+        <span class="glyphicon glyphicon-arrow-left"></span> Back to list
+    </a>
+
+    <hr/>
+
+    <form role="form" ng-submit="$ctrl.save()">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Article {{$ctrl.data._id || 'creation'}}</div>
+
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input class="form-control" type="text" ng-model="$ctrl.data.title" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" rows="5" ng-model="$ctrl.data.description" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Author</label>
+                    <input class="form-control" type="text" ng-model="$ctrl.data.author"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Source</label>
+                    <input class="form-control" type="text" ng-model="$ctrl.data.source.name" disabled />
+                </div>
+
+            </div>
+
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>

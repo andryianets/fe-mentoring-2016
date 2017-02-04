@@ -13,40 +13,33 @@ module.exports = {
         extensions: ['.js', '.jsx', '']
     },
     entry: {
-        app: 'frontend/js/index.js',
-        vendor: [
+        index: 'frontend/js',
+        react: 'frontend/js/react',
+        angular: 'frontend/js/angular',
+        vendors: [
             'whatwg-fetch',
             'babel-polyfill',
-
+            'lodash',
             'react',
             'react-dom',
             'react-router',
-
             'jquery',
-
-            'lodash',
-
-            //'ng-toast',
-
             'angular',
             'angular-animate',
             'angular-sanitize',
             'angular-aria',
             'angular-messages',
             'angular-resource',
-
             'angular-ui-router',
-
             'angular-xeditable',
-
             'angular-strap',
             'angular-strap/dist/angular-strap.tpl'
-
         ]
     },
     output: {
         path: __dirname + '/public',
-        filename: 'app.js',
+        filename: '[name].js',
+        chunkFilename: '[id].chunk.js',
         publicPath: '/'
     },
     module: {
@@ -83,15 +76,38 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.css'),
+
+        new ExtractTextPlugin('[name].css'),
+
+        // commons
+        new webpack.optimize.CommonsChunkPlugin(
+            'vendors',
+            'vendors.js',
+            Infinity
+        ),
+
+        // entry pages
         new HtmlWebpackPlugin({
-            title: 'Mentoring 2016 App',
+            chunks: ['index'],
+            filename: 'index.html',
+            title: 'Mentoring App',
             template: 'frontend/tpls/index.pug'
         }),
-        new webpack.optimize.CommonsChunkPlugin(
-            /* chunkName= */'vendor',
-            /* filename= */'vendors.js'
-        ),
+
+        new HtmlWebpackPlugin({
+            chunks: ['vendors', 'react'],
+            filename: 'react.html',
+            title: 'React App',
+            template: 'frontend/tpls/react.pug'
+        }),
+
+        new HtmlWebpackPlugin({
+            chunks: ['vendors', 'angular'],
+            filename: 'angular.html',
+            title: 'Angular App',
+            template: 'frontend/tpls/angular.pug'
+        }),
+
         new webpack.ProvidePlugin({
             '_': 'lodash',
             $: "jquery",

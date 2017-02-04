@@ -1,9 +1,10 @@
 const AppStates = {
     LOGIN: 'login',
 
-    ARTICLES: 'articles',
-    ARTICLE_EDIT: 'articleEdit',
-    ARTICLE_ADD: 'articleAdd'
+    APP: 'app',
+    ARTICLES: 'app.articles',
+    ARTICLE_EDIT: 'app.articleEdit',
+    ARTICLE_ADD: 'app.articleAdd'
 };
 
 export default AppStates;

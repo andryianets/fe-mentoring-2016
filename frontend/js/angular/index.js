@@ -13,11 +13,6 @@ import 'angular-resource';
 
 import 'angular-ui-router';
 
-import 'lodash';
-
-// import 'ng-toast';
-// import 'ng-toast/dist/ngToast.css';
-
 import 'angular-xeditable';
 import 'angular-xeditable/dist/css/xeditable.css';
 

@@ -3,6 +3,7 @@ import states from 'angularApp/common/states.const';
 class LoginController {
 
     constructor($state, DataSourceService) {
+        this.ready = false;
         this.auth = {
             login: '',
             pass: ''
@@ -14,7 +15,7 @@ class LoginController {
         this.DataSourceService.checkLogin()
             .then(this.loginSuccess.bind(this))
             .catch(error => {
-
+                this.ready = true;
             });
     }
 

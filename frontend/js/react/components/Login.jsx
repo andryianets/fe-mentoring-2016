@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {browserHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 import {tryLogin} from '../../redux/actions'
 
 class Login extends React.Component {
@@ -21,7 +21,7 @@ class Login extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.loggedIn) {
-            browserHistory.replace('/app');
+            hashHistory.replace('/app');
         }
     }
 

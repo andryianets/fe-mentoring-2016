@@ -3,7 +3,7 @@ import 'babel-polyfill';
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import configureStore from '../redux/configureStore';
 import RootApp from './RootApp';
@@ -33,7 +33,7 @@ const accessCheck = (nextState, replace) => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path="/" component={RootApp}>
                 <IndexRoute onEnter={indexRouting}/>
                 <Route path="login" component={Login}/>

@@ -3,6 +3,8 @@ class ArticlesController {
     constructor(Article) {
         this.Article = Article;
         this.articles = [];
+        this.itemsPerPage = 3;
+        this.currentPage = 0;
     }
 
     $onInit() {
@@ -10,6 +12,7 @@ class ArticlesController {
     }
 
     loadList() {
+        //this.currentPage = 0;
         this.Article.query()
             .$promise
             .then(articles => {

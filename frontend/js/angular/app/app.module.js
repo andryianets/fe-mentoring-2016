@@ -2,6 +2,7 @@ import login from 'angularApp/login/login.component';
 import articlesList from 'angularApp/articles/articles.component';
 import articleForm from 'angularApp/article/article.component';
 import AppStates from 'angularApp/common/states.const';
+import pagination from 'angularApp/common/components/pagination.component';
 
 
 const APP = angular.module('todoApp', [
@@ -9,7 +10,6 @@ const APP = angular.module('todoApp', [
     'ngResource',
     'ui.router',
     'xeditable',
-    // 'ngToast',
     'mgcrea.ngStrap'
 ]);
 
@@ -17,6 +17,7 @@ APP
 
     .constant('states', AppStates)
 
+    .component('pagination', pagination)
     .component('login', login)
     .component('articlesList', articlesList)
     .component('articleForm', articleForm)
