@@ -1,24 +1,45 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        root: path.resolve(__dirname),
+        alias: {
+            angularApp: 'frontend/js/angular/app',
+            jsRoot: 'frontend/js',
+        },
+        extensions: ['.js', '.jsx', '']
     },
     entry: {
-        app: './frontend/js/index.js',
-        vendor: [
+        index: 'frontend/js',
+        react: 'frontend/js/react',
+        angular: 'frontend/js/angular',
+        vendors: [
             'whatwg-fetch',
             'babel-polyfill',
+            'lodash',
             'react',
             'react-dom',
-            'react-router'
+            'react-router',
+            'jquery',
+            'angular',
+            'angular-animate',
+            'angular-sanitize',
+            'angular-aria',
+            'angular-messages',
+            'angular-resource',
+            'angular-ui-router',
+            'angular-xeditable',
+            'angular-strap',
+            'angular-strap/dist/angular-strap.tpl'
         ]
     },
     output: {
         path: __dirname + '/public',
-        filename: 'app.js',
+        filename: '[name].js',
+        chunkFilename: '[id].chunk.js',
         publicPath: '/'
     },
     module: {
@@ -47,21 +68,50 @@ module.exports = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
                 loader: 'file?name=fonts/[name].[ext]'
+            },
+            {
+                test: /\.html$/,
+                loader: 'html'
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.css'),
-        new HtmlWebpackPlugin({
-            title: 'Mentoring 2016 App',
-            template: './frontend/tpls/index.pug'
-        }),
+
+        new ExtractTextPlugin('[name].css'),
+
+        // commons
         new webpack.optimize.CommonsChunkPlugin(
-            /* chunkName= */'vendor',
-            /* filename= */'vendors.js'
+            'vendors',
+            'vendors.js',
+            Infinity
         ),
-        // new webpack.ProvidePlugin({
-        //     '_': 'lodash'
-        // })
+
+        // entry pages
+        new HtmlWebpackPlugin({
+            chunks: ['index'],
+            filename: 'index.html',
+            title: 'Mentoring App',
+            template: 'frontend/tpls/index.pug'
+        }),
+
+        new HtmlWebpackPlugin({
+            chunks: ['vendors', 'react'],
+            filename: 'react.html',
+            title: 'React App',
+            template: 'frontend/tpls/react.pug'
+        }),
+
+        new HtmlWebpackPlugin({
+            chunks: ['vendors', 'angular'],
+            filename: 'angular.html',
+            title: 'Angular App',
+            template: 'frontend/tpls/angular.pug'
+        }),
+
+        new webpack.ProvidePlugin({
+            '_': 'lodash',
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };

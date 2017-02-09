@@ -1,0 +1,43 @@
+.todolist {
+
+  .filter {
+    margin: 10px 0;
+  }
+
+  li {
+
+    &.done label {
+      text-decoration: line-through;
+    }
+
+    .checkbox {
+      margin: 4px 0 0 0;
+
+      input {
+        display: none;
+      }
+
+      label {
+        margin-left: -30px;
+        padding-left: 60px;
+        min-width: 320px;
+      }
+
+    }
+
+    .tick {
+
+      span.glyphicon {
+        font-size: 180%;
+
+        &.undone {
+          opacity: 0.1;
+        }
+
+      }
+
+    }
+
+  }
+
+}

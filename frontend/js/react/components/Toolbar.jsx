@@ -18,7 +18,7 @@ class Toolbar extends React.Component {
         return <header>
             <span id="loggedInInfo">Welcome, {this.props.loggedInUser.login}</span>
             <span className="show-for-admin">&nbsp;|&nbsp;</span>
-            <a className="show-for-admin" onClick={e => this.props.addArticle()}>Add article</a>
+            <a href="javascript:void(0)" className="show-for-admin" onClick={e => this.props.addArticle()}>Add article</a>
             <a id="logout" href="/api/auth/logout">Logout</a>
         </header>
     }

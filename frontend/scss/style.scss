@@ -15,14 +15,21 @@ a {
 
     a {
         display: block;
-        background: url('../assets/paperplane.png');
         opacity: 0.7;
-        width: 400px;
-        height: 400px;
+        width: 160px;
+        height: 160px;
         margin: auto;
 
         &:hover {
             opacity: 1;
+        }
+
+        &.react-app {
+            background: url('../assets/react-logo.png') no-repeat;
+        }
+
+        &.angular-app {
+            background: url('../assets/angular.png') no-repeat;
         }
     }
 }
