@@ -20,18 +20,6 @@ class ArticlesController {
             });
     }
 
-    update(article) {
-        article.$save();
-    }
-
-    remove(article) {
-        if (confirm('Are you sure?')) {
-            article.$delete(() => {
-                this.loadList();
-            });
-        }
-    }
-
 }
 export default {
     controller: ArticlesController,

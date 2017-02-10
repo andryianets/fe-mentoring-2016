@@ -12,7 +12,6 @@ class PaginationController {
 
     selectPage(index) {
         this.currentPage = index;
-        this.onChange && this.onChange(index);
     }
 
     get displayedFrom() {
@@ -29,8 +28,7 @@ export default {
     bindings: {
         totalCount: '<',
         itemsPerPage: '<',
-        currentPage: '=',
-        onChange: '&'
+        currentPage: '='
     },
     controller: PaginationController,
     template: `<div class="btn-group" role="group">

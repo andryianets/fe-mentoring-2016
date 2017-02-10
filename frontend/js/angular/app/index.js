@@ -52,9 +52,7 @@ angular.module(TodoApp)
 
     })
 
-    .run(($log, $rootScope, $state, editableOptions) => {
-        editableOptions.theme = 'bs3';
-
+    .run(($log, $rootScope, $state) => {
         $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
 
             if (toState.name !== states.LOGIN && _.includes([403, 401], error.status)) {

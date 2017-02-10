@@ -54,6 +54,7 @@
     "angular-strap": "^2.3.12",
     "angular-ui-router": "^0.3.2",
     "angular-xeditable": "^0.6.0",
+    "babel-plugin-istanbul": "^4.0.0",
     "bootstrap-sass": "^3.3.7",
     "c": "^1.0.2",
     "css-loader": "^0.25.0",
