@@ -31,7 +31,6 @@ module.exports = {
             'angular-messages',
             'angular-resource',
             'angular-ui-router',
-            'angular-xeditable',
             'angular-strap',
             'angular-strap/dist/angular-strap.tpl'
         ]

@@ -5,6 +5,349 @@ webpackJsonp([2],{
 
 	'use strict';
 	
+	var cov_xurdih42c = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/index.jsx',
+	        hash = '6ba83d98fe2b9145bf15221505860b03abc8c3ec',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/index.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 14,
+	                    column: 0
+	                },
+	                end: {
+	                    line: 14,
+	                    column: 31
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 16,
+	                    column: 14
+	                },
+	                end: {
+	                    line: 16,
+	                    column: 30
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 18,
+	                    column: 21
+	                },
+	                end: {
+	                    line: 25,
+	                    column: 1
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 19,
+	                    column: 18
+	                },
+	                end: {
+	                    line: 19,
+	                    column: 34
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 20,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 24,
+	                    column: 5
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 21,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 21,
+	                    column: 24
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 23,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 23,
+	                    column: 26
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 27,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 32,
+	                    column: 1
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 28,
+	                    column: 18
+	                },
+	                end: {
+	                    line: 28,
+	                    column: 34
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 29,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 31,
+	                    column: 5
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 30,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 30,
+	                    column: 26
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 34,
+	                    column: 0
+	                },
+	                end: {
+	                    line: 46,
+	                    column: 2
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 18,
+	                        column: 21
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 22
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 18,
+	                        column: 45
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 27,
+	                        column: 20
+	                    },
+	                    end: {
+	                        line: 27,
+	                        column: 21
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 27,
+	                        column: 44
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 20,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 5
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 20,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 5
+	                    }
+	                }, {
+	                    start: {
+	                        line: 20,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 5
+	                    }
+	                }]
+	            },
+	            '1': {
+	                loc: {
+	                    start: {
+	                        line: 20,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 54
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 20,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 26
+	                    }
+	                }, {
+	                    start: {
+	                        line: 20,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 54
+	                    }
+	                }]
+	            },
+	            '2': {
+	                loc: {
+	                    start: {
+	                        line: 29,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 31,
+	                        column: 5
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 29,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 31,
+	                        column: 5
+	                    }
+	                }, {
+	                    start: {
+	                        line: 29,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 31,
+	                        column: 5
+	                    }
+	                }]
+	            },
+	            '3': {
+	                loc: {
+	                    start: {
+	                        line: 29,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 56
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 29,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 27
+	                    }
+	                }, {
+	                    start: {
+	                        line: 29,
+	                        column: 31
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 56
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0
+	        },
+	        b: {
+	            '0': [0, 0],
+	            '1': [0, 0],
+	            '2': [0, 0],
+	            '3': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	__webpack_require__(1);
 	
 	__webpack_require__(2);
@@ -43,26 +386,49 @@ webpackJsonp([2],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	++cov_xurdih42c.s[0];
+	
+	
 	__webpack_require__(638);
 	
-	var store = (0, _configureStore2.default)();
+	var store = (++cov_xurdih42c.s[1], (0, _configureStore2.default)());
 	
+	++cov_xurdih42c.s[2];
 	var indexRouting = function indexRouting(nextState, replace) {
-	    var state = store.getState();
-	    if (state.loggedInUser && state.loggedInUser.login) {
+	    ++cov_xurdih42c.f[0];
+	
+	    var state = (++cov_xurdih42c.s[3], store.getState());
+	    ++cov_xurdih42c.s[4];
+	    if ((++cov_xurdih42c.b[1][0], state.loggedInUser) && (++cov_xurdih42c.b[1][1], state.loggedInUser.login)) {
+	        ++cov_xurdih42c.b[0][0];
+	        ++cov_xurdih42c.s[5];
+	
 	        replace('/app');
 	    } else {
+	        ++cov_xurdih42c.b[0][1];
+	        ++cov_xurdih42c.s[6];
+	
 	        replace('/login');
 	    }
 	};
 	
+	++cov_xurdih42c.s[7];
 	var accessCheck = function accessCheck(nextState, replace) {
-	    var state = store.getState();
-	    if (!state.loggedInUser || !state.loggedInUser.login) {
+	    ++cov_xurdih42c.f[1];
+	
+	    var state = (++cov_xurdih42c.s[8], store.getState());
+	    ++cov_xurdih42c.s[9];
+	    if ((++cov_xurdih42c.b[3][0], !state.loggedInUser) || (++cov_xurdih42c.b[3][1], !state.loggedInUser.login)) {
+	        ++cov_xurdih42c.b[2][0];
+	        ++cov_xurdih42c.s[10];
+	
 	        replace('/login');
+	    } else {
+	        ++cov_xurdih42c.b[2][1];
 	    }
 	};
 	
+	++cov_xurdih42c.s[11];
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
@@ -91,6 +457,1137 @@ webpackJsonp([2],{
 	    value: true
 	});
 	
+	var cov_1bq1j53gg4 = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/DataSource.js',
+	        hash = '1f61873946a1ef2e6ce6533579126eee8a2f8403',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/DataSource.js',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 4,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 4,
+	                    column: 55
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 8,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 8,
+	                    column: 49
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 12,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 12,
+	                    column: 62
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 16,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 25,
+	                    column: 10
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 29,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 29,
+	                    column: 34
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 33,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 33,
+	                    column: 52
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 38,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 40,
+	                    column: 9
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 39,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 39,
+	                    column: 61
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 42,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 42,
+	                    column: 35
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 44,
+	                    column: 23
+	                },
+	                end: {
+	                    line: 44,
+	                    column: 47
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 49,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 49,
+	                    column: 70
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 53,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 53,
+	                    column: 79
+	                }
+	            },
+	            '12': {
+	                start: {
+	                    line: 57,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 57,
+	                    column: 51
+	                }
+	            },
+	            '13': {
+	                start: {
+	                    line: 61,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 61,
+	                    column: 65
+	                }
+	            },
+	            '14': {
+	                start: {
+	                    line: 65,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 65,
+	                    column: 63
+	                }
+	            },
+	            '15': {
+	                start: {
+	                    line: 69,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 69,
+	                    column: 43
+	                }
+	            },
+	            '16': {
+	                start: {
+	                    line: 73,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 73,
+	                    column: 76
+	                }
+	            },
+	            '17': {
+	                start: {
+	                    line: 77,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 77,
+	                    column: 74
+	                }
+	            },
+	            '18': {
+	                start: {
+	                    line: 82,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 84,
+	                    column: 9
+	                }
+	            },
+	            '19': {
+	                start: {
+	                    line: 83,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 83,
+	                    column: 71
+	                }
+	            },
+	            '20': {
+	                start: {
+	                    line: 86,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 97,
+	                    column: 9
+	                }
+	            },
+	            '21': {
+	                start: {
+	                    line: 99,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 105,
+	                    column: 15
+	                }
+	            },
+	            '22': {
+	                start: {
+	                    line: 101,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 103,
+	                    column: 17
+	                }
+	            },
+	            '23': {
+	                start: {
+	                    line: 102,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 102,
+	                    column: 45
+	                }
+	            },
+	            '24': {
+	                start: {
+	                    line: 104,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 104,
+	                    column: 39
+	                }
+	            },
+	            '25': {
+	                start: {
+	                    line: 109,
+	                    column: 27
+	                },
+	                end: {
+	                    line: 109,
+	                    column: 29
+	                }
+	            },
+	            '26': {
+	                start: {
+	                    line: 110,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 114,
+	                    column: 9
+	                }
+	            },
+	            '27': {
+	                start: {
+	                    line: 111,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 113,
+	                    column: 13
+	                }
+	            },
+	            '28': {
+	                start: {
+	                    line: 112,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 112,
+	                    column: 59
+	                }
+	            },
+	            '29': {
+	                start: {
+	                    line: 115,
+	                    column: 26
+	                },
+	                end: {
+	                    line: 115,
+	                    column: 75
+	                }
+	            },
+	            '30': {
+	                start: {
+	                    line: 116,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 116,
+	                    column: 40
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 3,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 3,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 3,
+	                        column: 25
+	                    },
+	                    end: {
+	                        line: 5,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 7,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 7,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 7,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 9,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 11,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 11,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 11,
+	                        column: 41
+	                    },
+	                    end: {
+	                        line: 13,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 15,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 15,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 15,
+	                        column: 37
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: '(anonymous_4)',
+	                decl: {
+	                    start: {
+	                        line: 28,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 28,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 28,
+	                        column: 36
+	                    },
+	                    end: {
+	                        line: 30,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 32,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 32,
+	                        column: 36
+	                    },
+	                    end: {
+	                        line: 34,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '6': {
+	                name: '(anonymous_6)',
+	                decl: {
+	                    start: {
+	                        line: 36,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 36,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 46,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '7': {
+	                name: '(anonymous_7)',
+	                decl: {
+	                    start: {
+	                        line: 48,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 48,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 48,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 50,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '8': {
+	                name: '(anonymous_8)',
+	                decl: {
+	                    start: {
+	                        line: 52,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 52,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 52,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 54,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '9': {
+	                name: '(anonymous_9)',
+	                decl: {
+	                    start: {
+	                        line: 56,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 56,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 56,
+	                        column: 15
+	                    },
+	                    end: {
+	                        line: 58,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '10': {
+	                name: '(anonymous_10)',
+	                decl: {
+	                    start: {
+	                        line: 60,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 60,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 60,
+	                        column: 21
+	                    },
+	                    end: {
+	                        line: 62,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '11': {
+	                name: '(anonymous_11)',
+	                decl: {
+	                    start: {
+	                        line: 64,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 64,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 64,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 66,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '12': {
+	                name: '(anonymous_12)',
+	                decl: {
+	                    start: {
+	                        line: 68,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 68,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 68,
+	                        column: 17
+	                    },
+	                    end: {
+	                        line: 70,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '13': {
+	                name: '(anonymous_13)',
+	                decl: {
+	                    start: {
+	                        line: 72,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 72,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 72,
+	                        column: 25
+	                    },
+	                    end: {
+	                        line: 74,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '14': {
+	                name: '(anonymous_14)',
+	                decl: {
+	                    start: {
+	                        line: 76,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 76,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 76,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 78,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '15': {
+	                name: '(anonymous_15)',
+	                decl: {
+	                    start: {
+	                        line: 80,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 80,
+	                        column: 64
+	                    },
+	                    end: {
+	                        line: 106,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '16': {
+	                name: '(anonymous_16)',
+	                decl: {
+	                    start: {
+	                        line: 100,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 100,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 100,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 105,
+	                        column: 13
+	                    }
+	                }
+	            },
+	            '17': {
+	                name: '(anonymous_17)',
+	                decl: {
+	                    start: {
+	                        line: 108,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 108,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 108,
+	                        column: 36
+	                    },
+	                    end: {
+	                        line: 117,
+	                        column: 5
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 4,
+	                        column: 15
+	                    },
+	                    end: {
+	                        line: 4,
+	                        column: 54
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 4,
+	                        column: 15
+	                    },
+	                    end: {
+	                        line: 4,
+	                        column: 34
+	                    }
+	                }, {
+	                    start: {
+	                        line: 4,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 4,
+	                        column: 54
+	                    }
+	                }]
+	            },
+	            '1': {
+	                loc: {
+	                    start: {
+	                        line: 38,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 40,
+	                        column: 9
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 38,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 40,
+	                        column: 9
+	                    }
+	                }, {
+	                    start: {
+	                        line: 38,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 40,
+	                        column: 9
+	                    }
+	                }]
+	            },
+	            '2': {
+	                loc: {
+	                    start: {
+	                        line: 80,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 31
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 80,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 31
+	                    }
+	                }]
+	            },
+	            '3': {
+	                loc: {
+	                    start: {
+	                        line: 80,
+	                        column: 33
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 49
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 80,
+	                        column: 47
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 49
+	                    }
+	                }]
+	            },
+	            '4': {
+	                loc: {
+	                    start: {
+	                        line: 80,
+	                        column: 51
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 62
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 80,
+	                        column: 58
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 62
+	                    }
+	                }]
+	            },
+	            '5': {
+	                loc: {
+	                    start: {
+	                        line: 82,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 84,
+	                        column: 9
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 82,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 84,
+	                        column: 9
+	                    }
+	                }, {
+	                    start: {
+	                        line: 82,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 84,
+	                        column: 9
+	                    }
+	                }]
+	            },
+	            '6': {
+	                loc: {
+	                    start: {
+	                        line: 95,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 95,
+	                        column: 50
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 95,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 95,
+	                        column: 26
+	                    }
+	                }, {
+	                    start: {
+	                        line: 95,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 95,
+	                        column: 50
+	                    }
+	                }]
+	            },
+	            '7': {
+	                loc: {
+	                    start: {
+	                        line: 101,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 103,
+	                        column: 17
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 101,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 103,
+	                        column: 17
+	                    }
+	                }, {
+	                    start: {
+	                        line: 101,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 103,
+	                        column: 17
+	                    }
+	                }]
+	            },
+	            '8': {
+	                loc: {
+	                    start: {
+	                        line: 108,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 108,
+	                        column: 34
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 108,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 108,
+	                        column: 34
+	                    }
+	                }]
+	            },
+	            '9': {
+	                loc: {
+	                    start: {
+	                        line: 111,
+	                        column: 12
+	                    },
+	                    end: {
+	                        line: 113,
+	                        column: 13
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 111,
+	                        column: 12
+	                    },
+	                    end: {
+	                        line: 113,
+	                        column: 13
+	                    }
+	                }, {
+	                    start: {
+	                        line: 111,
+	                        column: 12
+	                    },
+	                    end: {
+	                        line: 113,
+	                        column: 13
+	                    }
+	                }]
+	            },
+	            '10': {
+	                loc: {
+	                    start: {
+	                        line: 115,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 115,
+	                        column: 75
+	                    }
+	                },
+	                type: 'cond-expr',
+	                locations: [{
+	                    start: {
+	                        line: 115,
+	                        column: 46
+	                    },
+	                    end: {
+	                        line: 115,
+	                        column: 70
+	                    }
+	                }, {
+	                    start: {
+	                        line: 115,
+	                        column: 73
+	                    },
+	                    end: {
+	                        line: 115,
+	                        column: 75
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0,
+	            '13': 0,
+	            '14': 0,
+	            '15': 0,
+	            '16': 0,
+	            '17': 0,
+	            '18': 0,
+	            '19': 0,
+	            '20': 0,
+	            '21': 0,
+	            '22': 0,
+	            '23': 0,
+	            '24': 0,
+	            '25': 0,
+	            '26': 0,
+	            '27': 0,
+	            '28': 0,
+	            '29': 0,
+	            '30': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0,
+	            '13': 0,
+	            '14': 0,
+	            '15': 0,
+	            '16': 0,
+	            '17': 0
+	        },
+	        b: {
+	            '0': [0, 0],
+	            '1': [0, 0],
+	            '2': [0],
+	            '3': [0],
+	            '4': [0],
+	            '5': [0, 0],
+	            '6': [0, 0],
+	            '7': [0, 0],
+	            '8': [0],
+	            '9': [0, 0],
+	            '10': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -99,31 +1596,49 @@ webpackJsonp([2],{
 	    _createClass(DataSource, null, [{
 	        key: 'getInstance',
 	        value: function getInstance() {
-	            return DataSource.instance || new DataSource();
+	            ++cov_1bq1j53gg4.f[0];
+	            ++cov_1bq1j53gg4.s[0];
+	
+	            return (++cov_1bq1j53gg4.b[0][0], DataSource.instance) || (++cov_1bq1j53gg4.b[0][1], new DataSource());
 	        }
 	    }, {
 	        key: 'createSource',
 	        value: function createSource(data) {
+	            ++cov_1bq1j53gg4.f[1];
+	            ++cov_1bq1j53gg4.s[1];
+	
 	            return Object.assign(new Source(), data);
 	        }
 	    }, {
 	        key: 'createArticle',
 	        value: function createArticle(sourceId, data) {
+	            ++cov_1bq1j53gg4.f[2];
+	            ++cov_1bq1j53gg4.s[2];
+	
 	            return Object.assign(new Article(), data, { sourceId: sourceId });
 	        }
 	    }, {
 	        key: 'availableCategories',
 	        get: function get() {
+	            ++cov_1bq1j53gg4.f[3];
+	            ++cov_1bq1j53gg4.s[3];
+	
 	            return ['business', 'entertainment', 'gaming', 'general', 'music', 'science-and-nature', 'sport', 'technology'];
 	        }
 	    }, {
 	        key: 'availableLanguages',
 	        get: function get() {
+	            ++cov_1bq1j53gg4.f[4];
+	            ++cov_1bq1j53gg4.s[4];
+	
 	            return ['en', 'de', 'fr'];
 	        }
 	    }, {
 	        key: 'availableCountries',
 	        get: function get() {
+	            ++cov_1bq1j53gg4.f[5];
+	            ++cov_1bq1j53gg4.s[5];
+	
 	            return ['au', 'de', 'gb', 'in', 'it', 'us'];
 	        }
 	    }]);
@@ -131,96 +1646,157 @@ webpackJsonp([2],{
 	    function DataSource() {
 	        _classCallCheck(this, DataSource);
 	
+	        ++cov_1bq1j53gg4.f[6];
+	        ++cov_1bq1j53gg4.s[6];
+	
+	
 	        if (DataSource.instance) {
+	            ++cov_1bq1j53gg4.b[1][0];
+	            ++cov_1bq1j53gg4.s[7];
+	
 	            throw 'DataSource instance already instantiated';
+	        } else {
+	            ++cov_1bq1j53gg4.b[1][1];
 	        }
 	
+	        ++cov_1bq1j53gg4.s[8];
 	        DataSource.instance = this;
 	
-	        var config = __webpack_require__(345);
+	        var config = (++cov_1bq1j53gg4.s[9], __webpack_require__(345));
 	    }
 	
 	    _createClass(DataSource, [{
 	        key: 'getSources',
 	        value: function getSources(params) {
+	            ++cov_1bq1j53gg4.f[7];
+	            ++cov_1bq1j53gg4.s[10];
+	
 	            return this.doRequest('/api/articles/sources', 'GET', params);
 	        }
 	    }, {
 	        key: 'getArticles',
 	        value: function getArticles(sourceId) {
+	            ++cov_1bq1j53gg4.f[8];
+	            ++cov_1bq1j53gg4.s[11];
+	
 	            return this.doRequest('/api/articles', 'GET', { 'source.id': sourceId });
 	        }
 	    }, {
 	        key: 'getUsers',
 	        value: function getUsers() {
+	            ++cov_1bq1j53gg4.f[9];
+	            ++cov_1bq1j53gg4.s[12];
+	
 	            return this.doRequest('/api/users', 'GET');
 	        }
 	    }, {
 	        key: 'addArticle',
 	        value: function addArticle(data) {
+	            ++cov_1bq1j53gg4.f[10];
+	            ++cov_1bq1j53gg4.s[13];
+	
 	            return this.doRequest('/api/articles', 'POST', {}, data);
 	        }
 	    }, {
 	        key: 'removeArticle',
 	        value: function removeArticle(id) {
+	            ++cov_1bq1j53gg4.f[11];
+	            ++cov_1bq1j53gg4.s[14];
+	
 	            return this.doRequest('/api/articles/' + id, 'DELETE');
 	        }
 	    }, {
 	        key: 'checkLogin',
 	        value: function checkLogin() {
+	            ++cov_1bq1j53gg4.f[12];
+	            ++cov_1bq1j53gg4.s[15];
+	
 	            return this.doRequest('/api/auth');
 	        }
 	    }, {
 	        key: 'doLogin',
 	        value: function doLogin(login, pass) {
+	            ++cov_1bq1j53gg4.f[13];
+	            ++cov_1bq1j53gg4.s[16];
+	
 	            return this.doRequest('/api/auth/login', 'POST', {}, { login: login, pass: pass });
 	        }
 	    }, {
 	        key: 'doReg',
 	        value: function doReg(login, pass) {
+	            ++cov_1bq1j53gg4.f[14];
+	            ++cov_1bq1j53gg4.s[17];
+	
 	            return this.doRequest('/api/auth/reg', 'POST', {}, { login: login, pass: pass });
 	        }
 	    }, {
 	        key: 'doRequest',
 	        value: function doRequest(url) {
-	            var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
-	            var queryParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-	            var body = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+	            var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (++cov_1bq1j53gg4.b[2][0], 'GET');
+	            var queryParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : (++cov_1bq1j53gg4.b[3][0], {});
+	            var body = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : (++cov_1bq1j53gg4.b[4][0], null);
+	            ++cov_1bq1j53gg4.f[15];
+	            ++cov_1bq1j53gg4.s[18];
 	
 	
 	            if (true) {
+	                ++cov_1bq1j53gg4.b[5][0];
+	                ++cov_1bq1j53gg4.s[19];
+	
 	                console.log('DataSource doRequest()', method, queryParams);
+	            } else {
+	                ++cov_1bq1j53gg4.b[5][1];
 	            }
 	
-	            var req = new Request(this.createUrl(url, queryParams), {
+	            var req = (++cov_1bq1j53gg4.s[20], new Request(this.createUrl(url, queryParams), {
 	                headers: {
 	                    'Accept': 'application/json',
 	                    'Content-Type': 'application/json'
 	                },
 	                credentials: 'include',
 	                method: method,
-	                body: body && JSON.stringify(body)
-	            });
+	                body: (++cov_1bq1j53gg4.b[6][0], body) && (++cov_1bq1j53gg4.b[6][1], JSON.stringify(body))
+	            }));
 	
+	            ++cov_1bq1j53gg4.s[21];
 	            return fetch(req).then(function (response) {
+	                ++cov_1bq1j53gg4.f[16];
+	                ++cov_1bq1j53gg4.s[22];
+	
 	                if (!response.ok) {
+	                    ++cov_1bq1j53gg4.b[7][0];
+	                    ++cov_1bq1j53gg4.s[23];
+	
 	                    throw 'DataSource error';
+	                } else {
+	                    ++cov_1bq1j53gg4.b[7][1];
 	                }
+	                ++cov_1bq1j53gg4.s[24];
 	                return response.json();
 	            });
 	        }
 	    }, {
 	        key: 'createUrl',
 	        value: function createUrl(baseUrl) {
-	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (++cov_1bq1j53gg4.b[8][0], {});
+	            ++cov_1bq1j53gg4.f[17];
 	
-	            var queryParts = [];
+	            var queryParts = (++cov_1bq1j53gg4.s[25], []);
+	            ++cov_1bq1j53gg4.s[26];
 	            for (var name in params) {
+	                ++cov_1bq1j53gg4.s[27];
+	
 	                if (params[name]) {
+	                    ++cov_1bq1j53gg4.b[9][0];
+	                    ++cov_1bq1j53gg4.s[28];
+	
 	                    queryParts.push(name + '=' + params[name]);
+	                } else {
+	                    ++cov_1bq1j53gg4.b[9][1];
 	                }
 	            }
-	            var urlSuffix = queryParts.length ? '?' + queryParts.join('&') : '';
+	            var urlSuffix = (++cov_1bq1j53gg4.s[29], queryParts.length ? (++cov_1bq1j53gg4.b[10][0], '?' + queryParts.join('&')) : (++cov_1bq1j53gg4.b[10][1], ''));
+	            ++cov_1bq1j53gg4.s[30];
 	            return '' + baseUrl + urlSuffix;
 	        }
 	    }]);
@@ -2388,6 +3964,139 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_yfd7576xn = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/redux/configureStore.js',
+	        hash = 'e750c523e087e38ee400ec6a61b003219483027f',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/redux/configureStore.js',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 6,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 6,
+	                    column: 27
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 8,
+	                    column: 0
+	                },
+	                end: {
+	                    line: 10,
+	                    column: 1
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 9,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 9,
+	                    column: 37
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 13,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 16,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: 'configureStore',
+	                decl: {
+	                    start: {
+	                        line: 12,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 12,
+	                        column: 38
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 12,
+	                        column: 41
+	                    },
+	                    end: {
+	                        line: 17,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 8,
+	                        column: 0
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 1
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 8,
+	                        column: 0
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 1
+	                    }
+	                }, {
+	                    start: {
+	                        line: 8,
+	                        column: 0
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 1
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0
+	        },
+	        f: {
+	            '0': 0
+	        },
+	        b: {
+	            '0': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	exports.default = configureStore;
 	
 	var _redux = __webpack_require__(592);
@@ -2406,13 +4115,22 @@ webpackJsonp([2],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var middlewares = [_reduxThunk2.default];
+	var middlewares = (++cov_yfd7576xn.s[0], [_reduxThunk2.default]);
 	
+	++cov_yfd7576xn.s[1];
 	if (true) {
+	    ++cov_yfd7576xn.b[0][0];
+	    ++cov_yfd7576xn.s[2];
+	
 	    middlewares.push((0, _reduxLogger2.default)());
+	} else {
+	    ++cov_yfd7576xn.b[0][1];
 	}
 	
 	function configureStore() {
+	    ++cov_yfd7576xn.f[0];
+	    ++cov_yfd7576xn.s[3];
+	
 	    return (0, _redux.createStore)(_reducers2.default, _redux.applyMiddleware.apply(undefined, middlewares));
 	}
 
@@ -3321,123 +5039,1373 @@ webpackJsonp([2],{
 	    value: true
 	});
 	
+	var cov_t0v0txd45 = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/redux/reducers.js',
+	        hash = '2b214120979a4406d40a1ef89319507fce73c573',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/redux/reducers.js',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 11,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 18,
+	                    column: 5
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 13,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 13,
+	                    column: 78
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 15,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 15,
+	                    column: 65
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 17,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 17,
+	                    column: 25
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 22,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 27,
+	                    column: 5
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 24,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 24,
+	                    column: 63
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 26,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 26,
+	                    column: 25
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 31,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 36,
+	                    column: 5
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 33,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 33,
+	                    column: 59
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 35,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 35,
+	                    column: 25
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 40,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 47,
+	                    column: 5
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 42,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 42,
+	                    column: 22
+	                }
+	            },
+	            '12': {
+	                start: {
+	                    line: 44,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 44,
+	                    column: 34
+	                }
+	            },
+	            '13': {
+	                start: {
+	                    line: 46,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 46,
+	                    column: 25
+	                }
+	            },
+	            '14': {
+	                start: {
+	                    line: 51,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 76,
+	                    column: 5
+	                }
+	            },
+	            '15': {
+	                start: {
+	                    line: 53,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 56,
+	                    column: 14
+	                }
+	            },
+	            '16': {
+	                start: {
+	                    line: 58,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 61,
+	                    column: 14
+	                }
+	            },
+	            '17': {
+	                start: {
+	                    line: 63,
+	                    column: 32
+	                },
+	                end: {
+	                    line: 63,
+	                    column: 34
+	                }
+	            },
+	            '18': {
+	                start: {
+	                    line: 64,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 69,
+	                    column: 15
+	                }
+	            },
+	            '19': {
+	                start: {
+	                    line: 65,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 68,
+	                    column: 17
+	                }
+	            },
+	            '20': {
+	                start: {
+	                    line: 66,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 66,
+	                    column: 42
+	                }
+	            },
+	            '21': {
+	                start: {
+	                    line: 67,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 67,
+	                    column: 33
+	                }
+	            },
+	            '22': {
+	                start: {
+	                    line: 70,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 72,
+	                    column: 13
+	                }
+	            },
+	            '23': {
+	                start: {
+	                    line: 71,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 71,
+	                    column: 56
+	                }
+	            },
+	            '24': {
+	                start: {
+	                    line: 73,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 73,
+	                    column: 44
+	                }
+	            },
+	            '25': {
+	                start: {
+	                    line: 75,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 75,
+	                    column: 25
+	                }
+	            },
+	            '26': {
+	                start: {
+	                    line: 80,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 85,
+	                    column: 5
+	                }
+	            },
+	            '27': {
+	                start: {
+	                    line: 82,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 82,
+	                    column: 32
+	                }
+	            },
+	            '28': {
+	                start: {
+	                    line: 84,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 84,
+	                    column: 25
+	                }
+	            },
+	            '29': {
+	                start: {
+	                    line: 89,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 98,
+	                    column: 5
+	                }
+	            },
+	            '30': {
+	                start: {
+	                    line: 91,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 91,
+	                    column: 32
+	                }
+	            },
+	            '31': {
+	                start: {
+	                    line: 93,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 93,
+	                    column: 61
+	                }
+	            },
+	            '32': {
+	                start: {
+	                    line: 95,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 95,
+	                    column: 32
+	                }
+	            },
+	            '33': {
+	                start: {
+	                    line: 97,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 97,
+	                    column: 24
+	                }
+	            },
+	            '34': {
+	                start: {
+	                    line: 101,
+	                    column: 20
+	                },
+	                end: {
+	                    line: 115,
+	                    column: 2
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: 'loggedInUser',
+	                decl: {
+	                    start: {
+	                        line: 10,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 21
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 10,
+	                        column: 42
+	                    },
+	                    end: {
+	                        line: 19,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: 'filtersData',
+	                decl: {
+	                    start: {
+	                        line: 21,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 21,
+	                        column: 85
+	                    },
+	                    end: {
+	                        line: 28,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: 'headerFilters',
+	                decl: {
+	                    start: {
+	                        line: 30,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 30,
+	                        column: 22
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 30,
+	                        column: 43
+	                    },
+	                    end: {
+	                        line: 37,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: 'sourcesList',
+	                decl: {
+	                    start: {
+	                        line: 39,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 39,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 39,
+	                        column: 41
+	                    },
+	                    end: {
+	                        line: 48,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: 'articlesList',
+	                decl: {
+	                    start: {
+	                        line: 50,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 50,
+	                        column: 21
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 50,
+	                        column: 42
+	                    },
+	                    end: {
+	                        line: 77,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 64,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 64,
+	                        column: 36
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 64,
+	                        column: 55
+	                    },
+	                    end: {
+	                        line: 69,
+	                        column: 13
+	                    }
+	                }
+	            },
+	            '6': {
+	                name: 'users',
+	                decl: {
+	                    start: {
+	                        line: 79,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 79,
+	                        column: 14
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 79,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 86,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '7': {
+	                name: 'errorMessage',
+	                decl: {
+	                    start: {
+	                        line: 88,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 88,
+	                        column: 21
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 88,
+	                        column: 44
+	                    },
+	                    end: {
+	                        line: 99,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 10,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 32
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 10,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 32
+	                    }
+	                }]
+	            },
+	            '1': {
+	                loc: {
+	                    start: {
+	                        line: 11,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 12,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 13,
+	                        column: 78
+	                    }
+	                }, {
+	                    start: {
+	                        line: 14,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 15,
+	                        column: 65
+	                    }
+	                }, {
+	                    start: {
+	                        line: 16,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 17,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '2': {
+	                loc: {
+	                    start: {
+	                        line: 21,
+	                        column: 21
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 75
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 21,
+	                        column: 29
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 75
+	                    }
+	                }]
+	            },
+	            '3': {
+	                loc: {
+	                    start: {
+	                        line: 22,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 27,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 23,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 63
+	                    }
+	                }, {
+	                    start: {
+	                        line: 25,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '4': {
+	                loc: {
+	                    start: {
+	                        line: 30,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 30,
+	                        column: 33
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 30,
+	                        column: 31
+	                    },
+	                    end: {
+	                        line: 30,
+	                        column: 33
+	                    }
+	                }]
+	            },
+	            '5': {
+	                loc: {
+	                    start: {
+	                        line: 31,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 32,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 33,
+	                        column: 59
+	                    }
+	                }, {
+	                    start: {
+	                        line: 34,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 35,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '6': {
+	                loc: {
+	                    start: {
+	                        line: 39,
+	                        column: 21
+	                    },
+	                    end: {
+	                        line: 39,
+	                        column: 31
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 39,
+	                        column: 29
+	                    },
+	                    end: {
+	                        line: 39,
+	                        column: 31
+	                    }
+	                }]
+	            },
+	            '7': {
+	                loc: {
+	                    start: {
+	                        line: 40,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 47,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 41,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 42,
+	                        column: 22
+	                    }
+	                }, {
+	                    start: {
+	                        line: 43,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 44,
+	                        column: 34
+	                    }
+	                }, {
+	                    start: {
+	                        line: 45,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 46,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '8': {
+	                loc: {
+	                    start: {
+	                        line: 50,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 50,
+	                        column: 32
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 50,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 50,
+	                        column: 32
+	                    }
+	                }]
+	            },
+	            '9': {
+	                loc: {
+	                    start: {
+	                        line: 51,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 76,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 52,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 56,
+	                        column: 14
+	                    }
+	                }, {
+	                    start: {
+	                        line: 57,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 61,
+	                        column: 14
+	                    }
+	                }, {
+	                    start: {
+	                        line: 62,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 73,
+	                        column: 44
+	                    }
+	                }, {
+	                    start: {
+	                        line: 74,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 75,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '10': {
+	                loc: {
+	                    start: {
+	                        line: 65,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 68,
+	                        column: 17
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 65,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 68,
+	                        column: 17
+	                    }
+	                }, {
+	                    start: {
+	                        line: 65,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 68,
+	                        column: 17
+	                    }
+	                }]
+	            },
+	            '11': {
+	                loc: {
+	                    start: {
+	                        line: 70,
+	                        column: 12
+	                    },
+	                    end: {
+	                        line: 72,
+	                        column: 13
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 70,
+	                        column: 12
+	                    },
+	                    end: {
+	                        line: 72,
+	                        column: 13
+	                    }
+	                }, {
+	                    start: {
+	                        line: 70,
+	                        column: 12
+	                    },
+	                    end: {
+	                        line: 72,
+	                        column: 13
+	                    }
+	                }]
+	            },
+	            '12': {
+	                loc: {
+	                    start: {
+	                        line: 79,
+	                        column: 15
+	                    },
+	                    end: {
+	                        line: 79,
+	                        column: 25
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 79,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 79,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '13': {
+	                loc: {
+	                    start: {
+	                        line: 80,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 85,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 81,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 82,
+	                        column: 32
+	                    }
+	                }, {
+	                    start: {
+	                        line: 83,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 84,
+	                        column: 25
+	                    }
+	                }]
+	            },
+	            '14': {
+	                loc: {
+	                    start: {
+	                        line: 88,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 88,
+	                        column: 34
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 88,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 88,
+	                        column: 34
+	                    }
+	                }]
+	            },
+	            '15': {
+	                loc: {
+	                    start: {
+	                        line: 89,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 98,
+	                        column: 5
+	                    }
+	                },
+	                type: 'switch',
+	                locations: [{
+	                    start: {
+	                        line: 90,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 91,
+	                        column: 32
+	                    }
+	                }, {
+	                    start: {
+	                        line: 92,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 93,
+	                        column: 61
+	                    }
+	                }, {
+	                    start: {
+	                        line: 94,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 95,
+	                        column: 32
+	                    }
+	                }, {
+	                    start: {
+	                        line: 96,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 97,
+	                        column: 24
+	                    }
+	                }]
+	            },
+	            '16': {
+	                loc: {
+	                    start: {
+	                        line: 93,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 93,
+	                        column: 60
+	                    }
+	                },
+	                type: 'cond-expr',
+	                locations: [{
+	                    start: {
+	                        line: 93,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 93,
+	                        column: 52
+	                    }
+	                }, {
+	                    start: {
+	                        line: 93,
+	                        column: 55
+	                    },
+	                    end: {
+	                        line: 93,
+	                        column: 60
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0,
+	            '13': 0,
+	            '14': 0,
+	            '15': 0,
+	            '16': 0,
+	            '17': 0,
+	            '18': 0,
+	            '19': 0,
+	            '20': 0,
+	            '21': 0,
+	            '22': 0,
+	            '23': 0,
+	            '24': 0,
+	            '25': 0,
+	            '26': 0,
+	            '27': 0,
+	            '28': 0,
+	            '29': 0,
+	            '30': 0,
+	            '31': 0,
+	            '32': 0,
+	            '33': 0,
+	            '34': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0
+	        },
+	        b: {
+	            '0': [0],
+	            '1': [0, 0, 0],
+	            '2': [0],
+	            '3': [0, 0],
+	            '4': [0],
+	            '5': [0, 0],
+	            '6': [0],
+	            '7': [0, 0, 0],
+	            '8': [0],
+	            '9': [0, 0, 0, 0],
+	            '10': [0, 0],
+	            '11': [0, 0],
+	            '12': [0],
+	            '13': [0, 0],
+	            '14': [0],
+	            '15': [0, 0, 0, 0],
+	            '16': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	var _redux = __webpack_require__(592);
 	
 	var _actions = __webpack_require__(627);
 	
 	function loggedInUser() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[0][0], {});
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[0];
+	    ++cov_t0v0txd45.s[0];
 	
 	    switch (action.type) {
 	        case _actions.LOGIN_SUCCESS:
+	            ++cov_t0v0txd45.b[1][0];
+	            ++cov_t0v0txd45.s[1];
+	
 	            return Object.assign({}, state, action.user, { initialized: true });
 	        case _actions.LOGIN_FAILED:
+	            ++cov_t0v0txd45.b[1][1];
+	            ++cov_t0v0txd45.s[2];
+	
 	            return Object.assign({}, state, { initialized: true });
 	        default:
+	            ++cov_t0v0txd45.b[1][2];
+	            ++cov_t0v0txd45.s[3];
+	
 	            return state;
 	    }
 	}
 	
 	function filtersData() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { categories: [], countries: [], languages: [] };
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[2][0], { categories: [], countries: [], languages: [] });
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[1];
+	    ++cov_t0v0txd45.s[4];
 	
 	    switch (action.type) {
 	        case _actions.INIT_FILTERS:
+	            ++cov_t0v0txd45.b[3][0];
+	            ++cov_t0v0txd45.s[5];
+	
 	            return Object.assign({}, state, action.filterData);
 	        default:
+	            ++cov_t0v0txd45.b[3][1];
+	            ++cov_t0v0txd45.s[6];
+	
 	            return state;
 	    }
 	}
 	
 	function headerFilters() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[4][0], {});
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[2];
+	    ++cov_t0v0txd45.s[7];
 	
 	    switch (action.type) {
 	        case _actions.FILTER_CHANGED:
+	            ++cov_t0v0txd45.b[5][0];
+	            ++cov_t0v0txd45.s[8];
+	
 	            return Object.assign({}, state, action.change);
 	        default:
+	            ++cov_t0v0txd45.b[5][1];
+	            ++cov_t0v0txd45.s[9];
+	
 	            return state;
 	    }
 	}
 	
 	function sourcesList() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[6][0], []);
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[3];
+	    ++cov_t0v0txd45.s[10];
 	
 	    switch (action.type) {
 	        case _actions.LOAD_SOURCES:
+	            ++cov_t0v0txd45.b[7][0];
+	            ++cov_t0v0txd45.s[11];
+	
 	            return [];
 	        case _actions.SOURCES_LOADED:
+	            ++cov_t0v0txd45.b[7][1];
+	            ++cov_t0v0txd45.s[12];
+	
 	            return action.sources;
 	        default:
+	            ++cov_t0v0txd45.b[7][2];
+	            ++cov_t0v0txd45.s[13];
+	
 	            return state;
 	    }
 	}
 	
 	function articlesList() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[8][0], {});
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[4];
+	    ++cov_t0v0txd45.s[14];
 	
 	    switch (action.type) {
 	        case _actions.LOAD_ARTICLES:
+	            ++cov_t0v0txd45.b[9][0];
+	            ++cov_t0v0txd45.s[15];
+	
 	            return {
 	                sourceId: action.sourceId,
 	                articles: []
 	            };
 	        case _actions.ARTICLES_LOADED:
+	            ++cov_t0v0txd45.b[9][1];
+	            ++cov_t0v0txd45.s[16];
+	
 	            return {
 	                sourceId: action.sourceId,
 	                articles: action.articles
 	            };
 	        case _actions.ARTICLE_DELETED:
-	            var indexToDelete = -1;
+	            ++cov_t0v0txd45.b[9][2];
+	
+	            var indexToDelete = (++cov_t0v0txd45.s[17], -1);
+	            ++cov_t0v0txd45.s[18];
 	            state.articles.forEach(function (article, index) {
+	                ++cov_t0v0txd45.f[5];
+	                ++cov_t0v0txd45.s[19];
+	
 	                if (article._id == action.id) {
+	                    ++cov_t0v0txd45.b[10][0];
+	                    ++cov_t0v0txd45.s[20];
+	
 	                    indexToDelete = index;
+	                    ++cov_t0v0txd45.s[21];
 	                    return false;
+	                } else {
+	                    ++cov_t0v0txd45.b[10][1];
 	                }
 	            });
+	            ++cov_t0v0txd45.s[22];
 	            if (indexToDelete >= 0) {
+	                ++cov_t0v0txd45.b[11][0];
+	                ++cov_t0v0txd45.s[23];
+	
 	                state.articles.splice(indexToDelete, 1);
+	            } else {
+	                ++cov_t0v0txd45.b[11][1];
 	            }
+	            ++cov_t0v0txd45.s[24];
 	            return Object.assign({}, state);
 	        default:
+	            ++cov_t0v0txd45.b[9][3];
+	            ++cov_t0v0txd45.s[25];
+	
 	            return state;
 	    }
 	}
 	
 	function users() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[12][0], []);
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[6];
+	    ++cov_t0v0txd45.s[26];
 	
 	    switch (action.type) {
 	        case _actions.USERS_LOADED:
+	            ++cov_t0v0txd45.b[13][0];
+	            ++cov_t0v0txd45.s[27];
+	
 	            return action.users;
 	        default:
+	            ++cov_t0v0txd45.b[13][1];
+	            ++cov_t0v0txd45.s[28];
+	
 	            return state;
 	    }
 	}
 	
 	function errorMessage() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_t0v0txd45.b[14][0], null);
 	    var action = arguments[1];
+	    ++cov_t0v0txd45.f[7];
+	    ++cov_t0v0txd45.s[29];
 	
 	    switch (action.type) {
 	        case _actions.APP_ERROR:
+	            ++cov_t0v0txd45.b[15][0];
+	            ++cov_t0v0txd45.s[30];
+	
 	            return action.error;
 	        case _actions.LOGIN_FAILED:
-	            return action.showError ? 'Login failed' : state;
+	            ++cov_t0v0txd45.b[15][1];
+	            ++cov_t0v0txd45.s[31];
+	
+	            return action.showError ? (++cov_t0v0txd45.b[16][0], 'Login failed') : (++cov_t0v0txd45.b[16][1], state);
 	        case _actions.REG_FAILED:
+	            ++cov_t0v0txd45.b[15][2];
+	            ++cov_t0v0txd45.s[32];
+	
 	            return 'Reg failed';
 	        default:
+	            ++cov_t0v0txd45.b[15][3];
+	            ++cov_t0v0txd45.s[33];
+	
 	            return null;
 	    }
 	}
 	
-	var rootReducer = (0, _redux.combineReducers)({
+	var rootReducer = (++cov_t0v0txd45.s[34], (0, _redux.combineReducers)({
 	
 	    //common
 	    loggedInUser: loggedInUser,
@@ -3451,7 +6419,7 @@ webpackJsonp([2],{
 	
 	    //admin view
 	    users: users
-	});
+	}));
 	
 	exports.default = rootReducer;
 
@@ -3466,6 +6434,1848 @@ webpackJsonp([2],{
 	    value: true
 	});
 	exports.APP_ERROR = exports.USERS_LOADED = exports.ARTICLE_DELETED = exports.ARTICLES_LOADED = exports.SOURCES_LOADED = exports.LOAD_ARTICLES = exports.LOAD_SOURCES = exports.FILTER_CHANGED = exports.REG_FAILED = exports.LOGIN_FAILED = exports.LOGIN_SUCCESS = exports.INIT_FILTERS = exports.INIT_APP = undefined;
+	
+	var cov_vr7btz21n = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/redux/actions.js',
+	        hash = '01b1b817960cdf1fee6e948dfa00aad126419945',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/redux/actions.js',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 3,
+	                    column: 24
+	                },
+	                end: {
+	                    line: 3,
+	                    column: 34
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 4,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 4,
+	                    column: 42
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 5,
+	                    column: 29
+	                },
+	                end: {
+	                    line: 5,
+	                    column: 44
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 6,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 6,
+	                    column: 42
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 7,
+	                    column: 26
+	                },
+	                end: {
+	                    line: 7,
+	                    column: 38
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 8,
+	                    column: 30
+	                },
+	                end: {
+	                    line: 8,
+	                    column: 46
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 9,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 9,
+	                    column: 42
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 10,
+	                    column: 29
+	                },
+	                end: {
+	                    line: 10,
+	                    column: 44
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 11,
+	                    column: 30
+	                },
+	                end: {
+	                    line: 11,
+	                    column: 46
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 12,
+	                    column: 31
+	                },
+	                end: {
+	                    line: 12,
+	                    column: 48
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 13,
+	                    column: 31
+	                },
+	                end: {
+	                    line: 13,
+	                    column: 48
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 14,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 14,
+	                    column: 42
+	                }
+	            },
+	            '12': {
+	                start: {
+	                    line: 15,
+	                    column: 25
+	                },
+	                end: {
+	                    line: 15,
+	                    column: 36
+	                }
+	            },
+	            '13': {
+	                start: {
+	                    line: 18,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 25,
+	                    column: 6
+	                }
+	            },
+	            '14': {
+	                start: {
+	                    line: 19,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 21,
+	                    column: 11
+	                }
+	            },
+	            '15': {
+	                start: {
+	                    line: 22,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 24,
+	                    column: 58
+	                }
+	            },
+	            '16': {
+	                start: {
+	                    line: 23,
+	                    column: 26
+	                },
+	                end: {
+	                    line: 23,
+	                    column: 54
+	                }
+	            },
+	            '17': {
+	                start: {
+	                    line: 24,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 24,
+	                    column: 56
+	                }
+	            },
+	            '18': {
+	                start: {
+	                    line: 29,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 35,
+	                    column: 6
+	                }
+	            },
+	            '19': {
+	                start: {
+	                    line: 30,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 34,
+	                    column: 64
+	                }
+	            },
+	            '20': {
+	                start: {
+	                    line: 32,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 32,
+	                    column: 45
+	                }
+	            },
+	            '21': {
+	                start: {
+	                    line: 34,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 34,
+	                    column: 62
+	                }
+	            },
+	            '22': {
+	                start: {
+	                    line: 39,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 45,
+	                    column: 6
+	                }
+	            },
+	            '23': {
+	                start: {
+	                    line: 40,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 44,
+	                    column: 56
+	                }
+	            },
+	            '24': {
+	                start: {
+	                    line: 42,
+	                    column: 16
+	                },
+	                end: {
+	                    line: 42,
+	                    column: 45
+	                }
+	            },
+	            '25': {
+	                start: {
+	                    line: 44,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 44,
+	                    column: 54
+	                }
+	            },
+	            '26': {
+	                start: {
+	                    line: 49,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 55,
+	                    column: 6
+	                }
+	            },
+	            '27': {
+	                start: {
+	                    line: 50,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 53,
+	                    column: 11
+	                }
+	            },
+	            '28': {
+	                start: {
+	                    line: 54,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 54,
+	                    column: 32
+	                }
+	            },
+	            '29': {
+	                start: {
+	                    line: 59,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 63,
+	                    column: 6
+	                }
+	            },
+	            '30': {
+	                start: {
+	                    line: 67,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 70,
+	                    column: 6
+	                }
+	            },
+	            '31': {
+	                start: {
+	                    line: 74,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 84,
+	                    column: 6
+	                }
+	            },
+	            '32': {
+	                start: {
+	                    line: 75,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 82,
+	                    column: 11
+	                }
+	            },
+	            '33': {
+	                start: {
+	                    line: 83,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 83,
+	                    column: 31
+	                }
+	            },
+	            '34': {
+	                start: {
+	                    line: 88,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 96,
+	                    column: 6
+	                }
+	            },
+	            '35': {
+	                start: {
+	                    line: 89,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 94,
+	                    column: 11
+	                }
+	            },
+	            '36': {
+	                start: {
+	                    line: 95,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 95,
+	                    column: 55
+	                }
+	            },
+	            '37': {
+	                start: {
+	                    line: 101,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 105,
+	                    column: 6
+	                }
+	            },
+	            '38': {
+	                start: {
+	                    line: 102,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 104,
+	                    column: 55
+	                }
+	            },
+	            '39': {
+	                start: {
+	                    line: 103,
+	                    column: 29
+	                },
+	                end: {
+	                    line: 103,
+	                    column: 61
+	                }
+	            },
+	            '40': {
+	                start: {
+	                    line: 104,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 104,
+	                    column: 53
+	                }
+	            },
+	            '41': {
+	                start: {
+	                    line: 109,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 112,
+	                    column: 5
+	                }
+	            },
+	            '42': {
+	                start: {
+	                    line: 116,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 120,
+	                    column: 6
+	                }
+	            },
+	            '43': {
+	                start: {
+	                    line: 117,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 119,
+	                    column: 55
+	                }
+	            },
+	            '44': {
+	                start: {
+	                    line: 118,
+	                    column: 30
+	                },
+	                end: {
+	                    line: 118,
+	                    column: 74
+	                }
+	            },
+	            '45': {
+	                start: {
+	                    line: 119,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 119,
+	                    column: 53
+	                }
+	            },
+	            '46': {
+	                start: {
+	                    line: 124,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 128,
+	                    column: 5
+	                }
+	            },
+	            '47': {
+	                start: {
+	                    line: 132,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 136,
+	                    column: 6
+	                }
+	            },
+	            '48': {
+	                start: {
+	                    line: 133,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 135,
+	                    column: 55
+	                }
+	            },
+	            '49': {
+	                start: {
+	                    line: 134,
+	                    column: 29
+	                },
+	                end: {
+	                    line: 134,
+	                    column: 70
+	                }
+	            },
+	            '50': {
+	                start: {
+	                    line: 135,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 135,
+	                    column: 53
+	                }
+	            },
+	            '51': {
+	                start: {
+	                    line: 140,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 144,
+	                    column: 6
+	                }
+	            },
+	            '52': {
+	                start: {
+	                    line: 141,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 143,
+	                    column: 55
+	                }
+	            },
+	            '53': {
+	                start: {
+	                    line: 142,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 142,
+	                    column: 56
+	                }
+	            },
+	            '54': {
+	                start: {
+	                    line: 143,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 143,
+	                    column: 53
+	                }
+	            },
+	            '55': {
+	                start: {
+	                    line: 148,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 151,
+	                    column: 5
+	                }
+	            },
+	            '56': {
+	                start: {
+	                    line: 155,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 159,
+	                    column: 6
+	                }
+	            },
+	            '57': {
+	                start: {
+	                    line: 156,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 158,
+	                    column: 55
+	                }
+	            },
+	            '58': {
+	                start: {
+	                    line: 157,
+	                    column: 27
+	                },
+	                end: {
+	                    line: 157,
+	                    column: 55
+	                }
+	            },
+	            '59': {
+	                start: {
+	                    line: 158,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 158,
+	                    column: 53
+	                }
+	            },
+	            '60': {
+	                start: {
+	                    line: 163,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 166,
+	                    column: 5
+	                }
+	            },
+	            '61': {
+	                start: {
+	                    line: 170,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 173,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: 'initApp',
+	                decl: {
+	                    start: {
+	                        line: 17,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 17,
+	                        column: 23
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 17,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 18,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 18,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 23,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 23,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 23,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 23,
+	                        column: 54
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 24,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 24,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 56
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: 'tryLogin',
+	                decl: {
+	                    start: {
+	                        line: 28,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 28,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 28,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 29,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 29,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 35,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '6': {
+	                name: '(anonymous_6)',
+	                decl: {
+	                    start: {
+	                        line: 31,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 31,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 31,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 33,
+	                        column: 13
+	                    }
+	                }
+	            },
+	            '7': {
+	                name: '(anonymous_7)',
+	                decl: {
+	                    start: {
+	                        line: 34,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 34,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 34,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 34,
+	                        column: 62
+	                    }
+	                }
+	            },
+	            '8': {
+	                name: 'tryReg',
+	                decl: {
+	                    start: {
+	                        line: 38,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 38,
+	                        column: 22
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 38,
+	                        column: 36
+	                    },
+	                    end: {
+	                        line: 46,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '9': {
+	                name: '(anonymous_9)',
+	                decl: {
+	                    start: {
+	                        line: 39,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 39,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 39,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 45,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '10': {
+	                name: '(anonymous_10)',
+	                decl: {
+	                    start: {
+	                        line: 41,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 41,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 41,
+	                        column: 26
+	                    },
+	                    end: {
+	                        line: 43,
+	                        column: 13
+	                    }
+	                }
+	            },
+	            '11': {
+	                name: '(anonymous_11)',
+	                decl: {
+	                    start: {
+	                        line: 44,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 44,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 44,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 44,
+	                        column: 54
+	                    }
+	                }
+	            },
+	            '12': {
+	                name: 'loginSuccess',
+	                decl: {
+	                    start: {
+	                        line: 48,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 48,
+	                        column: 28
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 48,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 56,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '13': {
+	                name: '(anonymous_13)',
+	                decl: {
+	                    start: {
+	                        line: 49,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 49,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 49,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 55,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '14': {
+	                name: 'loginFailed',
+	                decl: {
+	                    start: {
+	                        line: 58,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 58,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 58,
+	                        column: 54
+	                    },
+	                    end: {
+	                        line: 64,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '15': {
+	                name: 'regFailed',
+	                decl: {
+	                    start: {
+	                        line: 66,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 66,
+	                        column: 25
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 66,
+	                        column: 33
+	                    },
+	                    end: {
+	                        line: 71,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '16': {
+	                name: 'initFilters',
+	                decl: {
+	                    start: {
+	                        line: 73,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 73,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 73,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 85,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '17': {
+	                name: '(anonymous_17)',
+	                decl: {
+	                    start: {
+	                        line: 74,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 74,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 74,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 84,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '18': {
+	                name: 'filterChanged',
+	                decl: {
+	                    start: {
+	                        line: 87,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 87,
+	                        column: 29
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 87,
+	                        column: 44
+	                    },
+	                    end: {
+	                        line: 97,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '19': {
+	                name: '(anonymous_19)',
+	                decl: {
+	                    start: {
+	                        line: 88,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 88,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 88,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 96,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '20': {
+	                name: 'loadSources',
+	                decl: {
+	                    start: {
+	                        line: 99,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 99,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 99,
+	                        column: 41
+	                    },
+	                    end: {
+	                        line: 106,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '21': {
+	                name: '(anonymous_21)',
+	                decl: {
+	                    start: {
+	                        line: 101,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 101,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 101,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 105,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '22': {
+	                name: '(anonymous_22)',
+	                decl: {
+	                    start: {
+	                        line: 103,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 103,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 103,
+	                        column: 29
+	                    },
+	                    end: {
+	                        line: 103,
+	                        column: 61
+	                    }
+	                }
+	            },
+	            '23': {
+	                name: '(anonymous_23)',
+	                decl: {
+	                    start: {
+	                        line: 104,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 104,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 104,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 104,
+	                        column: 53
+	                    }
+	                }
+	            },
+	            '24': {
+	                name: 'sourcesLoaded',
+	                decl: {
+	                    start: {
+	                        line: 108,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 108,
+	                        column: 29
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 108,
+	                        column: 39
+	                    },
+	                    end: {
+	                        line: 113,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '25': {
+	                name: 'loadArticles',
+	                decl: {
+	                    start: {
+	                        line: 115,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 115,
+	                        column: 28
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 115,
+	                        column: 39
+	                    },
+	                    end: {
+	                        line: 121,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '26': {
+	                name: '(anonymous_26)',
+	                decl: {
+	                    start: {
+	                        line: 116,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 116,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 116,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 120,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '27': {
+	                name: '(anonymous_27)',
+	                decl: {
+	                    start: {
+	                        line: 118,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 118,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 118,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 118,
+	                        column: 74
+	                    }
+	                }
+	            },
+	            '28': {
+	                name: '(anonymous_28)',
+	                decl: {
+	                    start: {
+	                        line: 119,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 119,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 119,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 119,
+	                        column: 53
+	                    }
+	                }
+	            },
+	            '29': {
+	                name: 'articlesLoaded',
+	                decl: {
+	                    start: {
+	                        line: 123,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 123,
+	                        column: 30
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 123,
+	                        column: 51
+	                    },
+	                    end: {
+	                        line: 129,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '30': {
+	                name: 'addArticle',
+	                decl: {
+	                    start: {
+	                        line: 131,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 131,
+	                        column: 26
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 131,
+	                        column: 33
+	                    },
+	                    end: {
+	                        line: 137,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '31': {
+	                name: '(anonymous_31)',
+	                decl: {
+	                    start: {
+	                        line: 132,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 132,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 132,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 136,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '32': {
+	                name: '(anonymous_32)',
+	                decl: {
+	                    start: {
+	                        line: 134,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 134,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 134,
+	                        column: 29
+	                    },
+	                    end: {
+	                        line: 134,
+	                        column: 70
+	                    }
+	                }
+	            },
+	            '33': {
+	                name: '(anonymous_33)',
+	                decl: {
+	                    start: {
+	                        line: 135,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 135,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 135,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 135,
+	                        column: 53
+	                    }
+	                }
+	            },
+	            '34': {
+	                name: 'removeArticle',
+	                decl: {
+	                    start: {
+	                        line: 139,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 139,
+	                        column: 29
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 139,
+	                        column: 44
+	                    },
+	                    end: {
+	                        line: 145,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '35': {
+	                name: '(anonymous_35)',
+	                decl: {
+	                    start: {
+	                        line: 140,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 140,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 140,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 144,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '36': {
+	                name: '(anonymous_36)',
+	                decl: {
+	                    start: {
+	                        line: 142,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 142,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 142,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 142,
+	                        column: 56
+	                    }
+	                }
+	            },
+	            '37': {
+	                name: '(anonymous_37)',
+	                decl: {
+	                    start: {
+	                        line: 143,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 143,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 143,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 143,
+	                        column: 53
+	                    }
+	                }
+	            },
+	            '38': {
+	                name: 'articleDeleted',
+	                decl: {
+	                    start: {
+	                        line: 147,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 147,
+	                        column: 30
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 147,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 152,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '39': {
+	                name: 'loadUsers',
+	                decl: {
+	                    start: {
+	                        line: 154,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 154,
+	                        column: 25
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 154,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 160,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '40': {
+	                name: '(anonymous_40)',
+	                decl: {
+	                    start: {
+	                        line: 155,
+	                        column: 11
+	                    },
+	                    end: {
+	                        line: 155,
+	                        column: 12
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 155,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 159,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '41': {
+	                name: '(anonymous_41)',
+	                decl: {
+	                    start: {
+	                        line: 157,
+	                        column: 18
+	                    },
+	                    end: {
+	                        line: 157,
+	                        column: 19
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 157,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 157,
+	                        column: 55
+	                    }
+	                }
+	            },
+	            '42': {
+	                name: '(anonymous_42)',
+	                decl: {
+	                    start: {
+	                        line: 158,
+	                        column: 19
+	                    },
+	                    end: {
+	                        line: 158,
+	                        column: 20
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 158,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 158,
+	                        column: 53
+	                    }
+	                }
+	            },
+	            '43': {
+	                name: 'usersLoaded',
+	                decl: {
+	                    start: {
+	                        line: 162,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 162,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 162,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 167,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '44': {
+	                name: 'appError',
+	                decl: {
+	                    start: {
+	                        line: 169,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 169,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 169,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 174,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 58,
+	                        column: 35
+	                    },
+	                    end: {
+	                        line: 58,
+	                        column: 52
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 58,
+	                        column: 47
+	                    },
+	                    end: {
+	                        line: 58,
+	                        column: 52
+	                    }
+	                }]
+	            },
+	            '1': {
+	                loc: {
+	                    start: {
+	                        line: 99,
+	                        column: 28
+	                    },
+	                    end: {
+	                        line: 99,
+	                        column: 39
+	                    }
+	                },
+	                type: 'default-arg',
+	                locations: [{
+	                    start: {
+	                        line: 99,
+	                        column: 37
+	                    },
+	                    end: {
+	                        line: 99,
+	                        column: 39
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0,
+	            '13': 0,
+	            '14': 0,
+	            '15': 0,
+	            '16': 0,
+	            '17': 0,
+	            '18': 0,
+	            '19': 0,
+	            '20': 0,
+	            '21': 0,
+	            '22': 0,
+	            '23': 0,
+	            '24': 0,
+	            '25': 0,
+	            '26': 0,
+	            '27': 0,
+	            '28': 0,
+	            '29': 0,
+	            '30': 0,
+	            '31': 0,
+	            '32': 0,
+	            '33': 0,
+	            '34': 0,
+	            '35': 0,
+	            '36': 0,
+	            '37': 0,
+	            '38': 0,
+	            '39': 0,
+	            '40': 0,
+	            '41': 0,
+	            '42': 0,
+	            '43': 0,
+	            '44': 0,
+	            '45': 0,
+	            '46': 0,
+	            '47': 0,
+	            '48': 0,
+	            '49': 0,
+	            '50': 0,
+	            '51': 0,
+	            '52': 0,
+	            '53': 0,
+	            '54': 0,
+	            '55': 0,
+	            '56': 0,
+	            '57': 0,
+	            '58': 0,
+	            '59': 0,
+	            '60': 0,
+	            '61': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0,
+	            '13': 0,
+	            '14': 0,
+	            '15': 0,
+	            '16': 0,
+	            '17': 0,
+	            '18': 0,
+	            '19': 0,
+	            '20': 0,
+	            '21': 0,
+	            '22': 0,
+	            '23': 0,
+	            '24': 0,
+	            '25': 0,
+	            '26': 0,
+	            '27': 0,
+	            '28': 0,
+	            '29': 0,
+	            '30': 0,
+	            '31': 0,
+	            '32': 0,
+	            '33': 0,
+	            '34': 0,
+	            '35': 0,
+	            '36': 0,
+	            '37': 0,
+	            '38': 0,
+	            '39': 0,
+	            '40': 0,
+	            '41': 0,
+	            '42': 0,
+	            '43': 0,
+	            '44': 0
+	        },
+	        b: {
+	            '0': [0],
+	            '1': [0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	exports.initApp = initApp;
 	exports.tryLogin = tryLogin;
 	exports.tryReg = tryReg;
@@ -3493,65 +8303,107 @@ webpackJsonp([2],{
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
-	var INIT_APP = exports.INIT_APP = 'INIT_APP';
-	var INIT_FILTERS = exports.INIT_FILTERS = 'INIT_FILTERS';
-	var LOGIN_SUCCESS = exports.LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-	var LOGIN_FAILED = exports.LOGIN_FAILED = 'LOGIN_FAILED';
-	var REG_FAILED = exports.REG_FAILED = 'REG_FAILED';
-	var FILTER_CHANGED = exports.FILTER_CHANGED = 'FILTER_CHANGED';
-	var LOAD_SOURCES = exports.LOAD_SOURCES = 'LOAD_SOURCES';
-	var LOAD_ARTICLES = exports.LOAD_ARTICLES = 'LOAD_ARTICLES';
-	var SOURCES_LOADED = exports.SOURCES_LOADED = 'SOURCES_LOADED';
-	var ARTICLES_LOADED = exports.ARTICLES_LOADED = 'ARTICLES_LOADED';
-	var ARTICLE_DELETED = exports.ARTICLE_DELETED = 'ARTICLE_DELETED';
-	var USERS_LOADED = exports.USERS_LOADED = 'USERS_LOADED';
-	var APP_ERROR = exports.APP_ERROR = 'APP_ERROR';
+	var INIT_APP = exports.INIT_APP = (++cov_vr7btz21n.s[0], 'INIT_APP');
+	var INIT_FILTERS = exports.INIT_FILTERS = (++cov_vr7btz21n.s[1], 'INIT_FILTERS');
+	var LOGIN_SUCCESS = exports.LOGIN_SUCCESS = (++cov_vr7btz21n.s[2], 'LOGIN_SUCCESS');
+	var LOGIN_FAILED = exports.LOGIN_FAILED = (++cov_vr7btz21n.s[3], 'LOGIN_FAILED');
+	var REG_FAILED = exports.REG_FAILED = (++cov_vr7btz21n.s[4], 'REG_FAILED');
+	var FILTER_CHANGED = exports.FILTER_CHANGED = (++cov_vr7btz21n.s[5], 'FILTER_CHANGED');
+	var LOAD_SOURCES = exports.LOAD_SOURCES = (++cov_vr7btz21n.s[6], 'LOAD_SOURCES');
+	var LOAD_ARTICLES = exports.LOAD_ARTICLES = (++cov_vr7btz21n.s[7], 'LOAD_ARTICLES');
+	var SOURCES_LOADED = exports.SOURCES_LOADED = (++cov_vr7btz21n.s[8], 'SOURCES_LOADED');
+	var ARTICLES_LOADED = exports.ARTICLES_LOADED = (++cov_vr7btz21n.s[9], 'ARTICLES_LOADED');
+	var ARTICLE_DELETED = exports.ARTICLE_DELETED = (++cov_vr7btz21n.s[10], 'ARTICLE_DELETED');
+	var USERS_LOADED = exports.USERS_LOADED = (++cov_vr7btz21n.s[11], 'USERS_LOADED');
+	var APP_ERROR = exports.APP_ERROR = (++cov_vr7btz21n.s[12], 'APP_ERROR');
 	
 	function initApp() {
+	    ++cov_vr7btz21n.f[0];
+	    ++cov_vr7btz21n.s[13];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[1];
+	        ++cov_vr7btz21n.s[14];
+	
 	        dispatch({
 	            type: INIT_APP
 	        });
+	        ++cov_vr7btz21n.s[15];
 	        return _DataSource2.default.getInstance().checkLogin().then(function (user) {
+	            ++cov_vr7btz21n.f[2];
+	            ++cov_vr7btz21n.s[16];
 	            return dispatch(loginSuccess(user));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[3];
+	            ++cov_vr7btz21n.s[17];
 	            return dispatch(loginFailed(error));
 	        });
 	    };
 	}
 	
 	function tryLogin(login, pass) {
+	    ++cov_vr7btz21n.f[4];
+	    ++cov_vr7btz21n.s[18];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[5];
+	        ++cov_vr7btz21n.s[19];
+	
 	        return _DataSource2.default.getInstance().doLogin(login, pass).then(function (user) {
+	            ++cov_vr7btz21n.f[6];
+	            ++cov_vr7btz21n.s[20];
+	
 	            dispatch(loginSuccess(user));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[7];
+	            ++cov_vr7btz21n.s[21];
 	            return dispatch(loginFailed(error, true));
 	        });
 	    };
 	}
 	
 	function tryReg(login, pass) {
+	    ++cov_vr7btz21n.f[8];
+	    ++cov_vr7btz21n.s[22];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[9];
+	        ++cov_vr7btz21n.s[23];
+	
 	        return _DataSource2.default.getInstance().doReg(login, pass).then(function (user) {
+	            ++cov_vr7btz21n.f[10];
+	            ++cov_vr7btz21n.s[24];
+	
 	            dispatch(loginSuccess(user));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[11];
+	            ++cov_vr7btz21n.s[25];
 	            return dispatch(regFailed(error));
 	        });
 	    };
 	}
 	
 	function loginSuccess(user) {
+	    ++cov_vr7btz21n.f[12];
+	    ++cov_vr7btz21n.s[26];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[13];
+	        ++cov_vr7btz21n.s[27];
+	
 	        dispatch({
 	            type: LOGIN_SUCCESS,
 	            user: user
 	        });
+	        ++cov_vr7btz21n.s[28];
 	        dispatch(initFilters());
 	    };
 	}
 	
 	function loginFailed(error) {
-	    var showError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	    var showError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (++cov_vr7btz21n.b[0][0], false);
+	    ++cov_vr7btz21n.f[14];
+	    ++cov_vr7btz21n.s[29];
 	
 	    return {
 	        type: LOGIN_FAILED,
@@ -3561,6 +8413,9 @@ webpackJsonp([2],{
 	}
 	
 	function regFailed(error) {
+	    ++cov_vr7btz21n.f[15];
+	    ++cov_vr7btz21n.s[30];
+	
 	    return {
 	        type: REG_FAILED,
 	        error: error
@@ -3568,7 +8423,13 @@ webpackJsonp([2],{
 	}
 	
 	function initFilters() {
+	    ++cov_vr7btz21n.f[16];
+	    ++cov_vr7btz21n.s[31];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[17];
+	        ++cov_vr7btz21n.s[32];
+	
 	        dispatch({
 	            type: INIT_FILTERS,
 	            filterData: {
@@ -3577,34 +8438,54 @@ webpackJsonp([2],{
 	                languages: _DataSource2.default.availableLanguages
 	            }
 	        });
+	        ++cov_vr7btz21n.s[33];
 	        dispatch(loadSources());
 	    };
 	}
 	
 	function filterChanged(param, value) {
+	    ++cov_vr7btz21n.f[18];
+	    ++cov_vr7btz21n.s[34];
+	
 	    return function (dispatch, getState) {
+	        ++cov_vr7btz21n.f[19];
+	        ++cov_vr7btz21n.s[35];
+	
 	        dispatch({
 	            type: FILTER_CHANGED,
 	            change: _defineProperty({}, param, value)
 	        });
+	        ++cov_vr7btz21n.s[36];
 	        dispatch(loadSources(getState().headerFilters));
 	    };
 	}
 	
 	function loadSources() {
-	    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_vr7btz21n.b[1][0], {});
+	    ++cov_vr7btz21n.f[20];
+	    ++cov_vr7btz21n.s[37];
 	
 	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[21];
+	        ++cov_vr7btz21n.s[38];
+	
 	        return _DataSource2.default.getInstance().getSources(params).then(function (sources) {
+	            ++cov_vr7btz21n.f[22];
+	            ++cov_vr7btz21n.s[39];
 	            return dispatch(sourcesLoaded(sources));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[23];
+	            ++cov_vr7btz21n.s[40];
 	            return dispatch(appError(error));
 	        });
 	    };
 	}
 	
 	function sourcesLoaded(sources) {
+	    ++cov_vr7btz21n.f[24];
+	    ++cov_vr7btz21n.s[41];
+	
 	    return {
 	        type: SOURCES_LOADED,
 	        sources: sources
@@ -3612,16 +8493,29 @@ webpackJsonp([2],{
 	}
 	
 	function loadArticles(sourceId) {
+	    ++cov_vr7btz21n.f[25];
+	    ++cov_vr7btz21n.s[42];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[26];
+	        ++cov_vr7btz21n.s[43];
+	
 	        return _DataSource2.default.getInstance().getArticles(sourceId).then(function (articles) {
+	            ++cov_vr7btz21n.f[27];
+	            ++cov_vr7btz21n.s[44];
 	            return dispatch(articlesLoaded(sourceId, articles));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[28];
+	            ++cov_vr7btz21n.s[45];
 	            return dispatch(appError(error));
 	        });
 	    };
 	}
 	
 	function articlesLoaded(sourceId, articles) {
+	    ++cov_vr7btz21n.f[29];
+	    ++cov_vr7btz21n.s[46];
+	
 	    return {
 	        type: ARTICLES_LOADED,
 	        sourceId: sourceId,
@@ -3630,26 +8524,49 @@ webpackJsonp([2],{
 	}
 	
 	function addArticle(data) {
+	    ++cov_vr7btz21n.f[30];
+	    ++cov_vr7btz21n.s[47];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[31];
+	        ++cov_vr7btz21n.s[48];
+	
 	        return _DataSource2.default.getInstance().addArticle(data).then(function (article) {
+	            ++cov_vr7btz21n.f[32];
+	            ++cov_vr7btz21n.s[49];
 	            return dispatch(loadArticles(article.source.id));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[33];
+	            ++cov_vr7btz21n.s[50];
 	            return dispatch(appError(error));
 	        });
 	    };
 	}
 	
 	function removeArticle(id, sourceId) {
+	    ++cov_vr7btz21n.f[34];
+	    ++cov_vr7btz21n.s[51];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[35];
+	        ++cov_vr7btz21n.s[52];
+	
 	        return _DataSource2.default.getInstance().removeArticle(id).then(function (result) {
+	            ++cov_vr7btz21n.f[36];
+	            ++cov_vr7btz21n.s[53];
 	            return dispatch(articleDeleted(id));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[37];
+	            ++cov_vr7btz21n.s[54];
 	            return dispatch(appError(error));
 	        });
 	    };
 	}
 	
 	function articleDeleted(id) {
+	    ++cov_vr7btz21n.f[38];
+	    ++cov_vr7btz21n.s[55];
+	
 	    return {
 	        type: ARTICLE_DELETED,
 	        id: id
@@ -3657,16 +8574,29 @@ webpackJsonp([2],{
 	}
 	
 	function loadUsers() {
+	    ++cov_vr7btz21n.f[39];
+	    ++cov_vr7btz21n.s[56];
+	
 	    return function (dispatch) {
+	        ++cov_vr7btz21n.f[40];
+	        ++cov_vr7btz21n.s[57];
+	
 	        return _DataSource2.default.getInstance().getUsers().then(function (users) {
+	            ++cov_vr7btz21n.f[41];
+	            ++cov_vr7btz21n.s[58];
 	            return dispatch(usersLoaded(users));
 	        }).catch(function (error) {
+	            ++cov_vr7btz21n.f[42];
+	            ++cov_vr7btz21n.s[59];
 	            return dispatch(appError(error));
 	        });
 	    };
 	}
 	
 	function usersLoaded(users) {
+	    ++cov_vr7btz21n.f[43];
+	    ++cov_vr7btz21n.s[60];
+	
 	    return {
 	        type: USERS_LOADED,
 	        users: users
@@ -3674,6 +8604,9 @@ webpackJsonp([2],{
 	}
 	
 	function appError(error) {
+	    ++cov_vr7btz21n.f[44];
+	    ++cov_vr7btz21n.s[61];
+	
 	    return {
 	        type: APP_ERROR,
 	        error: error
@@ -3690,6 +8623,256 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_1e7nz83kve = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/RootApp.jsx',
+	        hash = 'ae4bc5e69cc201b050617ff796508301fb4fd1ad',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/RootApp.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 8,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 11,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 15,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 15,
+	                    column: 29
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 19,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 31,
+	                    column: 9
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 37,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 41,
+	                    column: 6
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 39,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 39,
+	                    column: 32
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 45,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 48,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 7,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 7,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 7,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 12,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 14,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 14,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 14,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 16,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 18,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 18,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: 'mapDispatchToProps',
+	                decl: {
+	                    start: {
+	                        line: 36,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 36,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 42,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: 'mapStateToProps',
+	                decl: {
+	                    start: {
+	                        line: 44,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 44,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 44,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 49,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 21,
+	                        column: 17
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 24
+	                    }
+	                },
+	                type: 'cond-expr',
+	                locations: [{
+	                    start: {
+	                        line: 22,
+	                        column: 20
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 26
+	                    }
+	                }, {
+	                    start: {
+	                        line: 26,
+	                        column: 20
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 24
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0
+	        },
+	        b: {
+	            '0': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -3721,15 +8904,21 @@ webpackJsonp([2],{
 	    _createClass(RootApp, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            ++cov_1e7nz83kve.f[1];
+	            ++cov_1e7nz83kve.s[1];
+	
 	            this.props.initApp();
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            ++cov_1e7nz83kve.f[2];
+	            ++cov_1e7nz83kve.s[2];
+	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                this.props.errorMessage ? _react2.default.createElement(
+	                this.props.errorMessage ? (++cov_1e7nz83kve.b[0][0], _react2.default.createElement(
 	                    'div',
 	                    { id: 'errors' },
 	                    _react2.default.createElement(
@@ -3737,7 +8926,7 @@ webpackJsonp([2],{
 	                        { className: 'error' },
 	                        this.props.errorMessage
 	                    )
-	                ) : null,
+	                )) : (++cov_1e7nz83kve.b[0][1], null),
 	                _react2.default.createElement(
 	                    'div',
 	                    null,
@@ -3748,6 +8937,9 @@ webpackJsonp([2],{
 	    }], [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_1e7nz83kve.f[0];
+	            ++cov_1e7nz83kve.s[0];
+	
 	            return {
 	                loggedIn: _react2.default.PropTypes.bool,
 	                errorMessage: _react2.default.PropTypes.string
@@ -3759,14 +8951,22 @@ webpackJsonp([2],{
 	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
+	    ++cov_1e7nz83kve.f[3];
+	    ++cov_1e7nz83kve.s[3];
+	
 	    return {
 	        initApp: function initApp() {
+	            ++cov_1e7nz83kve.s[4];
+	
 	            dispatch((0, _actions.initApp)());
 	        }
 	    };
 	}
 	
 	function mapStateToProps(state) {
+	    ++cov_1e7nz83kve.f[4];
+	    ++cov_1e7nz83kve.s[5];
+	
 	    return {
 	        loggedIn: state.loggedInUser.login !== undefined,
 	        errorMessage: state.errorMessage
@@ -3785,6 +8985,245 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_mzr8rrsl2 = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/App.jsx',
+	        hash = '020acc4aa35531eef5f1041a8945f5aa297e3e88',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/App.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 11,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 13,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 17,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 17,
+	                    column: 21
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 22,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 30,
+	                    column: 14
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 37,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 38,
+	                    column: 6
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 42,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 44,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 10,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 10,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 10,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 14,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 16,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 16,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 16,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 20,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 20,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: 'mapDispatchToProps',
+	                decl: {
+	                    start: {
+	                        line: 36,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 36,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 39,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: 'mapStateToProps',
+	                decl: {
+	                    start: {
+	                        line: 41,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 41,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 41,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 45,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 43,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 43,
+	                        column: 46
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 43,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 43,
+	                        column: 40
+	                    }
+	                }, {
+	                    start: {
+	                        line: 43,
+	                        column: 44
+	                    },
+	                    end: {
+	                        line: 43,
+	                        column: 46
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0
+	        },
+	        b: {
+	            '0': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -3820,6 +9259,9 @@ webpackJsonp([2],{
 	    _createClass(App, null, [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_mzr8rrsl2.f[0];
+	            ++cov_mzr8rrsl2.s[0];
+	
 	            return {
 	                loggedInUser: _react2.default.PropTypes.object
 	            };
@@ -3829,12 +9271,17 @@ webpackJsonp([2],{
 	    function App(props) {
 	        _classCallCheck(this, App);
 	
+	        ++cov_mzr8rrsl2.f[1];
+	        ++cov_mzr8rrsl2.s[1];
 	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	    }
 	
 	    _createClass(App, [{
 	        key: 'render',
 	        value: function render() {
+	            ++cov_mzr8rrsl2.f[2];
+	            ++cov_mzr8rrsl2.s[2];
+	
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -3856,12 +9303,18 @@ webpackJsonp([2],{
 	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
+	    ++cov_mzr8rrsl2.f[3];
+	    ++cov_mzr8rrsl2.s[3];
+	
 	    return {};
 	}
 	
 	function mapStateToProps(state) {
+	    ++cov_mzr8rrsl2.f[4];
+	    ++cov_mzr8rrsl2.s[4];
+	
 	    return {
-	        loggedInUser: state.loggedInUser || {}
+	        loggedInUser: (++cov_mzr8rrsl2.b[0][0], state.loggedInUser) || (++cov_mzr8rrsl2.b[0][1], {})
 	    };
 	}
 	
@@ -3877,6 +9330,302 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_rhqgapmpf = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Toolbar.jsx',
+	        hash = 'e0bdc176aa107ef4e74fa2b4d93bbc2637e79209',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Toolbar.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 8,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 10,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 14,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 14,
+	                    column: 21
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 18,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 23,
+	                    column: 17
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 21,
+	                    column: 82
+	                },
+	                end: {
+	                    line: 21,
+	                    column: 105
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 28,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 44,
+	                    column: 6
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 30,
+	                    column: 36
+	                },
+	                end: {
+	                    line: 30,
+	                    column: 59
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 31,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 42,
+	                    column: 16
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 48,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 51,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 7,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 7,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 7,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 11,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 13,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 13,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 13,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 15,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 17,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 17,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 17,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 21,
+	                        column: 77
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 78
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 21,
+	                        column: 82
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 105
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: 'mapDispatchToProps',
+	                decl: {
+	                    start: {
+	                        line: 27,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 27,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 27,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 45,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: 'mapStateToProps',
+	                decl: {
+	                    start: {
+	                        line: 47,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 47,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 47,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 52,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 49,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 49,
+	                        column: 46
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 49,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 49,
+	                        column: 40
+	                    }
+	                }, {
+	                    start: {
+	                        line: 49,
+	                        column: 44
+	                    },
+	                    end: {
+	                        line: 49,
+	                        column: 46
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0
+	        },
+	        b: {
+	            '0': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -3902,6 +9651,9 @@ webpackJsonp([2],{
 	    _createClass(Toolbar, null, [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_rhqgapmpf.f[0];
+	            ++cov_rhqgapmpf.s[0];
+	
 	            return {
 	                loggedInUser: _react2.default.PropTypes.object
 	            };
@@ -3911,6 +9663,8 @@ webpackJsonp([2],{
 	    function Toolbar(props) {
 	        _classCallCheck(this, Toolbar);
 	
+	        ++cov_rhqgapmpf.f[1];
+	        ++cov_rhqgapmpf.s[1];
 	        return _possibleConstructorReturn(this, (Toolbar.__proto__ || Object.getPrototypeOf(Toolbar)).call(this, props));
 	    }
 	
@@ -3918,6 +9672,9 @@ webpackJsonp([2],{
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
+	
+	            ++cov_rhqgapmpf.f[2];
+	            ++cov_rhqgapmpf.s[2];
 	
 	            return _react2.default.createElement(
 	                'header',
@@ -3936,6 +9693,8 @@ webpackJsonp([2],{
 	                _react2.default.createElement(
 	                    'a',
 	                    { href: 'javascript:void(0)', className: 'show-for-admin', onClick: function onClick(e) {
+	                            ++cov_rhqgapmpf.f[3];
+	                            ++cov_rhqgapmpf.s[3];
 	                            return _this2.props.addArticle();
 	                        } },
 	                    'Add article'
@@ -3953,9 +9712,13 @@ webpackJsonp([2],{
 	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
+	    ++cov_rhqgapmpf.f[4];
+	    ++cov_rhqgapmpf.s[4];
+	
 	    return {
 	        addArticle: function addArticle() {
-	            var currentSourceId = this.props.articlesList;
+	            var currentSourceId = (++cov_rhqgapmpf.s[5], this.props.articlesList);
+	            ++cov_rhqgapmpf.s[6];
 	            dispatch((0, _actions.addArticle)({
 	                title: 'Test at ' + new Date(),
 	                url: 'http://tut.by',
@@ -3973,8 +9736,11 @@ webpackJsonp([2],{
 	}
 	
 	function mapStateToProps(state) {
+	    ++cov_rhqgapmpf.f[5];
+	    ++cov_rhqgapmpf.s[7];
+	
 	    return {
-	        loggedInUser: state.loggedInUser || {},
+	        loggedInUser: (++cov_rhqgapmpf.b[0][0], state.loggedInUser) || (++cov_rhqgapmpf.b[0][1], {}),
 	        articlesList: state.articlesList
 	    };
 	}
@@ -3991,6 +9757,504 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_2h7906s1xa = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/TopFilter.jsx',
+	        hash = '8e7db77ba15a55720170e2a5031f88eafd3f058d',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/TopFilter.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 8,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 11,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 15,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 15,
+	                    column: 21
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 16,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 16,
+	                    column: 24
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 21,
+	                    column: 24
+	                },
+	                end: {
+	                    line: 21,
+	                    column: 75
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 22,
+	                    column: 26
+	                },
+	                end: {
+	                    line: 22,
+	                    column: 73
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 24,
+	                    column: 27
+	                },
+	                end: {
+	                    line: 33,
+	                    column: 10
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 25,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 32,
+	                    column: 20
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 29,
+	                    column: 37
+	                },
+	                end: {
+	                    line: 29,
+	                    column: 93
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 35,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 45,
+	                    column: 19
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 40,
+	                    column: 37
+	                },
+	                end: {
+	                    line: 40,
+	                    column: 89
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 52,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 56,
+	                    column: 6
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 54,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 54,
+	                    column: 50
+	                }
+	            },
+	            '12': {
+	                start: {
+	                    line: 60,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 63,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 7,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 7,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 7,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 12,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 14,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 14,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 14,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 17,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 19,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 19,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 19,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 47,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 24,
+	                        column: 50
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 51
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 24,
+	                        column: 69
+	                    },
+	                    end: {
+	                        line: 33,
+	                        column: 9
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: '(anonymous_4)',
+	                decl: {
+	                    start: {
+	                        line: 29,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 33
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 29,
+	                        column: 37
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 93
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 40,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 40,
+	                        column: 33
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 40,
+	                        column: 37
+	                    },
+	                    end: {
+	                        line: 40,
+	                        column: 89
+	                    }
+	                }
+	            },
+	            '6': {
+	                name: 'mapDispatchToProps',
+	                decl: {
+	                    start: {
+	                        line: 51,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 51,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 51,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 57,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '7': {
+	                name: 'mapStateToProps',
+	                decl: {
+	                    start: {
+	                        line: 59,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 59,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 59,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 64,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 21,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 75
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 21,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 69
+	                    }
+	                }, {
+	                    start: {
+	                        line: 21,
+	                        column: 73
+	                    },
+	                    end: {
+	                        line: 21,
+	                        column: 75
+	                    }
+	                }]
+	            },
+	            '1': {
+	                loc: {
+	                    start: {
+	                        line: 25,
+	                        column: 37
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 75
+	                    }
+	                },
+	                type: 'cond-expr',
+	                locations: [{
+	                    start: {
+	                        line: 25,
+	                        column: 60
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 70
+	                    }
+	                }, {
+	                    start: {
+	                        line: 25,
+	                        column: 73
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 75
+	                    }
+	                }]
+	            },
+	            '2': {
+	                loc: {
+	                    start: {
+	                        line: 36,
+	                        column: 30
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 82
+	                    }
+	                },
+	                type: 'cond-expr',
+	                locations: [{
+	                    start: {
+	                        line: 36,
+	                        column: 67
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 77
+	                    }
+	                }, {
+	                    start: {
+	                        line: 36,
+	                        column: 80
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 82
+	                    }
+	                }]
+	            },
+	            '3': {
+	                loc: {
+	                    start: {
+	                        line: 36,
+	                        column: 31
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 63
+	                    }
+	                },
+	                type: 'binary-expr',
+	                locations: [{
+	                    start: {
+	                        line: 36,
+	                        column: 31
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 41
+	                    }
+	                }, {
+	                    start: {
+	                        line: 36,
+	                        column: 46
+	                    },
+	                    end: {
+	                        line: 36,
+	                        column: 62
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0
+	        },
+	        b: {
+	            '0': [0, 0],
+	            '1': [0, 0],
+	            '2': [0, 0],
+	            '3': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -4016,6 +10280,9 @@ webpackJsonp([2],{
 	    _createClass(TopFilter, null, [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_2h7906s1xa.f[0];
+	            ++cov_2h7906s1xa.s[0];
+	
 	            return {
 	                filtersData: _react2.default.PropTypes.object,
 	                headerFilters: _react2.default.PropTypes.object
@@ -4026,7 +10293,12 @@ webpackJsonp([2],{
 	    function TopFilter(props) {
 	        _classCallCheck(this, TopFilter);
 	
+	        ++cov_2h7906s1xa.f[1];
+	        ++cov_2h7906s1xa.s[1];
+	
 	        var _this = _possibleConstructorReturn(this, (TopFilter.__proto__ || Object.getPrototypeOf(TopFilter)).call(this, props));
+	
+	        ++cov_2h7906s1xa.s[2];
 	
 	        _this.state = {};
 	        return _this;
@@ -4037,34 +10309,45 @@ webpackJsonp([2],{
 	        value: function render() {
 	            var _this2 = this;
 	
-	            var choices = this.props.filtersData[this.props.sourceName] || [];
-	            var selection = this.props.headerFilters[this.props.filterName];
+	            ++cov_2h7906s1xa.f[2];
 	
-	            var choicesTpl = [].concat(choices).map(function (choice, index) {
+	
+	            var choices = (++cov_2h7906s1xa.s[3], (++cov_2h7906s1xa.b[0][0], this.props.filtersData[this.props.sourceName]) || (++cov_2h7906s1xa.b[0][1], []));
+	            var selection = (++cov_2h7906s1xa.s[4], this.props.headerFilters[this.props.filterName]);
+	
+	            var choicesTpl = (++cov_2h7906s1xa.s[5], [].concat(choices).map(function (choice, index) {
+	                ++cov_2h7906s1xa.f[3];
+	                ++cov_2h7906s1xa.s[6];
+	
 	                return _react2.default.createElement(
 	                    'label',
-	                    { className: selection === choice ? 'selected' : '', key: index },
+	                    { className: selection === choice ? (++cov_2h7906s1xa.b[1][0], 'selected') : (++cov_2h7906s1xa.b[1][1], ''), key: index },
 	                    _react2.default.createElement('input', { type: 'radio',
 	                        name: _this2.props.filterName,
 	                        value: choice,
 	                        onClick: function onClick(e) {
+	                            ++cov_2h7906s1xa.f[4];
+	                            ++cov_2h7906s1xa.s[7];
 	                            return _this2.props.choiceSelected(_this2.props.filterName, choice);
 	                        },
 	                        checked: '' }),
 	                    choice
 	                );
-	            });
+	            }));
 	
+	            ++cov_2h7906s1xa.s[8];
 	            return _react2.default.createElement(
 	                'fieldset',
 	                null,
 	                _react2.default.createElement(
 	                    'label',
-	                    { className: !selection || selection === '' ? 'selected' : '' },
+	                    { className: (++cov_2h7906s1xa.b[3][0], !selection) || (++cov_2h7906s1xa.b[3][1], selection === '') ? (++cov_2h7906s1xa.b[2][0], 'selected') : (++cov_2h7906s1xa.b[2][1], '') },
 	                    _react2.default.createElement('input', { type: 'radio',
 	                        name: this.props.filterName,
 	                        value: '',
 	                        onClick: function onClick(e) {
+	                            ++cov_2h7906s1xa.f[5];
+	                            ++cov_2h7906s1xa.s[9];
 	                            return _this2.props.choiceSelected(_this2.props.filterName, '');
 	                        },
 	                        checked: '' }),
@@ -4079,14 +10362,22 @@ webpackJsonp([2],{
 	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
+	    ++cov_2h7906s1xa.f[6];
+	    ++cov_2h7906s1xa.s[10];
+	
 	    return {
 	        choiceSelected: function choiceSelected(param, value) {
+	            ++cov_2h7906s1xa.s[11];
+	
 	            dispatch((0, _actions.filterChanged)(param, value));
 	        }
 	    };
 	}
 	
 	function mapStateToProps(state) {
+	    ++cov_2h7906s1xa.f[7];
+	    ++cov_2h7906s1xa.s[12];
+	
 	    return {
 	        filtersData: state.filtersData,
 	        headerFilters: state.headerFilters
@@ -4105,6 +10396,429 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_v0ebbo6kk = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Sources.jsx',
+	        hash = '1d3951693f400823ace5876a174ede4fba3a8d14',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Sources.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 10,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 13,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 17,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 17,
+	                    column: 21
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 22,
+	                    column: 28
+	                },
+	                end: {
+	                    line: 46,
+	                    column: 10
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 24,
+	                    column: 33
+	                },
+	                end: {
+	                    line: 34,
+	                    column: 18
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 27,
+	                    column: 24
+	                },
+	                end: {
+	                    line: 32,
+	                    column: 48
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 30,
+	                    column: 32
+	                },
+	                end: {
+	                    line: 30,
+	                    column: 81
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 36,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 45,
+	                    column: 19
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 38,
+	                    column: 83
+	                },
+	                end: {
+	                    line: 38,
+	                    column: 117
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 48,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 50,
+	                    column: 14
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 56,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 63,
+	                    column: 6
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 58,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 58,
+	                    column: 45
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 61,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 61,
+	                    column: 50
+	                }
+	            },
+	            '12': {
+	                start: {
+	                    line: 67,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 70,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 9,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 9,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 9,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 14,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 16,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 16,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 16,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 20,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 20,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 51,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 22,
+	                        column: 55
+	                    },
+	                    end: {
+	                        line: 22,
+	                        column: 56
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 22,
+	                        column: 74
+	                    },
+	                    end: {
+	                        line: 46,
+	                        column: 9
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: '(anonymous_4)',
+	                decl: {
+	                    start: {
+	                        line: 26,
+	                        column: 25
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 26
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 27,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 48
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 29,
+	                        column: 43
+	                    },
+	                    end: {
+	                        line: 29,
+	                        column: 44
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 29,
+	                        column: 59
+	                    },
+	                    end: {
+	                        line: 31,
+	                        column: 29
+	                    }
+	                }
+	            },
+	            '6': {
+	                name: '(anonymous_6)',
+	                decl: {
+	                    start: {
+	                        line: 38,
+	                        column: 78
+	                    },
+	                    end: {
+	                        line: 38,
+	                        column: 79
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 38,
+	                        column: 83
+	                    },
+	                    end: {
+	                        line: 38,
+	                        column: 117
+	                    }
+	                }
+	            },
+	            '7': {
+	                name: 'mapDispatchToProps',
+	                decl: {
+	                    start: {
+	                        line: 55,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 55,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 55,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 64,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '8': {
+	                name: 'mapStateToProps',
+	                decl: {
+	                    start: {
+	                        line: 66,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 66,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 66,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 71,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 24,
+	                        column: 33
+	                    },
+	                    end: {
+	                        line: 34,
+	                        column: 18
+	                    }
+	                },
+	                type: 'cond-expr',
+	                locations: [{
+	                    start: {
+	                        line: 25,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 49
+	                    }
+	                }, {
+	                    start: {
+	                        line: 34,
+	                        column: 16
+	                    },
+	                    end: {
+	                        line: 34,
+	                        column: 18
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0
+	        },
+	        b: {
+	            '0': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -4134,6 +10848,9 @@ webpackJsonp([2],{
 	    _createClass(Sources, null, [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_v0ebbo6kk.f[0];
+	            ++cov_v0ebbo6kk.s[0];
+	
 	            return {
 	                sourcesList: _react2.default.PropTypes.array,
 	                articlesList: _react2.default.PropTypes.object
@@ -4144,6 +10861,8 @@ webpackJsonp([2],{
 	    function Sources(props) {
 	        _classCallCheck(this, Sources);
 	
+	        ++cov_v0ebbo6kk.f[1];
+	        ++cov_v0ebbo6kk.s[1];
 	        return _possibleConstructorReturn(this, (Sources.__proto__ || Object.getPrototypeOf(Sources)).call(this, props));
 	    }
 	
@@ -4152,17 +10871,28 @@ webpackJsonp([2],{
 	        value: function render() {
 	            var _this2 = this;
 	
-	            var sourcesTpls = this.props.sourcesList.map(function (source, index) {
+	            ++cov_v0ebbo6kk.f[2];
 	
-	                var articlesTpls = _this2.props.articlesList.sourceId === source.id ? _this2.props.articlesList.articles.map(function (article, articleIndex) {
+	
+	            var sourcesTpls = (++cov_v0ebbo6kk.s[2], this.props.sourcesList.map(function (source, index) {
+	                ++cov_v0ebbo6kk.f[3];
+	
+	
+	                var articlesTpls = (++cov_v0ebbo6kk.s[3], _this2.props.articlesList.sourceId === source.id ? (++cov_v0ebbo6kk.b[0][0], _this2.props.articlesList.articles.map(function (article, articleIndex) {
+	                    ++cov_v0ebbo6kk.f[4];
+	                    ++cov_v0ebbo6kk.s[4];
 	                    return _react2.default.createElement(_Article2.default, {
 	                        data: article,
 	                        onDeleteClick: function onDeleteClick(e, article) {
+	                            ++cov_v0ebbo6kk.f[5];
+	                            ++cov_v0ebbo6kk.s[5];
+	
 	                            _this2.props.removeArticle(article._id, source.id);
 	                        },
 	                        key: articleIndex });
-	                }) : [];
+	                })) : (++cov_v0ebbo6kk.b[0][1], []));
 	
+	                ++cov_v0ebbo6kk.s[6];
 	                return _react2.default.createElement(
 	                    'div',
 	                    { className: 'source', key: index },
@@ -4172,6 +10902,8 @@ webpackJsonp([2],{
 	                        _react2.default.createElement(
 	                            'a',
 	                            { href: 'javascript:void(0)', title: source.name, onClick: function onClick(e) {
+	                                    ++cov_v0ebbo6kk.f[6];
+	                                    ++cov_v0ebbo6kk.s[7];
 	                                    return _this2.props.loadArticles(source.id);
 	                                } },
 	                            _react2.default.createElement('img', { src: source.urlsToLogos.medium, height: '60' })
@@ -4183,8 +10915,9 @@ webpackJsonp([2],{
 	                        articlesTpls
 	                    )
 	                );
-	            });
+	            }));
 	
+	            ++cov_v0ebbo6kk.s[8];
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'content' },
@@ -4197,17 +10930,27 @@ webpackJsonp([2],{
 	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
+	    ++cov_v0ebbo6kk.f[7];
+	    ++cov_v0ebbo6kk.s[9];
+	
 	    return {
 	        loadArticles: function loadArticles(sourceId) {
+	            ++cov_v0ebbo6kk.s[10];
+	
 	            dispatch((0, _actions.loadArticles)(sourceId));
 	        },
 	        removeArticle: function removeArticle(id, sourceId) {
+	            ++cov_v0ebbo6kk.s[11];
+	
 	            dispatch((0, _actions.removeArticle)(id, sourceId));
 	        }
 	    };
 	}
 	
 	function mapStateToProps(state) {
+	    ++cov_v0ebbo6kk.f[8];
+	    ++cov_v0ebbo6kk.s[12];
+	
 	    return {
 	        sourcesList: state.sourcesList,
 	        articlesList: state.articlesList
@@ -4226,6 +10969,256 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_2k3s4fdpg9 = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Article.jsx',
+	        hash = 'b8ed0409a9e44aabb5e03a72e940e7d8360d044d',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Article.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 8,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 11,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 15,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 15,
+	                    column: 21
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 19,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 19,
+	                    column: 42
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 23,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 23,
+	                    column: 67
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 27,
+	                    column: 24
+	                },
+	                end: {
+	                    line: 27,
+	                    column: 39
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 29,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 42,
+	                    column: 18
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 37,
+	                    column: 97
+	                },
+	                end: {
+	                    line: 37,
+	                    column: 141
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 7,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 7,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 7,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 12,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 14,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 14,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 14,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 16,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 18,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 18,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 18,
+	                        column: 22
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 22,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 22,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 22,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 24,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: '(anonymous_4)',
+	                decl: {
+	                    start: {
+	                        line: 26,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 26,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 43,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 37,
+	                        column: 92
+	                    },
+	                    end: {
+	                        line: 37,
+	                        column: 93
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 37,
+	                        column: 97
+	                    },
+	                    end: {
+	                        line: 37,
+	                        column: 141
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {},
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0
+	        },
+	        b: {},
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -4255,6 +11248,9 @@ webpackJsonp([2],{
 	    _createClass(Article, null, [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_2k3s4fdpg9.f[0];
+	            ++cov_2k3s4fdpg9.s[0];
+	
 	            return {
 	                data: _react2.default.PropTypes.object,
 	                onDeleteClick: _react2.default.PropTypes.func
@@ -4265,12 +11261,17 @@ webpackJsonp([2],{
 	    function Article(props) {
 	        _classCallCheck(this, Article);
 	
+	        ++cov_2k3s4fdpg9.f[1];
+	        ++cov_2k3s4fdpg9.s[1];
 	        return _possibleConstructorReturn(this, (Article.__proto__ || Object.getPrototypeOf(Article)).call(this, props));
 	    }
 	
 	    _createClass(Article, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            ++cov_2k3s4fdpg9.f[3];
+	            ++cov_2k3s4fdpg9.s[3];
+	
 	            (0, _ImagePreloader2.default)(this.elementNode.querySelectorAll('a img'));
 	        }
 	    }, {
@@ -4278,8 +11279,11 @@ webpackJsonp([2],{
 	        value: function render() {
 	            var _this2 = this;
 	
-	            var article = this.props.data;
+	            ++cov_2k3s4fdpg9.f[4];
 	
+	            var article = (++cov_2k3s4fdpg9.s[4], this.props.data);
+	
+	            ++cov_2k3s4fdpg9.s[5];
 	            return _react2.default.createElement(
 	                'article',
 	                null,
@@ -4294,6 +11298,8 @@ webpackJsonp([2],{
 	                _react2.default.createElement(
 	                    'a',
 	                    { className: 'show-for-admin delete-article', href: 'javascript:void(0)', onClick: function onClick(e) {
+	                            ++cov_2k3s4fdpg9.f[5];
+	                            ++cov_2k3s4fdpg9.s[6];
 	                            return _this2.props.onDeleteClick(e, _this2.props.data);
 	                        } },
 	                    _react2.default.createElement('span', { className: 'fa fa-close' })
@@ -4303,6 +11309,9 @@ webpackJsonp([2],{
 	    }, {
 	        key: 'elementNode',
 	        get: function get() {
+	            ++cov_2k3s4fdpg9.f[2];
+	            ++cov_2k3s4fdpg9.s[2];
+	
 	            return _reactDom2.default.findDOMNode(this);
 	        }
 	    }]);
@@ -4322,10 +11331,158 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_2bp569caiu = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/ImagePreloader.js',
+	        hash = 'f1579d115844bff76c2fc2bcd35be19818f3f64c',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/ImagePreloader.js',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 4,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 14,
+	                    column: 5
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 5,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 13,
+	                    column: 11
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 6,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 10,
+	                    column: 15
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 12,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 12,
+	                    column: 73
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: 'ImagePreloader',
+	                decl: {
+	                    start: {
+	                        line: 1,
+	                        column: 24
+	                    },
+	                    end: {
+	                        line: 1,
+	                        column: 38
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 1,
+	                        column: 52
+	                    },
+	                    end: {
+	                        line: 15,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 5,
+	                        column: 21
+	                    },
+	                    end: {
+	                        line: 5,
+	                        column: 22
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 5,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 11,
+	                        column: 9
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 11,
+	                        column: 17
+	                    },
+	                    end: {
+	                        line: 11,
+	                        column: 18
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 11,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 13,
+	                        column: 9
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {},
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0
+	        },
+	        b: {},
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	exports.default = ImagePreloader;
 	function ImagePreloader(imgElements) {
 	    "use strict";
 	
+	    ++cov_2bp569caiu.f[0];
+	    ++cov_2bp569caiu.s[0];
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -4333,14 +11490,21 @@ webpackJsonp([2],{
 	    try {
 	        var _loop = function _loop() {
 	            var imgElement = _step.value;
+	            ++cov_2bp569caiu.s[1];
 	
 	            new Promise(function (resolve) {
+	                ++cov_2bp569caiu.f[1];
+	                ++cov_2bp569caiu.s[2];
+	
 	                Object.assign(new Image(), {
 	                    onload: resolve,
 	                    onerror: resolve,
 	                    src: imgElement.attributes['data-src'].nodeValue
 	                });
 	            }).then(function () {
+	                ++cov_2bp569caiu.f[2];
+	                ++cov_2bp569caiu.s[3];
+	
 	                imgElement.src = imgElement.attributes['data-src'].nodeValue;
 	            });
 	        };
@@ -4382,6 +11546,484 @@ webpackJsonp([2],{
 	    value: true
 	});
 	
+	var cov_fcey5somm = function () {
+	    var path = '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Login.jsx',
+	        hash = '10d66b6954183d134cf46321b352cabb90e8972d',
+	        global = new Function('return this')(),
+	        gcv = '__coverage__',
+	        coverageData = {
+	        path: '/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/Login.jsx',
+	        statementMap: {
+	            '0': {
+	                start: {
+	                    line: 9,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 11,
+	                    column: 10
+	                }
+	            },
+	            '1': {
+	                start: {
+	                    line: 15,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 15,
+	                    column: 21
+	                }
+	            },
+	            '2': {
+	                start: {
+	                    line: 16,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 19,
+	                    column: 10
+	                }
+	            },
+	            '3': {
+	                start: {
+	                    line: 23,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 25,
+	                    column: 9
+	                }
+	            },
+	            '4': {
+	                start: {
+	                    line: 24,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 24,
+	                    column: 40
+	                }
+	            },
+	            '5': {
+	                start: {
+	                    line: 30,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 32,
+	                    column: 9
+	                }
+	            },
+	            '6': {
+	                start: {
+	                    line: 31,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 31,
+	                    column: 24
+	                }
+	            },
+	            '7': {
+	                start: {
+	                    line: 34,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 75,
+	                    column: 10
+	                }
+	            },
+	            '8': {
+	                start: {
+	                    line: 39,
+	                    column: 24
+	                },
+	                end: {
+	                    line: 39,
+	                    column: 43
+	                }
+	            },
+	            '9': {
+	                start: {
+	                    line: 40,
+	                    column: 24
+	                },
+	                end: {
+	                    line: 40,
+	                    column: 79
+	                }
+	            },
+	            '10': {
+	                start: {
+	                    line: 49,
+	                    column: 43
+	                },
+	                end: {
+	                    line: 51,
+	                    column: 45
+	                }
+	            },
+	            '11': {
+	                start: {
+	                    line: 62,
+	                    column: 43
+	                },
+	                end: {
+	                    line: 64,
+	                    column: 45
+	                }
+	            },
+	            '12': {
+	                start: {
+	                    line: 81,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 85,
+	                    column: 6
+	                }
+	            },
+	            '13': {
+	                start: {
+	                    line: 83,
+	                    column: 12
+	                },
+	                end: {
+	                    line: 83,
+	                    column: 44
+	                }
+	            },
+	            '14': {
+	                start: {
+	                    line: 89,
+	                    column: 4
+	                },
+	                end: {
+	                    line: 92,
+	                    column: 5
+	                }
+	            }
+	        },
+	        fnMap: {
+	            '0': {
+	                name: '(anonymous_0)',
+	                decl: {
+	                    start: {
+	                        line: 8,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 8,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 8,
+	                        column: 27
+	                    },
+	                    end: {
+	                        line: 12,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '1': {
+	                name: '(anonymous_1)',
+	                decl: {
+	                    start: {
+	                        line: 14,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 14,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 14,
+	                        column: 23
+	                    },
+	                    end: {
+	                        line: 20,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '2': {
+	                name: '(anonymous_2)',
+	                decl: {
+	                    start: {
+	                        line: 22,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 22,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 22,
+	                        column: 41
+	                    },
+	                    end: {
+	                        line: 26,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '3': {
+	                name: '(anonymous_3)',
+	                decl: {
+	                    start: {
+	                        line: 28,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 28,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 28,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 76,
+	                        column: 5
+	                    }
+	                }
+	            },
+	            '4': {
+	                name: '(anonymous_4)',
+	                decl: {
+	                    start: {
+	                        line: 38,
+	                        column: 53
+	                    },
+	                    end: {
+	                        line: 38,
+	                        column: 54
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 38,
+	                        column: 58
+	                    },
+	                    end: {
+	                        line: 41,
+	                        column: 21
+	                    }
+	                }
+	            },
+	            '5': {
+	                name: '(anonymous_5)',
+	                decl: {
+	                    start: {
+	                        line: 48,
+	                        column: 49
+	                    },
+	                    end: {
+	                        line: 48,
+	                        column: 50
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 48,
+	                        column: 54
+	                    },
+	                    end: {
+	                        line: 52,
+	                        column: 40
+	                    }
+	                }
+	            },
+	            '6': {
+	                name: '(anonymous_6)',
+	                decl: {
+	                    start: {
+	                        line: 61,
+	                        column: 49
+	                    },
+	                    end: {
+	                        line: 61,
+	                        column: 50
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 61,
+	                        column: 54
+	                    },
+	                    end: {
+	                        line: 65,
+	                        column: 40
+	                    }
+	                }
+	            },
+	            '7': {
+	                name: 'mapDispatchToProps',
+	                decl: {
+	                    start: {
+	                        line: 80,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 80,
+	                        column: 27
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 80,
+	                        column: 38
+	                    },
+	                    end: {
+	                        line: 86,
+	                        column: 1
+	                    }
+	                }
+	            },
+	            '8': {
+	                name: 'mapStateToProps',
+	                decl: {
+	                    start: {
+	                        line: 88,
+	                        column: 9
+	                    },
+	                    end: {
+	                        line: 88,
+	                        column: 24
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 88,
+	                        column: 32
+	                    },
+	                    end: {
+	                        line: 93,
+	                        column: 1
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {
+	            '0': {
+	                loc: {
+	                    start: {
+	                        line: 23,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 9
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 23,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 9
+	                    }
+	                }, {
+	                    start: {
+	                        line: 23,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 25,
+	                        column: 9
+	                    }
+	                }]
+	            },
+	            '1': {
+	                loc: {
+	                    start: {
+	                        line: 30,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 9
+	                    }
+	                },
+	                type: 'if',
+	                locations: [{
+	                    start: {
+	                        line: 30,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 9
+	                    }
+	                }, {
+	                    start: {
+	                        line: 30,
+	                        column: 8
+	                    },
+	                    end: {
+	                        line: 32,
+	                        column: 9
+	                    }
+	                }]
+	            }
+	        },
+	        s: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0,
+	            '9': 0,
+	            '10': 0,
+	            '11': 0,
+	            '12': 0,
+	            '13': 0,
+	            '14': 0
+	        },
+	        f: {
+	            '0': 0,
+	            '1': 0,
+	            '2': 0,
+	            '3': 0,
+	            '4': 0,
+	            '5': 0,
+	            '6': 0,
+	            '7': 0,
+	            '8': 0
+	        },
+	        b: {
+	            '0': [0, 0],
+	            '1': [0, 0]
+	        },
+	        _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c'
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(352);
@@ -4408,6 +12050,9 @@ webpackJsonp([2],{
 	    _createClass(Login, null, [{
 	        key: 'propTypes',
 	        get: function get() {
+	            ++cov_fcey5somm.f[0];
+	            ++cov_fcey5somm.s[0];
+	
 	            return {
 	                loggedIn: _react2.default.PropTypes.bool
 	            };
@@ -4417,7 +12062,12 @@ webpackJsonp([2],{
 	    function Login(props) {
 	        _classCallCheck(this, Login);
 	
+	        ++cov_fcey5somm.f[1];
+	        ++cov_fcey5somm.s[1];
+	
 	        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+	
+	        ++cov_fcey5somm.s[2];
 	
 	        _this.state = {
 	            login: '',
@@ -4429,8 +12079,16 @@ webpackJsonp([2],{
 	    _createClass(Login, [{
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
+	            ++cov_fcey5somm.f[2];
+	            ++cov_fcey5somm.s[3];
+	
 	            if (nextProps.loggedIn) {
+	                ++cov_fcey5somm.b[0][0];
+	                ++cov_fcey5somm.s[4];
+	
 	                _reactRouter.hashHistory.replace('/app');
+	            } else {
+	                ++cov_fcey5somm.b[0][1];
 	            }
 	        }
 	    }, {
@@ -4438,10 +12096,20 @@ webpackJsonp([2],{
 	        value: function render() {
 	            var _this2 = this;
 	
+	            ++cov_fcey5somm.f[3];
+	            ++cov_fcey5somm.s[5];
+	
+	
 	            if (!this.props.loggedInUser.initialized) {
+	                ++cov_fcey5somm.b[1][0];
+	                ++cov_fcey5somm.s[6];
+	
 	                return null;
+	            } else {
+	                ++cov_fcey5somm.b[1][1];
 	            }
 	
+	            ++cov_fcey5somm.s[7];
 	            return _react2.default.createElement(
 	                'div',
 	                { id: 'loginState' },
@@ -4456,7 +12124,11 @@ webpackJsonp([2],{
 	                    _react2.default.createElement(
 	                        'form',
 	                        { name: 'loginForm', onSubmit: function onSubmit(e) {
+	                                ++cov_fcey5somm.f[4];
+	                                ++cov_fcey5somm.s[8];
+	
 	                                e.preventDefault();
+	                                ++cov_fcey5somm.s[9];
 	                                _this2.props.tryLogin(_this2.state.login, _this2.state.pass);
 	                            } },
 	                        _react2.default.createElement(
@@ -4471,6 +12143,9 @@ webpackJsonp([2],{
 	                                    required: 'required',
 	                                    value: this.state.login,
 	                                    onChange: function onChange(e) {
+	                                        ++cov_fcey5somm.f[5];
+	                                        ++cov_fcey5somm.s[10];
+	
 	                                        _this2.setState({
 	                                            login: e.target.value
 	                                        });
@@ -4489,6 +12164,9 @@ webpackJsonp([2],{
 	                                    required: 'required',
 	                                    value: this.state.pass,
 	                                    onChange: function onChange(e) {
+	                                        ++cov_fcey5somm.f[6];
+	                                        ++cov_fcey5somm.s[11];
+	
 	                                        _this2.setState({
 	                                            pass: e.target.value
 	                                        });
@@ -4515,14 +12193,22 @@ webpackJsonp([2],{
 	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
+	    ++cov_fcey5somm.f[7];
+	    ++cov_fcey5somm.s[12];
+	
 	    return {
 	        tryLogin: function tryLogin(login, pass) {
+	            ++cov_fcey5somm.s[13];
+	
 	            dispatch((0, _actions.tryLogin)(login, pass));
 	        }
 	    };
 	}
 	
 	function mapStateToProps(state) {
+	    ++cov_fcey5somm.f[8];
+	    ++cov_fcey5somm.s[14];
+	
 	    return {
 	        loggedIn: state.loggedInUser.login !== undefined,
 	        loggedInUser: state.loggedInUser
@@ -4541,6 +12227,70 @@ webpackJsonp([2],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var cov_29mitu3ric = function () {
+	    var path = "/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/NotFound.jsx",
+	        hash = "c6adfd6eddb5542d437f718379849f87d87445ce",
+	        global = new Function('return this')(),
+	        gcv = "__coverage__",
+	        coverageData = {
+	        path: "/Users/book/Documents/repos/fe-mentoring-2016/frontend/js/react/components/NotFound.jsx",
+	        statementMap: {
+	            "0": {
+	                start: {
+	                    line: 6,
+	                    column: 8
+	                },
+	                end: {
+	                    line: 10,
+	                    column: 10
+	                }
+	            }
+	        },
+	        fnMap: {
+	            "0": {
+	                name: "(anonymous_0)",
+	                decl: {
+	                    start: {
+	                        line: 5,
+	                        column: 4
+	                    },
+	                    end: {
+	                        line: 5,
+	                        column: 5
+	                    }
+	                },
+	                loc: {
+	                    start: {
+	                        line: 5,
+	                        column: 13
+	                    },
+	                    end: {
+	                        line: 11,
+	                        column: 5
+	                    }
+	                }
+	            }
+	        },
+	        branchMap: {},
+	        s: {
+	            "0": 0
+	        },
+	        f: {
+	            "0": 0
+	        },
+	        b: {},
+	        _coverageSchema: "332fd63041d2c1bcb487cc26dd0d5f7d97098a6c"
+	    },
+	        coverage = global[gcv] || (global[gcv] = {});
+	
+	    if (coverage[path] && coverage[path].hash === hash) {
+	        return coverage[path];
+	    }
+	
+	    coverageData.hash = hash;
+	    return coverage[path] = coverageData;
+	}();
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -4568,6 +12318,9 @@ webpackJsonp([2],{
 	    _createClass(NotFound, [{
 	        key: "render",
 	        value: function render() {
+	            ++cov_29mitu3ric.f[0];
+	            ++cov_29mitu3ric.s[0];
+	
 	            return _react2.default.createElement(
 	                "div",
 	                { "class": "message" },

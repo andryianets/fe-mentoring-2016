@@ -9,7 +9,6 @@ const APP = angular.module('todoApp', [
     'ngMessages',
     'ngResource',
     'ui.router',
-    'xeditable',
     'mgcrea.ngStrap'
 ]);
 
